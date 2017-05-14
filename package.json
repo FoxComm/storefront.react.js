@@ -1,0 +1,60 @@
+{
+  "name": "@foxcomm/ui",
+  "version": "1.0.0",
+  "description": "FoxCommerce Storefront React UI Library",
+  "main": "lib/index.js",
+  "scripts": {
+    "build-css": "cat src/css/colors.css src/**/*.css | postcss -c postcss.config.js -o lib/bundle.css",
+    "build-js": "babel src -d lib",
+    "build": "npm run build-css && npm run build-js",
+    "prepublish": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.foxcommerce.com:4873"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/FoxComm/storefront.react.js.git"
+  },
+  "keywords": [
+    "storefront",
+    "react",
+    "ecommerce"
+  ],
+  "author": "FoxCommerce",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FoxComm/storefront.react.js/issues"
+  },
+  "homepage": "https://github.com/FoxComm/storefront.react.js#readme",
+  "devDependencies": {
+    "@foxcomm/babel-plugin-react-stylenames": "^3.1.0",
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-syntax-flow": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-flowtype": "^2.33.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.1",
+    "eslint-plugin-react": "^7.0.1",
+    "flow-bin": "^0.46.0",
+    "postcss": "^6.0.1",
+    "postcss-cli": "^4.0.0",
+    "postcss-cssnext": "^2.10.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "hoist-non-react-statics": "^1.2.0",
+    "lodash": "^4.17.4",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  }
+}
