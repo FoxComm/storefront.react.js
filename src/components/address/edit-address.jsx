@@ -13,10 +13,10 @@ import type { Localized } from 'lib/i18n';
 
 // components
 import MaskedInput from 'react-text-mask';
-import { TextInput } from 'ui/text-input';
-import { FormField } from 'ui/forms';
-import Select from 'ui/select/select';
-import Autocomplete from 'ui/autocomplete';
+import { TextInput } from 'components/text-input';
+import { FormField } from 'components/forms';
+import Select from 'components/select/select';
+import Autocomplete from 'components/autocomplete';
 import Checkbox from '../checkbox/checkbox';
 import Loader from '../loader';
 
@@ -36,22 +36,11 @@ type EditAddressProps = Localized & {
   title?: string,
 };
 
-function mapStateToProps(state) {
-  return {
-    countries: state.countries,
-  };
-}
-
-
 type State = {
   address: Address|{},
   lastSyncedAddress: ?Address,
 };
 
-/* ::`*/
-@connect(mapStateToProps, { initAddressData })
-@localized
-/* ::`*/
 export default class EditAddress extends Component {
   props: EditAddressProps;
   lookupXhr: ?XMLHttpRequest;

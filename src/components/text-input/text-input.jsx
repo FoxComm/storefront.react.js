@@ -5,7 +5,7 @@ import _ from 'lodash';
 import { autobind } from 'core-decorators';
 import classNames from 'classnames';
 
-import styles from './text-input.css';
+import s from './text-input.css';
 
 type Props = {
   className?: string,
@@ -79,9 +79,9 @@ class TextInput extends Component {
     const { props } = this;
     if (props.label) {
       if (typeof props.label === 'string') {
-        return <span className={classNames(props.labelClass, styles.labelText)}>{props.label}</span>;
+        return <span className={classNames(props.labelClass, s.labelText)}>{props.label}</span>;
       }
-      return <span className={classNames(props.labelClass, styles.labelElement)}>{props.label}</span>;
+      return <span className={classNames(props.labelClass, s.labelElement)}>{props.label}</span>;
     }
   }
 
@@ -94,7 +94,7 @@ class TextInput extends Component {
     const { props } = this;
 
     const positions = this.calcPositions(props.pos);
-    const posClassNames = positions.map(side => styles[`pos-${side}`]);
+    const posClassNames = positions.map(side => s[`pos-${side}`]);
 
     const {
       className,
@@ -112,16 +112,16 @@ class TextInput extends Component {
 
     const showErrorText = error && typeof error === 'string';
 
-    const inputClass = classNames(styles.textInput, className, posClassNames, {
-      [styles.error]: !!error,
-      [styles.empty]: !error && (!props.value || _.isEmpty(props.value)),
+    const inputClass = classNames(s.textInput, className, posClassNames, {
+      [s.error]: !!error,
+      [s.empty]: !error && (!props.value || _.isEmpty(props.value)),
     });
 
-    const blockClass = classNames(styles.block, posClassNames, {
-      [styles.error]: error,
-      [styles.hasCard]: hasCard,
-      [styles.hasSymbol]: hasSymbol,
-      [styles.focused]: this.state.isFocused,
+    const blockClass = classNames(s.block, posClassNames, {
+      [s.error]: error,
+      [s.hasCard]: hasCard,
+      [s.hasSymbol]: hasSymbol,
+      [s.focused]: this.state.isFocused,
     }, blockClassName);
 
     let childrenWithProps;
@@ -148,7 +148,7 @@ class TextInput extends Component {
       />
     );
 
-    const errorClassName = classNames(styles.errorMessage, errorClass);
+    const errorClassName = classNames(s.errorMessage, errorClass);
 
     return (
       <div className={blockClass}>

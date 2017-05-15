@@ -1,17 +1,21 @@
-.text-field {
-  margin: 10px 0;
 
-  & input:matches([type=text], [type=password], [type=number], [type=tel]) {
-    width: 100%;
-    border-color: var(--input-border-color);
+:root {
+  --text-field: {
+    margin: 10px 0;
 
-    &:hover {
-      border-color: var(--input-active-border-color);
-    }
+    & input:matches([type=text], [type=password], [type=number], [type=tel]) {
+      width: 100%;
+      border-color: var(--input-border-color);
 
-    &:focus {
-      border-color: var(--input-active-border-color);
-      background: var(--input-background);
+      &:hover {
+        border-color: var(--input-active-border-color);
+      }
+
+      &:focus {
+        border-color: var(--input-active-border-color);
+        background: var(--input-background);
+      }
     }
   }
 }
+

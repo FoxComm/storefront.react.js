@@ -2,13 +2,12 @@
 
 import _ from 'lodash';
 import React, { Component } from 'react';
-import styles from './select.css';
+import s from './select.css';
 import { autobind } from 'core-decorators';
 
 /* eslint react/sort-comp: 0 */
 
 type Props = {
-  name?: ?string,
   items: Array<any>,
   selectedItem: any,
   onSelect: Function,
@@ -17,23 +16,25 @@ type Props = {
 };
 
 class Select extends Component {
-
   props: Props;
 
   static defaultProps = {
     onSelect() {},
     sortItems: false,
-    name: null,
   };
 
   @autobind
-  values() { return _.map(this.props.items, this.props.getItemValue); }
+  values() {
+    return _.map(this.props.items, this.props.getItemValue);
+  }
 
   @autobind
-  selectedValue() { return this.props.getItemValue(this.props.selectedItem); }
+  selectedValue() {
+    return this.props.getItemValue(this.props.selectedItem);
+  }
 
   renderItem(item) {
-    return (<option styleName="option" value={item} key={item}>{item}</option>);
+    return <option className={s.option} value={item} key={item}>{item}</option>;
   }
 
   @autobind
@@ -43,16 +44,10 @@ class Select extends Component {
     );
   }
 
-  @autobind
-  getSelectBoxStyle() { return this.props.name ? `${this.props.name}-select-box` : 'select-box'; }
-
-  @autobind
-  getSelectStyle() { return this.props.name ? `${this.props.name}-select` : 'select'; }
-
   render() {
     return (
-      <div styleName={this.getSelectBoxStyle()}>
-        <select styleName={this.getSelectStyle()} value={this.selectedValue()} onChange={this.handleChange}>
+      <div className={s.block}>
+        <select className={s.select} value={this.selectedValue()} onChange={this.handleChange}>
           {_.map(this.values(), this.renderItem)}
         </select>
       </div>
