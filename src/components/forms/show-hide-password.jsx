@@ -6,9 +6,7 @@ import { autobind } from 'core-decorators';
 import styles from './show-hide-password.css';
 import classNames from 'classnames';
 
-import localized from 'lib/i18n';
-
-import TextInput from 'ui/text-input/text-input';
+import TextInput from 'components/text-input/text-input';
 
 type State = {
   isShown: boolean
@@ -29,6 +27,10 @@ class ShowHidePassword extends Component {
   props: Props;
   state: State = {
     isShown: false,
+  };
+
+  static defaultProps = {
+    t: _.identity,
   };
 
   get showLink() {
@@ -65,4 +67,4 @@ class ShowHidePassword extends Component {
   }
 }
 
-export default localized(ShowHidePassword);
+export default ShowHidePassword;

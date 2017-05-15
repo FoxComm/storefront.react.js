@@ -1,3 +1,4 @@
+
 export function zipCode(value) {
   return /^\w{1,9}$/.test(value) ? null : this.t('Enter valid zip code');
 }

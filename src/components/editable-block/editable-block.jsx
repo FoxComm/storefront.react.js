@@ -3,14 +3,11 @@
 
 import React, { Element } from 'react';
 
-import ActionLink from 'ui/action-link/action-link';
-
-import localized from 'lib/i18n';
-import type { Localized } from 'lib/i18n';
+import ActionLink from 'components/action-link/action-link';
 
 import styles from './editable-block.css';
 
-type EditableProps = Localized & {
+type EditableProps = {
   isEditing: boolean,
   collapsed?: boolean,
   editAllowed?: boolean,
@@ -29,7 +26,7 @@ const EditableBlock = (props: EditableProps) => {
       return (
         <ActionLink
           action={props.editAction}
-          title={props.t('Edit')}
+          title="Edit"
           styleName="action"
         />
       );
@@ -56,4 +53,4 @@ EditableBlock.defaultProps = {
   editAllowed: true,
 };
 
-export default localized(EditableBlock);
+export default EditableBlock;

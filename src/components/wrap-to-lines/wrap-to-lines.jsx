@@ -1,6 +1,6 @@
 
 import React, { PropTypes } from 'react';
-import styles from './css/wrap-to-lines.css';
+import styles from './wrap-to-lines.css';
 
 const WrapToLines = (props) => {
   return (

@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react';
-import Icon from 'ui/icon';
+import Icon from 'components/icon/icon';
 
 import styles from './action-link.css';
 

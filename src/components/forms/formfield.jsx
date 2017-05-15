@@ -7,10 +7,7 @@ import styles from './formfield.css';
 import formatString from 'lib/string-format';
 import classNames from 'classnames';
 
-import localized from 'lib/i18n';
-import type { Localized } from 'lib/i18n';
-
-type FormFieldProps = Localized & {
+type FormFieldProps = {
   validator: ?string|?(value: any) => string,
   validateOnBlur?: boolean;
   children: Element<*>,
@@ -22,6 +19,7 @@ type FormFieldProps = Localized & {
   getTargetValue: ?(node: any) => any,
   className: ?string,
   label: ?string,
+  t?: (text: string) => string,
 };
 
 class FormField extends Component {
@@ -37,6 +35,7 @@ class FormField extends Component {
     target: 'input,textarea,select',
     getTargetValue: (node) => { return node.type == 'checkbox' ? node.checked : node.value; },
     validateOnBlur: false,
+    t: _.identity,
   };
 
   static childContextTypes = {
@@ -263,4 +262,4 @@ class FormField extends Component {
   }
 }
 
-export default localized(FormField);
+export default FormField;

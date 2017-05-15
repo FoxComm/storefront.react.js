@@ -17,8 +17,7 @@
 }
 
 .left::before {
-  font-family: "tumi-icon-ft";
-  content: '\e802';
+  content: '<';
 }
 
 .right-handle {
@@ -34,6 +33,5 @@
 }
 
 .right::before {
-  font-family: "tumi-icon-ft";
-  content: '\e805';
+  content: '>';
 }

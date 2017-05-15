@@ -3,7 +3,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import Overlay from 'ui/overlay/overlay';
+import Overlay from 'components/overlay/overlay';
 
 import styles from './modal.css';
 

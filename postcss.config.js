@@ -12,7 +12,7 @@ function generateScopedName(exportedName, filepath) {
 
   const sanitisedName = exportedName.replace(/^_+|_+$/g, '');
 
-  return `fc/${sanitisedPath}__${sanitisedName}`;
+  return `fc_${sanitisedPath}__${sanitisedName}`;
 }
 
 const plugins = [

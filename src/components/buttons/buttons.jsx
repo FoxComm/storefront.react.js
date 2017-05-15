@@ -2,9 +2,9 @@
 import classNames from 'classnames/dedupe';
 import React, { Element } from 'react';
 
-import styles from './css/buttons.css';
+import styles from './buttons.css';
 
-import Icon from 'ui/icon';
+import Icon from 'components/icon/icon';
 
 type ButtonProps = {
   icon?: string,

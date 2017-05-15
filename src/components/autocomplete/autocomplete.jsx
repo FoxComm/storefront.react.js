@@ -6,7 +6,7 @@ import styles from './autocomplete.css';
 import { autobind } from 'core-decorators';
 import scrollIntoView from 'dom-scroll-into-view';
 
-import { TextInput } from 'ui/text-input';
+import { TextInput } from 'components/text-input';
 
 /* eslint react/sort-comp: 0 */
 
