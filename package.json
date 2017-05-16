@@ -1,5 +1,5 @@
 {
-  "name": "@foxcomm/ui",
+  "name": "@foxcomm/sf-react",
   "version": "1.0.0",
   "description": "FoxCommerce Storefront React UI Library",
   "main": "lib/index.js",
@@ -46,12 +46,12 @@
     "eslint-plugin-jsx-a11y": "^5.0.1",
     "eslint-plugin-react": "^7.0.1",
     "flow-bin": "^0.46.0",
+    "fs-extra": "^3.0.1",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-postcss": "^7.0.0",
     "gulp-sourcemaps": "^2.6.0",
-    "postcss": "^6.0.1",
-    "postcss-cli": "^4.0.0",
+    "postcss": "5.x.x",
     "postcss-cssnext": "^2.10.0"
   },
   "dependencies": {
@@ -65,8 +65,7 @@
     "postcss-assets": "^4.1.0",
     "postcss-css-variables": "^0.7.0",
     "postcss-import": "^10.0.0",
-    "postcss-modules-local-by-default": "^1.1.1",
-    "postcss-modules-scope": "^1.0.2",
+    "postcss-modules": "^0.7.0",
     "postcss-nested": "^2.0.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",

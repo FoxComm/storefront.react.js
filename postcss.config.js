@@ -1,5 +1,6 @@
 
 const path = require('path');
+const fs = require('fs-extra');
 
 // '../../src/components/select/select' + 'option' -> 'fc/select__option'
 function generateScopedName(exportedName, filepath) {
@@ -13,6 +14,14 @@ function generateScopedName(exportedName, filepath) {
   const sanitisedName = exportedName.replace(/^_+|_+$/g, '');
 
   return `fc_${sanitisedPath}__${sanitisedName}`;
+}
+
+function saveJSON(cssFile, json) {
+  const libPath = path.relative(__dirname, cssFile).replace(/^src/, 'lib');
+
+  return fs.ensureDir(path.dirname(libPath))
+    .then(() => fs.writeJson(`${libPath}.json`, json))
+    .then(() => json);
 }
 
 const plugins = [
@@ -31,9 +40,9 @@ const plugins = [
     },
   }),
   require('postcss-nested'),
-  require('postcss-modules-local-by-default'),
-  require('postcss-modules-scope')({
+  require('postcss-modules')({
     generateScopedName,
+    getJSON: saveJSON
   }),
 ];
 
