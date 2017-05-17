@@ -2,8 +2,6 @@
 
 import React from 'react';
 import ImageGallery from 'react-image-gallery';
-import { renderLeftNav } from './left';
-import { renderRightNav } from './right';
 
 import s from './gallery.css';
 
@@ -17,21 +15,23 @@ const Gallery = (props: Props) => {
     return {
       original: src,
       originalClass: s.image,
+      thumbnail: src,
+      thumbnailClass: s.thumbnail,
     };
   });
 
   return (
-    <ImageGallery
-      {...props}
-      items={items}
-      slideInterval={2000}
-      showThumbnails={false}
-      showPlayButton={false}
-      showBullets={false}
-      showFullscreenButton={false}
-      renderRightNav={renderRightNav}
-      renderLeftNav={renderLeftNav}
-    />
+    <div className={s.gallery}>
+      <ImageGallery
+        items={items}
+        slideInterval={2000}
+        thumbnailPosition="left"
+        showPlayButton={false}
+        showBullets={false}
+        showFullscreenButton={false}
+        showThumbnails
+      />
+    </div>
   );
 };
 

@@ -14,7 +14,7 @@ At first you will need include storefront css located in
 Later you can use storefront react components, like in this example:
 
 ```
-import SelectBox from '@foxcomm/sf-react/lib/selectbox/selectbox';
+import SelectBox from '@foxcomm/sf-react/lib/components/selectbox/selectbox';
 //
 // later in component:
 render() {

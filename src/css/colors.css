@@ -3,7 +3,7 @@
     --greyish: #C4C4C4;
     --redish: #F65554;
     --greenish: #49C699;
-    --white-smokish: #ebebeb;
+    --white-smokish: #F4F4F4;
     --bunker: rgb(33, 33, 33);
 
     /* peacock: */
@@ -26,16 +26,8 @@
     --alto: #DDDDDD;
     --gallery: #EEEEEE;
     --white: #FFFFFF;
-    --metallic-gray: #ebebeb;
+    --metallic-gray: #BABABA;
     --half-transparent-black: rgba(0, 0, 0, 0.5);
-
-    /* tumi */
-    --red: #C41E3A;
-    --yellow: #FCAF17;
-    --orange: #EF5734;
-    --error-red: #ba0c2f;
-    --grey-five-five-five: #555555;
-    --grey-c-five: #C5C5C5;
 }
 
 :root {
@@ -45,13 +37,13 @@
     --border-color: rgba(33, 33, 33, 0.10);
     --background-color: #FBFBFB;
 
-    --color-error: var(--error-red);
+    --color-error: var(--cherry-red);
     --color-panels-bg: var(--white-smokish);
     --color-text-grey: var(--greyish);
 
     --search-placeholder: rgba(255,255,255,.14);
     --icon: var(--bunker);
-    --input-text-color: var(--blackish);
+    --input-text-color: #000000;
 
     --text-color-dark: var(--bunker);
     --text-color-main: var(--bunker);
@@ -62,15 +54,13 @@
 :root {
     /* Backgrounds */
     --body-background: var(--white);
-    --header-background: var(--metallic-gray);
     --input-background: var(--white);
     --select-active-background: var(--gallery);
     --body-gray-over-background: var(--half-transparent-black);
-    --sidebar-controls-background: var(--grey-five-five-five);
 
     /* Inputs */
     --input-background: var(--white);
-    --input-border-color: var(--silver);
+    --input-border-color: var(--metallic-gray);
     --input-error-color: var(--cherry-red);
     --input-placeholder-color: var(--gray);
     --input-label-color: var(--soft-grey);
@@ -98,11 +88,10 @@
     --button-label-color: var(--white);
     --button-disabled-color: var(--gallery);
 
-    --link-color: var(--black);
+    --link-color: var(--water-blue);
     --link-hover-color: var(--water-blue);
     --link-visited-color: var(--malibu);
-    --link-alt-color: var(--blackish);
-    --link-highlight-color: var(--red);
+    --link-alt-color: var(--cod-gray);
 
     --focus-color: var(--baby-blue);
 
@@ -120,9 +109,7 @@
     --checkbox-disabled: var(--silver);
 
     /* Borders */
-    --border-color: var(--silver);
-    --border-sidebar-color: var(--metallic-gray);
-    --border-sidebar-submenu-color: var(--grey-c-five);
+    --border-color: var(--alto);
 
     /* Logo */
     --logo-alt-color: var(--grayish);
