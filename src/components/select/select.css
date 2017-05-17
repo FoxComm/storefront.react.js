@@ -4,7 +4,8 @@
 .block {
   display: inline-block;
   position: relative;
-  border-radius: 0;
+  border: 1px solid var(--input-border-color);
+  border-radius: 12px;
   margin: 1px -1px 1px 1px;
 
   &:active {

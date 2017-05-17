@@ -17,7 +17,6 @@ type EditableProps = {
   editAction?: () => any,
   actionsContent?: Element<*>|Array<Element<*>>,
   title: string|Element<*>,
-  t: any,
 };
 
 const EditableBlock = (props: EditableProps) => {

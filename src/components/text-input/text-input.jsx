@@ -9,20 +9,19 @@ import s from './text-input.css';
 
 type Props = {
   className?: string,
-  blockClassName?: string,
   labelClass?: string,
   errorClass?: string,
   /*
-    @pos prop - indicates the position of the input element, and can be:
-      t or top
-      l or left
-      b or bottom
-      r or right
-      bottom-right
-      middle-v - combination of t and b
-      middle-h - combination of l and r
-      or any combination of t, l, b, and r
-  */
+   @pos prop - indicates the position of the input element, and can be:
+   t or top
+   l or left
+   b or bottom
+   r or right
+   bottom-right
+   middle-v - combination of t and b
+   middle-h - combination of l and r
+   or any combination of t, l, b, and r
+   */
   pos?: string,
   error?: boolean|string,
   type?: string,
@@ -98,7 +97,7 @@ class TextInput extends Component {
 
     const {
       className,
-      blockClassName,
+      labelClass,
       errorClass,
       type = 'text',
       hasCard,
@@ -110,6 +109,7 @@ class TextInput extends Component {
 
     const error = props.error || this.contextError;
 
+    const showSmallPlaceholder = !!props.value && props.placeholder;
     const showErrorText = error && typeof error === 'string';
 
     const inputClass = classNames(s.textInput, className, posClassNames, {
@@ -121,8 +121,9 @@ class TextInput extends Component {
       [s.error]: error,
       [s.hasCard]: hasCard,
       [s.hasSymbol]: hasSymbol,
+      [s.hasTopMessages]: showSmallPlaceholder || showErrorText,
       [s.focused]: this.state.isFocused,
-    }, blockClassName);
+    });
 
     let childrenWithProps;
 
@@ -139,21 +140,23 @@ class TextInput extends Component {
     }
 
     const content = childrenWithProps || (
-      <input
-        onFocus={() => this.changeFocus(true)}
-        onBlur={() => this.changeFocus(false)}
-        className={inputClass}
-        type={type}
-        {...rest}
-      />
-    );
+        <input
+          onFocus={() => this.changeFocus(true)}
+          onBlur={() => this.changeFocus(false)}
+          className={inputClass}
+          type={type}
+          {...rest}
+        />
+      );
 
     const errorClassName = classNames(s.errorMessage, errorClass);
 
     return (
       <div className={blockClass}>
-        {showErrorText && <span className={errorClassName}>{error}</span> || this.label}
+        {showSmallPlaceholder && <span className={s.placeholder}>{props.placeholder}</span>}
+        {showErrorText && <span className={errorClassName}>{error}</span>}
         {content}
+        {this.label}
       </div>
     );
   }

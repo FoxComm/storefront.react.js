@@ -3,5 +3,4 @@
 .action-link {
   color: var(--link-color);
   cursor: pointer;
-  text-decoration: underline;
 }
