@@ -1,1 +1,1 @@
-Move to own repository
+Move to api-js repository

@@ -28,11 +28,14 @@ import ImagePlaceholder from 'views/products-item/image-placeholder';
 import RelatedProductsList,
   { LoadingBehaviors } from 'views/related-products-list/related-products-list';
 
+
 // types
-import type { ProductResponse, Sku } from 'modules/product-details';
-import type { RelatedProductResponse } from 'modules/cross-sell';
+import type { Product, Sku } from 'modules/product-details';
 import type { RoutesParams } from 'types/routes';
 import type { TProductView } from './types';
+
+type RelatedProductResponse = mixed; // @TODO
+
 
 type Params = {
   productSlug: string,
@@ -40,8 +43,6 @@ type Params = {
 
 type Actions = {
   fetch: (id: number) => any,
-  getNextId: Function,
-  getPreviousId: Function,
   resetProduct: Function,
   addLineItem: Function,
   toggleCart: Function,
@@ -52,7 +53,7 @@ type Actions = {
 type Props = Localized & RoutesParams & {
   actions: Actions,
   params: Params,
-  product: ?ProductResponse,
+  product: ?Product,
   isLoading: boolean,
   isCartLoading: boolean,
   notFound: boolean,
@@ -83,8 +84,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
     fetch,
-    getNextId,
-    getPreviousId,
     resetProduct,
     addLineItem,
     toggleCart,
@@ -135,33 +134,6 @@ class Pdp extends Component {
       this.props.actions.clearRelatedProducts();
       this.fetchProduct(nextProps, nextId);
     }
-  }
-
-  safeFetch(id) {
-    return this.props.actions.fetch(id)
-      .then((product) => {
-        this.props.actions.fetchRelatedProducts(product.id, 1).catch(_.noop);
-      })
-      .catch(() => {
-        const { params } = this.props;
-        this.props.actions.fetch(params.productSlug)
-        .then((product) => {
-          this.props.actions.fetchRelatedProducts(product.id, 1).catch(_.noop);
-        });
-      });
-  }
-
-  fetchProduct(_props, _productId) {
-    const props = _props || this.props;
-    const productId = _productId || this.productId;
-
-    if (this.isGiftCardRoute(props)) {
-      return searchGiftCards().then(({ result = [] }) => {
-        const giftCard = result[0] || {};
-        return this.safeFetch(giftCard.productId);
-      });
-    }
-    return this.safeFetch(productId);
   }
 
   get productId(): string|number {
