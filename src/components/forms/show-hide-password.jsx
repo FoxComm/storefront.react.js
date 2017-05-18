@@ -45,7 +45,7 @@ class ShowHidePassword extends Component {
   }
 
   @autobind
-  toggleState(event) {
+  toggleState(event: SyntheticEvent) {
     event.preventDefault();
     event.stopPropagation();
     this.setState({

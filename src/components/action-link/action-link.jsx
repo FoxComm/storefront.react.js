@@ -6,7 +6,7 @@ import Icon from 'components/icon/icon';
 import styles from './action-link.css';
 
 type Props = {
-  action: Function,
+  action?: Function,
   title?: string,
   icon?: ?Object,
   children?: any,
