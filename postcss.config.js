@@ -16,14 +16,6 @@ function generateScopedName(exportedName, filepath) {
   return `fc_${sanitisedPath}__${sanitisedName}`;
 }
 
-function saveJSON(cssFile, json) {
-  const libPath = path.relative(__dirname, cssFile).replace(/^src/, 'lib');
-
-  return fs.ensureDir(path.dirname(libPath))
-    .then(() => fs.writeJson(`${libPath}.json`, json))
-    .then(() => json);
-}
-
 const plugins = [
   require('postcss-import')({
     path: ['src/css', 'node_modules'],
@@ -40,9 +32,9 @@ const plugins = [
     },
   }),
   require('postcss-nested'),
-  require('postcss-modules')({
+  require('postcss-modules-local-by-default'),
+  require('postcss-modules-scope')({
     generateScopedName,
-    getJSON: saveJSON
   }),
 ];
 

@@ -4,7 +4,7 @@
 import React from 'react';
 
 // components
-import Button from 'components/buttons/buttons';
+import Button from 'components/buttons/button';
 
 type Props = {
   onClick?: () => void,

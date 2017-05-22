@@ -5,7 +5,7 @@ import React, { PropTypes } from 'react';
 import styles from './counter.css';
 
 // components
-import Button from '../buttons/buttons';
+import Button from '../buttons/button';
 
 const Counter = (props) => {
   const {decreaseAction, increaseAction, ...rest} = props;
