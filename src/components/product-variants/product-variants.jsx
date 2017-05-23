@@ -13,7 +13,7 @@ import Facets from 'components/core/facets/facets';
 import styles from './product-variants.css';
 
 // types
-import type { TProductView } from 'view/pdp/types';
+import type { TProductView } from 'components/pdp/types';
 import type { Facet as TFacet } from 'components/core/facets/types';
 
 import type { Product, Variant as ProductVariant, VariantValue } from 'types/api/product';

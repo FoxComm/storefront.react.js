@@ -17,19 +17,33 @@ module.exports = {
 
     return `import ${componentName} from ${importPath}`;
   },
+  context: {
+    sampleProduct: path.resolve(__dirname, 'fixtures/sample-product.json')
+  },
   sections: [
     {
       name: 'Styles',
       content: 'docs/styles.md',
     },
     {
-      name: 'Components',
+      name: 'Components/Core',
       sections: [
         {
           name: 'Buttons',
           components: () => ([
-            path.resolve(__dirname, 'src/components/buttons/button.jsx'),
-            path.resolve(__dirname, 'src/components/buttons/secondary-button.jsx')
+            path.resolve(__dirname, 'src/components/core/buttons/button.jsx'),
+            path.resolve(__dirname, 'src/components/core/buttons/secondary-button.jsx')
+          ]),
+        },
+      ],
+    },
+    {
+      name: 'Components',
+      sections: [
+        {
+          name: 'Pdp',
+          components: () => ([
+            path.resolve(__dirname, 'src/components/pdp/pdp.jsx'),
           ]),
         },
       ],

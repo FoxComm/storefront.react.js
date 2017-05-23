@@ -6,7 +6,7 @@ import styles from './checkbox.css';
 import { autobind } from 'core-decorators';
 
 // components
-import CheckboxBase from 'ui/checkbox/checkbox';
+import CheckboxBase from 'components/core/checkbox/checkbox';
 
 import type { FacetElementProps } from 'types/facets';
 

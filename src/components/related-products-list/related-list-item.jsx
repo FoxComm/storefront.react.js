@@ -70,7 +70,7 @@ class RelatedListItem extends React.Component {
     return (
       <div styleName="list-item">
         <Link styleName="link" onClick={this.handleClick} to={`/products/${productSlug}`}>
-          <div styleName="overlay"></div>
+          <div styleName="overlay" />
           <div styleName="preview">
             {this.image}
           </div>

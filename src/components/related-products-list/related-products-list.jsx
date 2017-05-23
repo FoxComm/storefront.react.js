@@ -30,6 +30,10 @@ class RelatedProductsList extends Component {
     startingId: 0,
   };
 
+  static defaultProps = {
+    title: 'You Might Also Like',
+  };
+
   renderProducts() {
     const { list, productsOrder } = this.props;
 

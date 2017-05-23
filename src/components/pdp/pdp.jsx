@@ -7,10 +7,6 @@ import React, { Component, Element } from 'react';
 import { autobind } from 'core-decorators';
 import * as tracking from 'lib/analytics';
 
-// i18n
-import localized from 'lib/i18n';
-import type { Localized } from 'lib/i18n';
-
 // styles
 import styles from './pdp.css';
 
@@ -26,38 +22,24 @@ import ProductVariants from 'components/product-variants/product-variants';
 import GiftCardForm from 'components/gift-card-form';
 import ImagePlaceholder from 'components/products-item/image-placeholder';
 
-import RelatedProductsList from 'components/related-products-list/related-products-list';
-
-
 // types
-import type { Product, Sku } from 'modules/product-details';
-import type { RoutesParams } from 'types/routes';
+import type { Product } from 'types/api/product';
+import type { Sku } from 'types/api/sku';
 import type { TProductView } from './types';
 
-type RelatedProductResponse = mixed; // @TODO
 
+type DefaultProps = {
+  t: (text: string) => string,
+}
 
-type Params = {
-  productSlug: string,
-};
-
-type Actions = {
-  fetch: (id: number) => any,
-  resetProduct: Function,
-  addLineItem: Function,
-  toggleCart: Function,
-  fetchRelatedProducts: Function,
-  clearRelatedProducts: Function,
-};
-
-type Props = Localized & RoutesParams & {
-  actions: Actions,
-  params: Params,
+type Props = {
   product: ?Product,
-  isLoading: boolean,
-  isCartLoading: boolean,
-  notFound: boolean,
-  relatedProducts: ?RelatedProductResponse,
+  isLoading?: boolean,
+  fetchError?: mixed,
+  notFound?: boolean,
+  relatedProductsList?: Element<mixed>,
+  shareImage?: Element<mixed>,
+  onAddLineItem?: (skuCode: string, quantity: number, attributes: Object) => Promise,
 };
 
 type State = {
@@ -66,35 +48,8 @@ type State = {
   attributes?: Object,
 };
 
-const mapStateToProps = (state) => {
-  const product = state.productDetails.product;
-  const relatedProducts = state.crossSell.relatedProducts;
-
-  return {
-    product,
-    relatedProducts,
-    fetchError: _.get(state.asyncActions, 'pdp.err', null),
-    notFound: !product && _.get(state.asyncActions, 'pdp.err.response.status') == 404,
-    isLoading: _.get(state.asyncActions, ['pdp', 'inProgress'], true),
-    isCartLoading: _.get(state.asyncActions, ['cartChange', 'inProgress'], false),
-    isRelatedProductsLoading: _.get(state.asyncActions, ['relatedProducts', 'inProgress'], false),
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({
-    fetch,
-    resetProduct,
-    addLineItem,
-    toggleCart,
-    fetchRelatedProducts,
-    clearRelatedProducts,
-  }, dispatch),
-});
-
-class Pdp extends Component {
+export default class Pdp extends Component<DefaultProps, Props, State> {
   props: Props;
-  productPromise: Promise<*>;
   _productVariants: ProductVariants;
 
   state: State = {
@@ -102,57 +57,12 @@ class Pdp extends Component {
     attributes: {},
   };
 
-  componentWillMount() {
-    if (_.isEmpty(this.props.product)) {
-      this.productPromise = this.fetchProduct();
-    } else {
-      this.productPromise = Promise.resolve();
-    }
-  }
-
-  componentDidMount() {
-    this.productPromise.then(() => {
-      const { product, isRelatedProductsLoading, actions } = this.props;
-      tracking.viewDetails(this.productView);
-      if (!isRelatedProductsLoading) {
-        actions.fetchRelatedProducts(product.id, 1).catch(_.noop);
-      }
-    });
-  }
-
-  componentWillUnmount() {
-    this.props.actions.resetProduct();
-    this.props.actions.clearRelatedProducts();
-  }
-
-  componentWillUpdate(nextProps) {
-    const nextId = this.getId(nextProps);
-
-    if (this.productId !== nextId) {
-      this.setState({ currentSku: null });
-      this.props.actions.resetProduct();
-      this.props.actions.clearRelatedProducts();
-      this.fetchProduct(nextProps, nextId);
-    }
-  }
-
-  get productId(): string|number {
-    return this.getId(this.props);
-  }
+  static defaultProps = {
+    t: _.identity,
+  };
 
   get isArchived(): boolean {
     return !!_.get(this.props, ['product', 'archivedAt']);
-  }
-
-  @autobind
-  getId(props): string|number {
-    const slug = props.params.productSlug;
-
-    if (/^\d+$/g.test(slug)) {
-      return parseInt(slug, 10);
-    }
-
-    return slug;
   }
 
   get currentSku() {
@@ -197,7 +107,7 @@ class Pdp extends Component {
     };
   }
 
-  get productShortDescription(): ?Element<*> {
+  get productShortDescription(): ?Element<mixed> {
     const shortDescription = _.get(this.props.product, 'attributes.shortDescription.v');
 
     if (!shortDescription) return null;
@@ -214,7 +124,7 @@ class Pdp extends Component {
 
   @autobind
   addToCart(): void {
-    const { actions } = this.props;
+    const { onAddLineItem } = this.props;
     const unselectedFacets = this._productVariants.getUnselectedFacets();
     if (unselectedFacets.length) {
       this._productVariants.flashUnselectedFacets(unselectedFacets);
@@ -222,19 +132,20 @@ class Pdp extends Component {
     }
     const skuCode = _.get(this.currentSku, 'attributes.code.v', '');
     tracking.addToCart(this.productView, 1);
-    actions.addLineItem(skuCode, 1, this.state.attributes)
-      .then(() => {
-        actions.toggleCart();
-        this.setState({
-          attributes: {},
-          currentSku: null,
+    if (onAddLineItem) {
+      onAddLineItem(skuCode, 1, this.state.attributes)
+        .then(() => {
+          this.setState({
+            attributes: {},
+            currentSku: null,
+          });
+        })
+        .catch((ex) => {
+          this.setState({
+            error: ex,
+          });
         });
-      })
-      .catch((ex) => {
-        this.setState({
-          error: ex,
-        });
-      });
+    }
   }
 
   renderGallery() {
@@ -245,7 +156,7 @@ class Pdp extends Component {
       : <ImagePlaceholder largeScreenOnly />;
   }
 
-  get productDetails(): Element<*> {
+  get productDetails(): Element<mixed> {
     const description = _.get(this.props.product, 'attributes.description.v', '');
     const descriptionList = _.get(this.props.product, 'attributes.description_list.v', '');
     return (
@@ -280,7 +191,7 @@ class Pdp extends Component {
     return _.get(taxonomy, ['taxons', 0, 'attributes', 'name', 'v']);
   }
 
-  get productCategory(): ?Element<any> {
+  get productCategory(): ?Element<mixed> {
     let gender = this.getTaxonValue('gender');
     const type = this.getTaxonValue('type');
 
@@ -320,20 +231,6 @@ class Pdp extends Component {
     );
   }
 
-  get relatedProductsList(): ?Element<*> {
-    const { relatedProducts, isRelatedProductsLoading } = this.props;
-
-    if (_.isEmpty(relatedProducts.products)) return null;
-
-    return (
-      <RelatedProductsList
-        title="You Might Also Like"
-        list={relatedProducts.products}
-        isLoading={isRelatedProductsLoading}
-      />
-    );
-  }
-
   get productPrice(): ?Element<any> {
     if (this.isGiftCard()) return null;
     const {
@@ -369,7 +266,7 @@ class Pdp extends Component {
     );
   }
 
-  render(): Element<any> {
+  render(): Element<mixed> {
     const {
       t,
       isLoading,
@@ -423,9 +320,9 @@ class Pdp extends Component {
             For your change to be featured in our photo gallery<br />
             tag your favorite Pure photo using #3stripestyle.
           </p>
-          <img styleName="share-image" src="/images/pdp/style.jpg" />
+          {this.props.shareImage}
         </div>
-        {this.relatedProductsList}
+        {this.props.relatedProductsList}
       </div>
     );
   }
