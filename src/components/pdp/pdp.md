@@ -1,7 +1,9 @@
 #### Example
 
 ```
-<Pdp
-  product={sampleProduct}
-/>
+<div style={{maxWidth: '1080px'}}>
+    <Pdp
+      product={sampleProduct}
+    />
+</div>
 ```

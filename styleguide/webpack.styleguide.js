@@ -9,12 +9,12 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /styleguide\.css$/,
+        test: /(styleguide\.css$|node_modules\/.*\.css$)/,
         use: ['style-loader', 'css-loader']
       },
       {
         test: /\.css$/,
-        exclude: /styleguide\.css$/,
+        exclude: /(styleguide\.css$|node_modules)/,
         use: ['style-loader', 'css-loader', 'postcss-loader']
       },
       {

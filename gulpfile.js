@@ -14,10 +14,15 @@ function saveTokens(cssFile, exportTokens) {
     .then(() => exportTokens);
 }
 
+const src = [
+  'src/**/*.css',
+  'node_modules/react-image-gallery/styles/css/image-gallery.css',
+];
+
 gulp.task('css', function () {
   const { plugins } = require('./postcss.config');
   const exportModulesPlugin = require('./src/opt/css-modules-export');
-  return gulp.src('src/**/*.css')
+  return gulp.src(src)
     .pipe( postcss([
       ...plugins,
       exportModulesPlugin({

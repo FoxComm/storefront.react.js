@@ -50,6 +50,8 @@ module.exports = {
     },
   ],
   require: [
+    path.join(__dirname, 'src/css/reset.css'),
     path.join(__dirname, 'styleguide/styleguide.css'),
+    path.join(__dirname, 'node_modules/react-image-gallery/styles/css/image-gallery.css'),
   ]
 };
