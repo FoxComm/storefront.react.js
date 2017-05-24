@@ -5,7 +5,7 @@ import React from 'react';
 import s from './wait-animation.css';
 
 type Props = {
-  size: string|number, // PropTypes.oneOf(['s', 'm', 'l']),
+  size?: string|number, // PropTypes.oneOf(['s', 'm', 'l']),
   className?: string,
 };
 
@@ -19,16 +19,18 @@ const guessSizeLetter = (size: number): string => {
 };
 
 const WaitAnimation = (props: Props) => {
-  let sizeLetter = props.size;
+  const { size = 'l', className } = props;
+
+  let sizeLetter = size;
   let style = null;
-  if (typeof props.size == 'number') {
-    sizeLetter = guessSizeLetter(props.size);
+  if (typeof size == 'number') {
+    sizeLetter = guessSizeLetter(size);
     style = {
-      width: `${props.size}px`,
-      height: `${props.size}px`,
+      width: `${size}px`,
+      height: `${size}px`,
     };
   }
-  const cls = classNames(props.className, s.root,
+  const cls = classNames(className, s.root,
     s[`_size_${sizeLetter}`]
   );
 
@@ -40,10 +42,6 @@ const WaitAnimation = (props: Props) => {
       <div className={s.circle4} />
     </div>
   );
-};
-
-WaitAnimation.defaultProps = {
-  size: 'l',
 };
 
 export default WaitAnimation;

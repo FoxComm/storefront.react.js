@@ -9,8 +9,7 @@ import { autobind } from 'core-decorators';
 import * as tracking from 'lib/analytics';
 
 import Currency from 'components/core/currency/currency';
-import ImagePlaceholder from './image-placeholder';
-import ProductImage from 'components/core/image/image';
+import ProductImage from 'components/product-image/product-image';
 
 import type { Product } from 'types/api/views/product';
 
@@ -21,6 +20,9 @@ type State = {
 type Props = {
   product: Product,
   index: number,
+  imgixProductsSource: string,
+  s3BucketName: string,
+  s3BucketPrefix: string,
 }
 
 export default class ListItem extends React.Component {
@@ -28,11 +30,21 @@ export default class ListItem extends React.Component {
   state: State;
 
   get image() {
-    const previewImageUrl = _.get(this.props.product.albums, [0, 'images', 0, 'src']);
+    const { props } = this;
+    const src = _.get(props.product.albums, ['0', 'images', '0', 'src']);
 
-    return previewImageUrl
-      ? <ProductImage src={previewImageUrl} styleName="preview-image" ref="image" width={300} height={300} />
-      : <ImagePlaceholder ref="image" />;
+    return (
+      <ProductImage
+        src={src}
+        styleName="preview-image"
+        ref="image"
+        width={300}
+        height={300}
+        imgixProductsSource={props.imgixProductsSource}
+        s3BucketName={props.s3BucketName}
+        s3BucketPrefix={props.s3BucketPrefix}
+      />
+    );
   }
 
   getImageNode() {

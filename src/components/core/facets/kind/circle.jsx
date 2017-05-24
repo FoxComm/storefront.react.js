@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from './circle.css';
 import { autobind } from 'core-decorators';
 
-import type { FacetElementProps } from 'types/facets';
+import type { FacetElementProps } from '../types';
 
 type State = {
   checked: boolean,

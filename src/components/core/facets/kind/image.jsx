@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { autobind } from 'core-decorators';
 import styles from './image.css';
 
-import type { FacetElementProps } from 'types/facets';
+import type { FacetElementProps } from '../types';
 
 type State = {
   checked: boolean,

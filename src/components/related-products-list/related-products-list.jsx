@@ -2,7 +2,7 @@
 
 // libs
 import _ from 'lodash';
-import React, { Component } from 'react';
+import React, { Component, Element } from 'react';
 
 // styles
 import styles from './related-products-list.css';
@@ -63,7 +63,7 @@ class RelatedProductsList extends Component {
     });
   }
 
-  render(): Element<mixed> {
+  render(): ?Element<any> {
     const { isLoading, list, title } = this.props;
 
     if (isLoading) {

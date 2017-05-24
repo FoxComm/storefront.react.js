@@ -8,7 +8,7 @@ import { autobind } from 'core-decorators';
 // components
 import CheckboxBase from 'components/core/checkbox/checkbox';
 
-import type { FacetElementProps } from 'types/facets';
+import type { FacetElementProps } from '../types';
 
 type State = {
   checked: boolean,

@@ -20,7 +20,7 @@ import ErrorAlerts from 'components/core/alerts/error-alerts';
 
 import ProductVariants from 'components/product-variants/product-variants';
 import GiftCardForm from 'components/gift-card-form';
-import ImagePlaceholder from 'components/products-item/image-placeholder';
+import ImagePlaceholder from 'components/product-image/image-placeholder';
 
 // types
 import type { Product } from 'types/api/product';
@@ -32,24 +32,23 @@ type DefaultProps = {
   t: (text: string) => string,
 }
 
-type Props = {
+type Props = DefaultProps & {
   product: ?Product,
   isLoading?: boolean,
   fetchError?: mixed,
   notFound?: boolean,
-  relatedProductsList?: Element<mixed>,
-  shareImage?: Element<mixed>,
-  onAddLineItem?: (skuCode: string, quantity: number, attributes: Object) => Promise,
+  relatedProductsList?: Element<any>,
+  shareImage?: Element<any>,
+  onAddLineItem?: (skuCode: string, quantity: number, attributes: Object) => Promise<mixed>,
 };
 
 type State = {
   error?: any,
   currentSku: ?Sku,
-  attributes?: Object,
+  attributes: Object,
 };
 
 export default class Pdp extends Component<DefaultProps, Props, State> {
-  props: Props;
   _productVariants: ProductVariants;
 
   state: State = {
@@ -65,11 +64,11 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
     return !!_.get(this.props, ['product', 'archivedAt']);
   }
 
-  get currentSku() {
+  get currentSku(): ?Sku {
     return this.state.currentSku || this.sortedSkus[0];
   }
 
-  get sortedSkus() {
+  get sortedSkus(): Array<Sku> {
     return _.sortBy(
       _.get(this.props, 'product.skus', []),
       'attributes.salePrice.v.value'
@@ -82,7 +81,7 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
   }
 
   @autobind
-  setAttributeFromField({ target: { name, value } }) {
+  setAttributeFromField({ target: { name, value } }: SyntheticInputEvent) {
     const namePath = ['attributes', ...name.split('.')];
     const stateValue = name === 'giftCard.message' ? value.split('\n').join('<br>') : value;
     this.setState(assoc(this.state, namePath, stateValue));
@@ -91,9 +90,9 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
   get productView(): TProductView {
     const attributes = _.get(this.props.product, 'attributes', {});
     const price = _.get(this.currentSku, 'attributes.salePrice.v', {});
-    let images = _.get(this.currentSku, ['albums', 0, 'images'], []);
+    let images = _.get(this.currentSku, ['albums', '0', 'images'], []);
     if (_.isEmpty(images)) {
-      images = _.get(this.props.product, ['albums', 0, 'images'], []);
+      images = _.get(this.props.product, ['albums', '0', 'images'], []);
     }
     const imageUrls = images.map(image => image.src);
 
@@ -107,7 +106,7 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
     };
   }
 
-  get productShortDescription(): ?Element<mixed> {
+  get productShortDescription(): ?Element<any> {
     const shortDescription = _.get(this.props.product, 'attributes.shortDescription.v');
 
     if (!shortDescription) return null;
@@ -117,7 +116,7 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
     );
   }
 
-  isGiftCard(props = this.props): boolean {
+  isGiftCard(props: Props = this.props): boolean {
     const tags = _.get(props.product, 'attributes.tags.v', []);
     return tags.indexOf('GIFT-CARD') !== -1;
   }
@@ -156,7 +155,7 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
       : <ImagePlaceholder largeScreenOnly />;
   }
 
-  get productDetails(): Element<mixed> {
+  get productDetails(): Element<any> {
     const description = _.get(this.props.product, 'attributes.description.v', '');
     const descriptionList = _.get(this.props.product, 'attributes.description_list.v', '');
     return (
@@ -188,10 +187,10 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
       return name === taxonomyName;
     });
 
-    return _.get(taxonomy, ['taxons', 0, 'attributes', 'name', 'v']);
+    return _.get(taxonomy, ['taxons', '0', 'attributes', 'name', 'v']);
   }
 
-  get productCategory(): ?Element<mixed> {
+  get productCategory(): ?Element<any> {
     let gender = this.getTaxonValue('gender');
     const type = this.getTaxonValue('type');
 
@@ -266,7 +265,7 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
     );
   }
 
-  render(): Element<mixed> {
+  render(): Element<any> {
     const {
       t,
       isLoading,

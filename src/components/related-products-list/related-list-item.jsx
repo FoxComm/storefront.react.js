@@ -1,15 +1,14 @@
 /* @flow */
 
+import _ from 'lodash';
 import React, { Element } from 'react';
 import { findDOMNode } from 'react-dom';
-import type { HTMLElement } from 'types';
 import styles from './related-list-item.css';
-import { Link } from 'react-router';
-import _ from 'lodash';
 import { autobind } from 'core-decorators';
 import * as tracking from 'lib/analytics';
 
-import ImagePlaceholder from '../products-item/image-placeholder';
+import { Link } from 'react-router';
+import ProductImage from 'components/product-image/product-image';
 
 import type { Product } from 'types/api/views/product';
 
@@ -20,6 +19,9 @@ type State = {
 type Props = {
   product: Product,
   index: number,
+  imgixProductsSource: string,
+  s3BucketName: string,
+  s3BucketPrefix: string,
 }
 
 class RelatedListItem extends React.Component {
@@ -31,11 +33,19 @@ class RelatedListItem extends React.Component {
   };
 
   get image(): Element<any> {
-    const previewImageUrl = _.get(this.props.albums, [0, 'images', 0, 'src']);
+    const { props } = this;
+    const previewImageUrl = _.get(props.product.albums, ['0', 'images', '0', 'src']);
 
-    return previewImageUrl
-      ? <img src={previewImageUrl} styleName="preview-image" ref="image" />
-      : <ImagePlaceholder ref="image" />;
+    return (
+      <ProductImage
+        src={previewImageUrl}
+        styleName="preview-image"
+        ref="image"
+        imgixProductsSource={props.imgixProductsSource}
+        s3BucketName={props.s3BucketName}
+        s3BucketPrefix={props.s3BucketPrefix}
+      />
+    );
   }
 
   getImageNode() {
@@ -46,23 +56,23 @@ class RelatedListItem extends React.Component {
   handleClick() {
     const { props } = this;
 
-    tracking.clickPdp(props, props.index);
+    tracking.clickPdp(props.product, props.index);
   }
 
   getCollection() {
-    const collectionTaxonomy = _.find(this.props.taxonomies, (taxonomyEntity) => {
+    const collectionTaxonomy = _.find(this.props.product.taxonomies, (taxonomyEntity) => {
       return taxonomyEntity.taxonomy === 'collection';
     });
 
-    return _.get(collectionTaxonomy, ['taxons', 0, 0], '');
+    return _.get(collectionTaxonomy, ['taxons', '0', '0'], '');
   }
 
-  render(): HTMLElement {
+  render() {
     const {
       productId,
       slug,
       title,
-    } = this.props;
+    } = this.props.product;
 
     const productSlug = slug != null && !_.isEmpty(slug) ? slug : productId;
     const collection = this.getCollection();

@@ -10,6 +10,5 @@ const SecondaryButton = require('./secondary-button').default;
   <SecondaryButton>Push Me</SecondaryButton>
   <SecondaryButton isLoading>Loading...</SecondaryButton>
   <SecondaryButton disabled>Disabled</SecondaryButton>
-  <SecondaryButton fullWidth icon="google">Push Me</SecondaryButton>
 </div>
 ```

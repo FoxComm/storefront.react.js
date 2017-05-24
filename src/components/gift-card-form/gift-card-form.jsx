@@ -16,7 +16,7 @@ import { FormField } from 'components/core/forms/index';
 import Select from 'components/core/select/select';
 
 // types
-import type { TProductView } from 'view/pdp/types';
+import type { TProductView } from 'components/pdp/types';
 import type { Sku } from 'types/api/sku';
 
 type Props = {
@@ -24,7 +24,7 @@ type Props = {
   onSkuChange: Function,
   selectedSku: Sku,
   attributes: Object,
-  onAttributeChange: Function,
+  onAttributeChange: (event: SyntheticInputEvent) => any,
 };
 
 const formatSkuPrice = (sku) => {
