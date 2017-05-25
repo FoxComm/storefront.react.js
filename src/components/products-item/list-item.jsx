@@ -11,7 +11,7 @@ import * as tracking from 'lib/analytics';
 import Currency from 'components/core/currency/currency';
 import ProductImage from 'components/product-image/product-image';
 
-import type { Product } from 'types/api/views/product';
+import type { Product } from '@foxcomm/api-js/types/api/views/product';
 
 type State = {
   error?: any,

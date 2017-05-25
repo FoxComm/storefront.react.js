@@ -16,8 +16,8 @@ import styles from './product-variants.css';
 import type { TProductView } from 'components/pdp/types';
 import type { Facet as TFacet } from 'components/core/facets/types';
 
-import type { Product, Variant as ProductVariant, VariantValue } from 'types/api/product';
-import type { Sku } from 'types/api/sku';
+import type { Product, Variant as ProductVariant, VariantValue } from '@foxcomm/api-js/types/api/product';
+import type { Sku } from '@foxcomm/api-js/types/api/sku';
 
 
 type Props = {

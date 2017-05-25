@@ -17,7 +17,7 @@ import Select from 'components/core/select/select';
 
 // types
 import type { TProductView } from 'components/pdp/types';
-import type { Sku } from 'types/api/sku';
+import type { Sku } from '@foxcomm/api-js/types/api/sku';
 
 type Props = {
   productView: TProductView,

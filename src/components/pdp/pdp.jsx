@@ -23,8 +23,8 @@ import GiftCardForm from 'components/gift-card-form';
 import ImagePlaceholder from 'components/product-image/image-placeholder';
 
 // types
-import type { Product } from 'types/api/product';
-import type { Sku } from 'types/api/sku';
+import type { Product } from '@foxcomm/api-js/types/api/product';
+import type { Sku } from '@foxcomm/api-js/types/api/sku';
 import type { TProductView } from './types';
 
 

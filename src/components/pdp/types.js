@@ -1,5 +1,5 @@
 
-import type { Sku } from 'types/api/sku';
+import type { Sku } from '@foxcomm/api-js/types/api/sku';
 
 export type TProductView = {
   title: string,
