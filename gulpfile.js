@@ -2,6 +2,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 const gulp = require('gulp');
+const addsrc = require('gulp-add-src');
 const postcss = require('gulp-postcss');
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
@@ -15,8 +16,7 @@ function saveTokens(cssFile, exportTokens) {
 }
 
 const src = [
-  'src/**/*.css',
-  'node_modules/react-image-gallery/styles/css/image-gallery.css',
+  'src/components/**/*.css',
 ];
 
 gulp.task('css', function () {
@@ -29,6 +29,10 @@ gulp.task('css', function () {
         processTokens: saveTokens,
       })
     ]) )
+    .pipe(addsrc.prepend([
+      'src/css/reset.css',
+      'node_modules/react-image-gallery/styles/css/image-gallery.css'
+    ]))
     .pipe( concat('bundle.css') )
     .pipe( gulp.dest('lib/') );
 });

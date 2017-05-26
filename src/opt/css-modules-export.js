@@ -26,7 +26,7 @@ module.exports = postcss.plugin(PLUGIN_NAME, (opts = {}) => {
     const loader = getLoader(opts, plugins);
     const parser = new Parser(loader.fetch.bind(loader));
 
-    return postcss([...plugins, parser.plugin])
+    return postcss([parser.plugin])
       .process(css, { from: inputFile })
       .then(() => {
         const out = loader.finalSource;

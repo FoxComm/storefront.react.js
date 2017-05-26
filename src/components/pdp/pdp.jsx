@@ -50,6 +50,7 @@ type State = {
 
 export default class Pdp extends Component<DefaultProps, Props, State> {
   _productVariants: ProductVariants;
+  _productViewTracked: boolean = false;
 
   state: State = {
     currentSku: null,
@@ -60,6 +61,14 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
     t: _.identity,
   };
 
+  componentDidMount() {
+    this.trackProductView();
+  }
+
+  componentWillReceiveProps(nextProps: Props) {
+    this.trackProductView(nextProps);
+  }
+
   get isArchived(): boolean {
     return !!_.get(this.props, ['product', 'archivedAt']);
   }
@@ -68,11 +77,31 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
     return this.state.currentSku || this.sortedSkus[0];
   }
 
-  get sortedSkus(): Array<Sku> {
+  getSortedSkus(props: Props = this.props): Array<Sku> {
     return _.sortBy(
-      _.get(this.props, 'product.skus', []),
+      _.get(props, 'product.skus', []),
       'attributes.salePrice.v.value'
     );
+  }
+
+  get sortedSkus(): Array<Sku> {
+    return this.getSortedSkus();
+  }
+
+  trackProductView(props: Props = this.props) {
+    if (this._productViewTracked) return;
+
+    const {
+      isLoading,
+      notFound,
+      fetchError,
+      product
+    } = props;
+
+    if (!isLoading && !notFound && !fetchError && product) {
+      tracking.viewDetails(this.getProductView(props));
+      this._productViewTracked = true;
+    }
   }
 
   @autobind
@@ -87,12 +116,12 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
     this.setState(assoc(this.state, namePath, stateValue));
   }
 
-  get productView(): TProductView {
-    const attributes = _.get(this.props.product, 'attributes', {});
+  getProductView(props: Props = this.props): TProductView {
+    const attributes = _.get(props.product, 'attributes', {});
     const price = _.get(this.currentSku, 'attributes.salePrice.v', {});
     let images = _.get(this.currentSku, ['albums', '0', 'images'], []);
     if (_.isEmpty(images)) {
-      images = _.get(this.props.product, ['albums', '0', 'images'], []);
+      images = _.get(props.product, ['albums', '0', 'images'], []);
     }
     const imageUrls = images.map(image => image.src);
 
@@ -102,8 +131,12 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
       images: imageUrls,
       currency: _.get(price, 'currency', 'USD'),
       price: _.get(price, 'value', 0),
-      skus: this.sortedSkus,
+      skus: this.getSortedSkus(props),
     };
+  }
+
+  get productView(): TProductView {
+    return this.getProductView();
   }
 
   get productShortDescription(): ?Element<any> {

@@ -11,9 +11,12 @@ import styles from './related-products-list.css';
 import WaitAnimation from 'components/core/wait-animation/wait-animation';
 import ListItem from './related-list-item';
 
+// types
+import type { Product } from '@foxcomm/api-js/types/api/views/product';
+
 type Props = {
-  list: ?Array<Object>,
-  productsOrder: ?Array<number>,
+  list: ?Array<Product>,
+  productsOrder?: Array<number>,
   isLoading: ?boolean,
   title: string,
 };
@@ -34,30 +37,25 @@ class RelatedProductsList extends Component {
     title: 'You Might Also Like',
   };
 
-  renderProducts() {
+  renderProducts(): ?Array<Element<ListItem>> {
     const { list, productsOrder } = this.props;
 
-    if (_.isEmpty(list)) return null;
+    if (list == null || list.length == 0) return null;
 
-    let sortedProductsList = [];
-    _.forEach(productsOrder, function(productId) {
-      sortedProductsList = _.concat(sortedProductsList, _.find(list, { productId }));
-    });
+    let sortedProductsList: Array<Product> = list;
 
-    const avoidKeyCollision = 9999;
-
+    if (productsOrder) {
+      sortedProductsList = _.map(productsOrder, productId => _.find(list, {productId}));
+    }
     const { startingId } = this.state;
-    const endingId = Math.min(sortedProductsList.length, startingId + 6);
-
-    const toDisplay = _.slice(sortedProductsList, startingId, endingId);
+    const toDisplay = sortedProductsList.slice(startingId, startingId + 6);
     
     return _.map(toDisplay, (item, index) => {
       return (
         <ListItem
           {...item}
           index={index}
-          key={`product-${_.get(item, 'id', _.random(avoidKeyCollision))}`}
-          ref={`product-${_.get(item, 'id', _.random(avoidKeyCollision))}`}
+          key={`product-${_.get(item, 'id', index)}`}
         />
       );
     });

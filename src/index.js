@@ -32,3 +32,4 @@ export WrapToLines from './components/core/wrap-to-lines/wrap-to-lines';
 export Pdp from './components/pdp/pdp';
 export ProductImage from './components/product-image/product-image';
 export ImagePlaceholder from './components/product-image/image-placeholder';
+export RelatedProductList from './components/related-products-list/related-products-list';

@@ -2,6 +2,12 @@
 import _ from 'lodash';
 import { isGiftCard } from 'paragons/sku';
 
+function ga(...args) {
+  if (typeof window != 'undefined' && window.ga) {
+    window.ga(...args);
+  }
+}
+
 export function trackPageView(page, fieldsObject) {
   ga('send', 'pageview', page, fieldsObject);
 }
