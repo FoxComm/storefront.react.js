@@ -3,7 +3,7 @@
 Installation
 
 ```
-yarn add @foxcomm/sf-react
+yarn add @foxcomm/storefront-react
 ```
 
 Usage
