@@ -7,7 +7,7 @@ import moment from 'moment';
 
 // components
 import WaitAnimation from 'components/core/wait-animation/wait-animation';
-import ActionLink from 'components/core/action-link/action-link';
+import ActionLink from 'components/core/action-link';
 
 // styles
 import styles from './product-reviews-list.css';
