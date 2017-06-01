@@ -38,7 +38,6 @@ type Props = DefaultProps & {
   fetchError?: mixed,
   notFound?: boolean,
   relatedProductsList?: Element<any>,
-  reviewsList?: Element<any>,
   shareImage?: Element<any>,
   onAddLineItem?: (skuCode: string, quantity: number, attributes: Object) => Promise<mixed>,
 };
@@ -356,7 +355,6 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
           {this.props.shareImage}
         </div>
         {this.props.relatedProductsList}
-        {this.props.reviewsList}
       </div>
     );
   }
