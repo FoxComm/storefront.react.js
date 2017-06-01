@@ -32,7 +32,6 @@ type ReviewItem = {
 
 type Props = {
   isLoading: ?boolean,
-  loadingBehavior?: 0|1,
   listItems: ?Array<ReviewItem>,
   title: string,
   emptyContentTitle: string,
@@ -44,11 +43,6 @@ type Props = {
 type State = {
   page: number,
 }
-
-export const LoadingBehaviors = {
-  ShowLoader: 1,
-  ShowWrapper: 0,
-};
 
 const ReviewBody = (props): Element<any> => {
   const { title, userName, updatedAt, sku, body } = props;
@@ -154,9 +148,9 @@ class ProductReviewsList extends Component {
   }
 
   render(): Element<any> {
-    const { title, loadingBehavior = LoadingBehaviors.ShowLoader, isLoading } = this.props;
+    const { title, isLoading } = this.props;
 
-    if (loadingBehavior == LoadingBehaviors.ShowLoader && isLoading) {
+    if (isLoading) {
       return <WaitAnimation />;
     }
 
