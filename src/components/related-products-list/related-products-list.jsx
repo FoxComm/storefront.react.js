@@ -17,8 +17,9 @@ import type { Product } from '@foxcomm/api-js/types/api/views/product';
 type Props = {
   list: ?Array<Product>,
   productsOrder?: Array<number>,
-  isLoading: ?boolean,
-  title: string,
+  isLoading?: boolean,
+  title?: string,
+  limit?: number,
 };
 
 type State = {
@@ -35,10 +36,11 @@ class RelatedProductsList extends Component {
 
   static defaultProps = {
     title: 'You Might Also Like',
+    limit: 6,
   };
 
   renderProducts(): ?Array<Element<ListItem>> {
-    const { list, productsOrder } = this.props;
+    const { list, productsOrder, limit } = this.props;
 
     if (list == null || list.length == 0) return null;
 
@@ -48,7 +50,7 @@ class RelatedProductsList extends Component {
       sortedProductsList = _.map(productsOrder, productId => _.find(list, {productId}));
     }
     const { startingId } = this.state;
-    const toDisplay = sortedProductsList.slice(startingId, startingId + 6);
+    const toDisplay = sortedProductsList.slice(startingId, startingId + limit);
     
     return _.map(toDisplay, (item, index) => {
       return (
