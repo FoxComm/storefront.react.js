@@ -20,6 +20,8 @@ module.exports = {
   context: {
     sampleProduct: path.resolve(__dirname, 'fixtures/sample-product.json'),
     sampleRelatedProducts: path.resolve(__dirname, 'fixtures/sample-related-products.json'),
+    sampleProductReviews: path.resolve(__dirname, 'fixtures/sample-product-reviews.json'),
+    sampleProductReviewsPending: path.resolve(__dirname, 'fixtures/sample-product-reviews-pending.json'),
   },
   sections: [
     {
@@ -46,6 +48,7 @@ module.exports = {
           components: () => ([
             path.resolve(__dirname, 'src/components/pdp/pdp.jsx'),
             path.resolve(__dirname, 'src/components/related-products-list/related-products-list.jsx'),
+            path.resolve(__dirname, 'src/components/product-reviews-list/product-reviews-list.jsx'),
           ]),
         },
       ],
