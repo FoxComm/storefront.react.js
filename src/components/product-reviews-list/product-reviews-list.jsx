@@ -86,56 +86,57 @@ class ProductReviewsList extends Component {
     page: 0,
   };
 
+  get isEmptyContent(): boolean {
+    const { listItems } = this.props;
+
+    const activeReviews = _.filter(listItems, (review) => {
+      return review.attributes.status.v == 'submitted';
+    });
+
+    return _.isEmpty(activeReviews);
+  }
+
   get reviewsEmptyContentTitle(): ?Element<any> {
     const { listItems, emptyContentTitle } = this.props;
 
-    if (_.isEmpty(listItems)) {
-      return (
-        <div styleName="product-reviews-subtitle">
-          {emptyContentTitle}
-        </div>
-      );
-    }
-    return null;
+    return (
+      <div styleName="product-reviews-subtitle">
+        {emptyContentTitle}
+      </div>
+    );
   }
 
   get displayReviews(): ?Element<any> {
     const { listItems, showLoadMore } = this.props;
-    const activeReviews = _.filter(listItems, (review) => {
-      return review.attributes.status.v == 'submitted';
-    });
-    if (!_.isEmpty(activeReviews)) {
-      const reviews = _.map(listItems, (review) => {
-        return (
-          <ReviewBody
-            key={review.id}
-            title={review.attributes.title.v}
-            userName={review.userName}
-            updatedAt={review.updatedAt}
-            sku={review.sku}
-            body={review.attributes.body.v}
-          />
-        );
-      });
-
-      const loadMoreActionLink = (showLoadMore)
-      ? (
-        <ActionLink
-          action={this.handleLoadMoreReviews}
-          title="LOAD MORE REVIEWS"
-          styleName="product-review-load-more"
-        />
-      )
-      : null;
-
+    const reviews = _.map(listItems, (review) => {
       return (
-        <div>
-          {reviews}
-          {loadMoreActionLink}
-        </div>
+        <ReviewBody
+          key={review.id}
+          title={review.attributes.title.v}
+          userName={review.userName}
+          updatedAt={review.updatedAt}
+          sku={review.sku}
+          body={review.attributes.body.v}
+        />
       );
-    }
-    return null;
+    });
+
+    const loadMoreActionLink = (showLoadMore)
+    ? (
+      <ActionLink
+        action={this.handleLoadMoreReviews}
+        title="LOAD MORE REVIEWS"
+        styleName="product-review-load-more"
+      />
+    )
+    : null;
+
+    return (
+      <div>
+        {reviews}
+        {loadMoreActionLink}
+      </div>
+    );
   }
 
   handleLoadMoreReviews = () => {
@@ -159,8 +160,7 @@ class ProductReviewsList extends Component {
         <div styleName="product-reviews-title">
           {title}
         </div>
-        {this.reviewsEmptyContentTitle}
-        {this.displayReviews}
+        {this.isEmptyContent ? this.reviewsEmptyContentTitle : this.displayReviews}
       </div>
     );
   }
