@@ -37,14 +37,22 @@ type Props = {
   emptyContentTitle: string,
   paginationSize: number,
   onLoadMoreReviews: Function,
-  showLoadMore: ?boolean
+  showLoadMore: ?boolean,
 };
 
 type State = {
   page: number,
 }
 
-const ReviewBody = (props): Element<any> => {
+type ReviewBodyProps = {
+  title: string,
+  userName: string,
+  updatedAt: string,
+  sku: string,
+  body: string,
+};
+
+const ReviewBody = (props: ReviewBodyProps): Element<any> => {
   const { title, userName, updatedAt, sku, body } = props;
   const updatedAtFormatted = moment(updatedAt).format('MMM Do YYYY');
 
@@ -106,6 +114,19 @@ class ProductReviewsList extends Component {
     );
   }
 
+  get loadMoreActionsLink(): ?Element<any> {
+    const { showLoadMore } = this.props;
+    return (showLoadMore)
+    ? (
+      <ActionLink
+        action={this.handleLoadMoreReviews}
+        title="LOAD MORE REVIEWS"
+        styleName="product-review-load-more"
+      />
+    )
+    : null;
+  }
+
   get displayReviews(): ?Element<any> {
     const { listItems, showLoadMore } = this.props;
     const reviews = _.map(listItems, (review) => {
@@ -121,20 +142,10 @@ class ProductReviewsList extends Component {
       );
     });
 
-    const loadMoreActionLink = (showLoadMore)
-    ? (
-      <ActionLink
-        action={this.handleLoadMoreReviews}
-        title="LOAD MORE REVIEWS"
-        styleName="product-review-load-more"
-      />
-    )
-    : null;
-
     return (
       <div>
         {reviews}
-        {loadMoreActionLink}
+        {this.loadMoreActionsLink}
       </div>
     );
   }

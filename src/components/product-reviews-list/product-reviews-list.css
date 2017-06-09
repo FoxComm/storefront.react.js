@@ -28,9 +28,9 @@
 }
 
 .product-review-container {
-  border: 1px solid #DDDDDD;
+  border: 1px solid var(--alto);
   border-radius: 4px;
-  padding: 12px 15px 12px 15px;
+  padding: 12px 15px;
   margin-top: 32px;
 }
 
@@ -41,7 +41,7 @@
 .product-review-title {
   font-size: 22px;
   font-weight: 900;
-  color: #222222;
+  color: var(--blackish);
 }
 
 .product-review-name-date {
