@@ -43,7 +43,7 @@ type Props = {
 
 type State = {
   page: number,
-}
+};
 
 type ReviewBodyProps = {
   title: string,
@@ -113,15 +113,16 @@ class ProductReviewsList extends Component {
 
   get loadMoreActionsLink(): ?Element<any> {
     const { showLoadMore } = this.props;
-    return (showLoadMore)
-    ? (
+
+    if (!showLoadMore) return null;
+
+    return (
       <ActionLink
         action={this.handleLoadMoreReviews}
         title="LOAD MORE REVIEWS"
         styleName="product-review-load-more"
       />
-    )
-    : null;
+    );
   }
 
   get displayReviews(): ?Element<any> {
