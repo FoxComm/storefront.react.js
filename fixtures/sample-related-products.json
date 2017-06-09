@@ -1,0 +1,1221 @@
+{
+  "products": [
+    {
+      "product": {
+        "albums": [
+          {
+            "images": [
+              {
+                "alt": "adidas - Courtset Shoes Lead  /  Running White Ftw F98441", 
+                "baseurl": null, 
+                "src": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dw87cbbc98/zoom/F98441_01_standard.jpg", 
+                "title": "adidas - Courtset Shoes"
+              }
+            ], 
+            "name": "default"
+          }
+        ], 
+        "context": "default", 
+        "currency": "USD", 
+        "description": "Serve-and-volley style, made for the streets. These girls' shoes come in plush suede with clean lines inspired by tennis designs.", 
+        "id": 646, 
+        "productId": 98129, 
+        "retailPrice": "5500", 
+        "salePrice": "5500", 
+        "scope": "1", 
+        "skus": [
+          "F98441_550", 
+          "F98441_560", 
+          "F98441_570", 
+          "F98441_580", 
+          "F98441_590", 
+          "F98441_600", 
+          "F98441_610", 
+          "F98441_620", 
+          "F98441_630", 
+          "F98441_640", 
+          "F98441_650"
+        ], 
+        "slug": "courtset-shoes", 
+        "tags": [
+          "Shoes", 
+          "adidas Neo", 
+          "WOMEN", 
+          "Shoes", 
+          "ISI78", 
+          "OFF", 
+          "Lead  /  Running White Ftw", 
+          "adidas-US-listprices", 
+          "Lifestyle"
+        ], 
+        "taxonomies": [
+          {
+            "taxonomy": "Brand", 
+            "taxons": [
+              [
+                "adidas Neo"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "category", 
+            "taxons": [
+              [
+                "Shoes"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Color", 
+            "taxons": [
+              [
+                "Running White Ftw"
+              ], 
+              [
+                "Lead"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "gender", 
+            "taxons": [
+              [
+                "WOMEN"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "pricebook", 
+            "taxons": [
+              [
+                "adidas-US-listprices"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "sport", 
+            "taxons": [
+              [
+                "Lifestyle"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Type", 
+            "taxons": [
+              [
+                "Shoes"
+              ]
+            ]
+          }
+        ], 
+        "title": "Courtset Shoes"
+      }, 
+      "score": 0.1259881576697424
+    }, 
+    {
+      "product": {
+        "albums": [
+          {
+            "images": [
+              {
+                "alt": "adidas - Cloudfoam Groove TM Shoes Core Black  /  Black  /  Running White B74687", 
+                "baseurl": null, 
+                "src": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dw3a3274c9/zoom/B74687_01_standard.jpg", 
+                "title": "adidas - Cloudfoam Groove TM Shoes"
+              }, 
+              {
+                "alt": "adidas - Cloudfoam Groove TM Shoes Running White Ftw  /  Running White B74688", 
+                "baseurl": null, 
+                "src": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dwbeea38f5/zoom/B74688_01_standard.jpg", 
+                "title": "adidas - Cloudfoam Groove TM Shoes"
+              }
+            ], 
+            "name": "default"
+          }
+        ], 
+        "context": "default", 
+        "currency": "USD", 
+        "description": "Groove on. These girls' shoes have a surprising touch of animal print on the heel. The mesh upper and cloudfoam cushioning make them a comfy go-to pair.", 
+        "id": 645, 
+        "productId": 97893, 
+        "retailPrice": "6500", 
+        "salePrice": "6500", 
+        "scope": "1", 
+        "skus": [
+          "B74687_530", 
+          "B74687_540", 
+          "B74687_550", 
+          "B74687_560", 
+          "B74687_570", 
+          "B74687_580", 
+          "B74687_590", 
+          "B74687_600", 
+          "B74687_610", 
+          "B74687_620", 
+          "B74687_630", 
+          "B74687_650", 
+          "B74688_530", 
+          "B74688_540", 
+          "B74688_550", 
+          "B74688_560", 
+          "B74688_570", 
+          "B74688_580", 
+          "B74688_590", 
+          "B74688_600", 
+          "B74688_610", 
+          "B74688_620", 
+          "B74688_630", 
+          "B74688_650"
+        ], 
+        "slug": "cloudfoam-groove-tm-shoes", 
+        "tags": [
+          "Shoes", 
+          "adidas Neo", 
+          "WOMEN", 
+          "Shoes", 
+          "CFP73", 
+          "OFF", 
+          "Core Black  /  Black  /  Running White", 
+          "adidas-US-listprices", 
+          "Lifestyle"
+        ], 
+        "taxonomies": [
+          {
+            "taxonomy": "Brand", 
+            "taxons": [
+              [
+                "adidas Neo"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "category", 
+            "taxons": [
+              [
+                "Shoes"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Color", 
+            "taxons": [
+              [
+                "Core Black"
+              ], 
+              [
+                "Running White"
+              ], 
+              [
+                "Black"
+              ], 
+              [
+                "Running White Ftw"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "gender", 
+            "taxons": [
+              [
+                "WOMEN"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "pricebook", 
+            "taxons": [
+              [
+                "adidas-US-listprices"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "sport", 
+            "taxons": [
+              [
+                "Lifestyle"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Type", 
+            "taxons": [
+              [
+                "Shoes"
+              ]
+            ]
+          }
+        ], 
+        "title": "Cloudfoam Groove TM Shoes"
+      }, 
+      "score": 0.1259881576697424
+    }, 
+    {
+      "product": {
+        "albums": [
+          {
+            "images": [
+              {
+                "alt": "adidas - Tiro 15 Training Jacket Power Red  /  White  /  Black M64060", 
+                "baseurl": null, 
+                "src": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dw06ea91cb/zoom/M64060_21_model.jpg", 
+                "title": "adidas - Tiro 15 Training Jacket"
+              }
+            ], 
+            "name": "default"
+          }
+        ], 
+        "context": "default", 
+        "currency": "USD", 
+        "description": "This men's soccer jacket keeps you covered when you're warming up and running through drills. Made with climacool\u00ae ventilation that breathes easy, it features a full zip and stand-up collar.", 
+        "id": 458, 
+        "productId": 73649, 
+        "retailPrice": "5500", 
+        "salePrice": "5500", 
+        "scope": "1", 
+        "skus": [
+          "M64060_350"
+        ], 
+        "slug": "tiro-15-training-jacket", 
+        "tags": [
+          "Apparel", 
+          "Performance", 
+          "MEN", 
+          "Soccer", 
+          "MHU42", 
+          "OFF", 
+          "Power Red  /  White  /  Black", 
+          "adidas-US-listprices", 
+          "Soccer"
+        ], 
+        "taxonomies": [
+          {
+            "taxonomy": "Brand", 
+            "taxons": [
+              [
+                "Performance"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "category", 
+            "taxons": [
+              [
+                "Apparel"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Color", 
+            "taxons": [
+              [
+                "Black"
+              ], 
+              [
+                "White"
+              ], 
+              [
+                "Power Red"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "gender", 
+            "taxons": [
+              [
+                "MEN"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "pricebook", 
+            "taxons": [
+              [
+                "adidas-US-listprices"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "sport", 
+            "taxons": [
+              [
+                "Soccer"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Type", 
+            "taxons": [
+              [
+                "Soccer"
+              ]
+            ]
+          }
+        ], 
+        "title": "Tiro 15 Training Jacket"
+      }, 
+      "score": 0.1111111111111111
+    }, 
+    {
+      "product": {
+        "albums": [
+          {
+            "images": [
+              {
+                "alt": "adidas - Ankle Socks 2 Pairs Solar Pink AZ2206", 
+                "baseurl": null, 
+                "src": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dw9f53fcaf/zoom/AZ2206_01_standard.jpg", 
+                "title": "adidas - Ankle Socks 2 Pairs"
+              }
+            ], 
+            "name": "default"
+          }
+        ], 
+        "context": "default", 
+        "currency": "USD", 
+        "description": "The adidas by Stella McCartney Ankle Socks are built with ribbed compression bands for extra arch support. They come in bright colors with a speckled m\u00e9lange effect.", 
+        "id": 656, 
+        "productId": 100256, 
+        "retailPrice": "3000", 
+        "salePrice": "3000", 
+        "scope": "1", 
+        "skus": [
+          "AZ2206_800"
+        ], 
+        "slug": "ankle-socks-2-pairs", 
+        "tags": [
+          "Accessories", 
+          "adidas by Stella McCartney", 
+          "WOMEN", 
+          "Socks", 
+          "NEN43", 
+          "OFF", 
+          "Solar Pink", 
+          "adidas-US-listprices", 
+          "Running"
+        ], 
+        "taxonomies": [
+          {
+            "taxonomy": "Brand", 
+            "taxons": [
+              [
+                "adidas by Stella McCartney"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "category", 
+            "taxons": [
+              [
+                "Accessories"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Color", 
+            "taxons": [
+              [
+                "Solar Pink"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "gender", 
+            "taxons": [
+              [
+                "WOMEN"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "pricebook", 
+            "taxons": [
+              [
+                "adidas-US-listprices"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "sport", 
+            "taxons": [
+              [
+                "Running"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Type", 
+            "taxons": [
+              [
+                "Socks"
+              ]
+            ]
+          }
+        ], 
+        "title": "Ankle Socks 2 Pairs"
+      }, 
+      "score": 0.09622504486493763
+    }, 
+    {
+      "product": {
+        "albums": [
+          {
+            "images": [
+              {
+                "alt": "adidas - Samba Classic Shoes Black 034563", 
+                "baseurl": null, 
+                "src": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dwddb92041/zoom/034563_01_standard.jpg", 
+                "title": "adidas - Samba Classic Shoes"
+              }, 
+              {
+                "alt": "adidas - Samba Classic Shoes Running White Ftw  /  Black  /  Running White 772109", 
+                "baseurl": null, 
+                "src": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dw103d58fa/zoom/772109_01_standard.jpg", 
+                "title": "adidas - Samba Classic Shoes"
+              }
+            ], 
+            "name": "default"
+          }
+        ], 
+        "context": "default", 
+        "currency": "USD", 
+        "description": "There's a reason this legendary indoor shoe still sells like mad. Perfection never goes out of style. Its soft leather upper and a low-profile gum rubber outsole give the elite player ultimate control.", 
+        "id": 145, 
+        "productId": 34437, 
+        "retailPrice": "7000", 
+        "salePrice": "7000", 
+        "scope": "1", 
+        "skus": [
+          "034563_600", 
+          "034563_610", 
+          "034563_620", 
+          "034563_630", 
+          "034563_640", 
+          "034563_650", 
+          "034563_660", 
+          "034563_670", 
+          "034563_680", 
+          "034563_690", 
+          "034563_700", 
+          "034563_710", 
+          "034563_720", 
+          "772109_580", 
+          "772109_590", 
+          "772109_600", 
+          "772109_610", 
+          "772109_620", 
+          "772109_630", 
+          "772109_640", 
+          "772109_650", 
+          "772109_660", 
+          "772109_670", 
+          "772109_680", 
+          "772109_690", 
+          "772109_700", 
+          "772109_710", 
+          "772109_720", 
+          "772109_730"
+        ], 
+        "slug": "samba-classic-shoes", 
+        "tags": [
+          "Shoes", 
+          "Performance", 
+          "MEN", 
+          "Training", 
+          "17214", 
+          "OFF", 
+          "Black", 
+          "adidas-US-listprices", 
+          "Soccer"
+        ], 
+        "taxonomies": [
+          {
+            "taxonomy": "Brand", 
+            "taxons": [
+              [
+                "Performance"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "category", 
+            "taxons": [
+              [
+                "Shoes"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Color", 
+            "taxons": [
+              [
+                "Black"
+              ], 
+              [
+                "Running White"
+              ], 
+              [
+                "Running White Ftw"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "gender", 
+            "taxons": [
+              [
+                "MEN"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "pricebook", 
+            "taxons": [
+              [
+                "adidas-US-listprices"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "sport", 
+            "taxons": [
+              [
+                "Soccer"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Type", 
+            "taxons": [
+              [
+                "Training"
+              ], 
+              [
+                "Football"
+              ]
+            ]
+          }
+        ], 
+        "title": "Samba Classic Shoes"
+      }, 
+      "score": 0.05270462766947299
+    }, 
+    {
+      "product": {
+        "albums": [
+          {
+            "images": [
+              {
+                "alt": "adidas - Daybreaker Snap-Back Hat White BA2496", 
+                "baseurl": null, 
+                "src": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dw1920ff6d/zoom/BA2496_01_standard.jpg", 
+                "title": "adidas - Daybreaker Snap-Back Hat"
+              }, 
+              {
+                "alt": "adidas - Daybreaker Snap-Back Hat Light Grey BA2493", 
+                "baseurl": null, 
+                "src": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dw6abfd124/zoom/BA2493_01_standard.jpg", 
+                "title": "adidas - Daybreaker Snap-Back Hat"
+              }
+            ], 
+            "name": "default"
+          }
+        ], 
+        "context": "default", 
+        "currency": "USD", 
+        "description": "Whether you're training on the floor or kicking back on the sidelines, this men's hat adds a sporty finish to your look. It flashes a tonal adidas logo on front and has a quick-drying sweatband inside.", 
+        "id": 314, 
+        "productId": 62201, 
+        "retailPrice": "2600", 
+        "salePrice": "2600", 
+        "scope": "1", 
+        "skus": [
+          "BA2493_180", 
+          "BA2496_180"
+        ], 
+        "slug": "daybreaker-snap-back-hat", 
+        "tags": [
+          "Accessories", 
+          "Performance", 
+          "MEN", 
+          "Training", 
+          "BA2495X", 
+          "OFF", 
+          "Light Grey", 
+          "adidas-US-listprices", 
+          "Training"
+        ], 
+        "taxonomies": [
+          {
+            "taxonomy": "Brand", 
+            "taxons": [
+              [
+                "Performance"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "category", 
+            "taxons": [
+              [
+                "Accessories"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Color", 
+            "taxons": [
+              [
+                "White"
+              ], 
+              [
+                "Light Grey"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "gender", 
+            "taxons": [
+              [
+                "MEN"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "pricebook", 
+            "taxons": [
+              [
+                "adidas-US-listprices"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "sport", 
+            "taxons": [
+              [
+                "Training"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Type", 
+            "taxons": [
+              [
+                "Training"
+              ]
+            ]
+          }
+        ], 
+        "title": "Daybreaker Snap-Back Hat"
+      }, 
+      "score": 0.04714045207910317
+    }, 
+    {
+      "product": {
+        "albums": [
+          {
+            "images": [
+              {
+                "alt": "adidas - Harden Logo Tee Black BQ8485", 
+                "baseurl": null, 
+                "src": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dw38d3c193/zoom/BQ8485_21_model.jpg", 
+                "title": "adidas - Harden Logo Tee"
+              }, 
+              {
+                "alt": "adidas - Harden Logo Tee White BQ8484", 
+                "baseurl": null, 
+                "src": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dwf2ea4a1e/zoom/BQ8484_21_model.jpg", 
+                "title": "adidas - Harden Logo Tee"
+              }, 
+              {
+                "alt": "adidas - Harden Logo Tee Black  /  Scarlet BQ8492", 
+                "baseurl": null, 
+                "src": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dwe1e3b8a0/zoom/BQ8492_21_model.jpg", 
+                "title": "adidas - Harden Logo Tee"
+              }
+            ], 
+            "name": "default"
+          }
+        ], 
+        "context": "default", 
+        "currency": "USD", 
+        "description": "Celebrate the high-scoring wizardry of Houston's James Harden in this men's t-shirt. The cotton-blend tee features the Rockets guard's logo front and center with a glossy finish. A curved hem adds an extra touch of style.", 
+        "id": 105, 
+        "productId": 27047, 
+        "retailPrice": "4000", 
+        "salePrice": "4000", 
+        "scope": "1", 
+        "skus": [
+          "BQ8484_310", 
+          "BQ8484_330", 
+          "BQ8484_350", 
+          "BQ8484_370", 
+          "BQ8484_390", 
+          "BQ8485_330", 
+          "BQ8485_350", 
+          "BQ8485_370", 
+          "BQ8492_310", 
+          "BQ8492_330", 
+          "BQ8492_350", 
+          "BQ8492_370", 
+          "BQ8492_390"
+        ], 
+        "slug": "harden-logo-tee", 
+        "tags": [
+          "Apparel", 
+          "Performance", 
+          "MEN", 
+          "Basketball", 
+          "DUA11", 
+          "OFF", 
+          "White", 
+          "adidas-US-listprices", 
+          "Basketball"
+        ], 
+        "taxonomies": [
+          {
+            "taxonomy": "Brand", 
+            "taxons": [
+              [
+                "Performance"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "category", 
+            "taxons": [
+              [
+                "Apparel"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Color", 
+            "taxons": [
+              [
+                "Black"
+              ], 
+              [
+                "Scarlet"
+              ], 
+              [
+                "White"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "gender", 
+            "taxons": [
+              [
+                "MEN"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "pricebook", 
+            "taxons": [
+              [
+                "adidas-US-listprices"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "sport", 
+            "taxons": [
+              [
+                "Basketball"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Type", 
+            "taxons": [
+              [
+                "Training"
+              ], 
+              [
+                "Basketball"
+              ]
+            ]
+          }
+        ], 
+        "title": "Harden Logo Tee"
+      }, 
+      "score": 0.046676002800933654
+    }, 
+    {
+      "product": {
+        "albums": [
+          {
+            "images": [
+              {
+                "alt": "adidas - EQT Support 93/16 Shoes Core Black  /  Running White Ftw  /  Sub Green S79923", 
+                "baseurl": null, 
+                "src": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dw92e9b14d/zoom/S79923_01_standard.jpg", 
+                "title": "adidas - EQT Support 93/16 Shoes"
+              }
+            ], 
+            "name": "default"
+          }
+        ], 
+        "context": "default", 
+        "currency": "USD", 
+        "description": "Originally released in 1993, The Equipment Running Support shoes were the forward-looking design of their time. For these men's shoes, that original tech look is met with modern and innovative adidas technologies. Riding on a full-length boost\u2122 midsole for endless comfort and energy return, this 93/16 version is built in airy mesh with suede overlays. They feature the same archival colors that debuted on the track in the '90s.", 
+        "id": 365, 
+        "productId": 64662, 
+        "retailPrice": "17000", 
+        "salePrice": "17000", 
+        "scope": "1", 
+        "skus": [
+          "S79923_550", 
+          "S79923_570", 
+          "S79923_590", 
+          "S79923_600", 
+          "S79923_610", 
+          "S79923_620", 
+          "S79923_630", 
+          "S79923_640", 
+          "S79923_650", 
+          "S79923_660", 
+          "S79923_670", 
+          "S79923_690", 
+          "S79923_700", 
+          "S79923_710", 
+          "S79923_730"
+        ], 
+        "slug": "eqt-support-9316-shoes", 
+        "tags": [
+          "Shoes", 
+          "Originals", 
+          "MEN", 
+          "Style Gift Guide", 
+          "KEC41", 
+          "OFF", 
+          "Core Black  /  Running White Ftw  /  Sub Green", 
+          "adidas-US-listprices", 
+          "Lifestyle"
+        ], 
+        "taxonomies": [
+          {
+            "taxonomy": "Brand", 
+            "taxons": [
+              [
+                "Originals"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "category", 
+            "taxons": [
+              [
+                "Shoes"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Color", 
+            "taxons": [
+              [
+                "Sub Green"
+              ], 
+              [
+                "Running White Ftw"
+              ], 
+              [
+                "Core Black"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "gender", 
+            "taxons": [
+              [
+                "MEN"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "pricebook", 
+            "taxons": [
+              [
+                "adidas-US-listprices"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "sport", 
+            "taxons": [
+              [
+                "Lifestyle"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Type", 
+            "taxons": [
+              [
+                "Style Gift Guide"
+              ]
+            ]
+          }
+        ], 
+        "title": "EQT Support 93/16 Shoes"
+      }, 
+      "score": 0.044946657497549475
+    }, 
+    {
+      "product": {
+        "albums": [
+          {
+            "images": [
+              {
+                "alt": "adidas - All-Court Basketball Basketball X35859", 
+                "baseurl": null, 
+                "src": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dwf16697fc/zoom/X35859_01.jpg", 
+                "title": "adidas - All-Court Basketball"
+              }, 
+              {
+                "alt": "adidas - All-Court Basketball Basketball X35859", 
+                "baseurl": null, 
+                "src": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dwf16697fc/zoom/X35859_01.jpg", 
+                "title": "adidas - All-Court Basketball"
+              }
+            ], 
+            "name": "default"
+          }
+        ], 
+        "context": "default", 
+        "currency": "USD", 
+        "description": "Whether it's on the hardwood or the pavement, this ball has one thing on its mind: getting to the basket. The ball is stitched with a durable synthetic leather cover that makes it perfect for both indoor and outdoor courts.", 
+        "id": 349, 
+        "productId": 63286, 
+        "retailPrice": "2500", 
+        "salePrice": "2500", 
+        "scope": "1", 
+        "skus": [
+          "X35859_740"
+        ], 
+        "slug": "all-court-basketball", 
+        "tags": [
+          "Accessories", 
+          "Performance", 
+          "UNISEX", 
+          "Basketball", 
+          "RO067", 
+          "OFF", 
+          "Basketball", 
+          "adidas-US-listprices", 
+          "Basketball"
+        ], 
+        "taxonomies": [
+          {
+            "taxonomy": "Brand", 
+            "taxons": [
+              [
+                "Performance"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "category", 
+            "taxons": [
+              [
+                "Accessories"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Color", 
+            "taxons": [
+              [
+                "Basketball"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "gender", 
+            "taxons": [
+              [
+                "UNISEX"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "pricebook", 
+            "taxons": [
+              [
+                "adidas-US-listprices"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "sport", 
+            "taxons": [
+              [
+                "Basketball"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Type", 
+            "taxons": [
+              [
+                "Basketball"
+              ]
+            ]
+          }
+        ], 
+        "title": "All-Court Basketball"
+      }, 
+      "score": 0.043396303660274624
+    }, 
+    {
+      "product": {
+        "albums": [
+          {
+            "images": [
+              {
+                "alt": "adidas - ACE Tango 17.1 Indoor Shoes Running White Ftw  /  Black BA8536", 
+                "baseurl": null, 
+                "src": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dwec011a7c/zoom/BA8536_01_standard.jpg", 
+                "title": "adidas - ACE Tango 17.1 Indoor Shoes"
+              }, 
+              {
+                "alt": "adidas - ACE Tango 17.1 Indoor Shoes Core Black  /  Running White  /  Poppy BA8537", 
+                "baseurl": null, 
+                "src": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dw654e5e1f/zoom/BA8537_01_standard.jpg", 
+                "title": "adidas - ACE Tango 17.1 Indoor Shoes"
+              }
+            ], 
+            "name": "default"
+          }
+        ], 
+        "context": "default", 
+        "currency": "USD", 
+        "description": "Glide past opponents. Strike a curling free kick. Rabona from the edge of the box. No matter the play, you own it. The ACE Tango makes it all look easy. These soccer shoes have energy-returning boost\u2122 and a breathable mesh upper.", 
+        "id": 84, 
+        "productId": 23437, 
+        "retailPrice": "13000", 
+        "salePrice": "13000", 
+        "scope": "1", 
+        "skus": [
+          "BA8536_580", 
+          "BA8536_590", 
+          "BA8536_600", 
+          "BA8536_610", 
+          "BA8536_620", 
+          "BA8536_640", 
+          "BA8536_650", 
+          "BA8536_660", 
+          "BA8536_670", 
+          "BA8536_680", 
+          "BA8536_690", 
+          "BA8536_700", 
+          "BA8536_710", 
+          "BA8536_720", 
+          "BA8537_590", 
+          "BA8537_600", 
+          "BA8537_610", 
+          "BA8537_620", 
+          "BA8537_630", 
+          "BA8537_640", 
+          "BA8537_650", 
+          "BA8537_660", 
+          "BA8537_670", 
+          "BA8537_680", 
+          "BA8537_690", 
+          "BA8537_710", 
+          "BA8537_720"
+        ], 
+        "slug": "ace-tango-171-indoor-shoes", 
+        "tags": [
+          "Shoes", 
+          "Performance", 
+          "MEN", 
+          "Soccer", 
+          "KEJ09", 
+          "OFF", 
+          "Running White Ftw  /  Black", 
+          "adidas-US-listprices", 
+          "Soccer"
+        ], 
+        "taxonomies": [
+          {
+            "taxonomy": "Brand", 
+            "taxons": [
+              [
+                "Performance"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "category", 
+            "taxons": [
+              [
+                "Shoes"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Color", 
+            "taxons": [
+              [
+                "Core Black"
+              ], 
+              [
+                "Poppy"
+              ], 
+              [
+                "Running White"
+              ], 
+              [
+                "Black"
+              ], 
+              [
+                "Running White Ftw"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "gender", 
+            "taxons": [
+              [
+                "MEN"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "pricebook", 
+            "taxons": [
+              [
+                "adidas-US-listprices"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "sport", 
+            "taxons": [
+              [
+                "Soccer"
+              ]
+            ]
+          }, 
+          {
+            "taxonomy": "Type", 
+            "taxons": [
+              [
+                "Football"
+              ], 
+              [
+                "Soccer"
+              ]
+            ]
+          }
+        ], 
+        "title": "ACE Tango 17.1 Indoor Shoes"
+      }, 
+      "score": 0.04267895997763199
+    }
+  ], 
+  "source": "anthill-similar"
+}
