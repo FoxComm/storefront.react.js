@@ -4,6 +4,7 @@
 import React, { Component, Element } from 'react';
 import _ from 'lodash';
 import moment from 'moment';
+import { autobind } from 'core-decorators';
 
 // components
 import WaitAnimation from 'components/core/wait-animation/wait-animation';
@@ -36,7 +37,7 @@ type Props = {
   title: string,
   emptyContentTitle: string,
   paginationSize: number,
-  onLoadMoreReviews: Function,
+  onLoadMoreReviews: (from: number) => Promise<mixed>,
   showLoadMore: ?boolean,
 };
 
@@ -82,10 +83,6 @@ const ReviewBody = (props: ReviewBodyProps): Element<any> => {
     </div>
   );
 };
-
-function incrementPage(nextPage) {
-  return { page: nextPage };
-}
 
 class ProductReviewsList extends Component {
 
@@ -150,12 +147,13 @@ class ProductReviewsList extends Component {
     );
   }
 
-  handleLoadMoreReviews = () => {
+  @autobind
+  handleLoadMoreReviews() {
     const { onLoadMoreReviews, paginationSize } = this.props;
     const { page } = this.state;
 
     const nextPage = page + 1;
-    this.setState(incrementPage(nextPage));
+    this.setState({page: nextPage});
     onLoadMoreReviews(paginationSize * nextPage);
   }
 
