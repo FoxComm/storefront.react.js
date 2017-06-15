@@ -7,8 +7,11 @@ import React from 'react';
 import styles from './summary-line-item.css';
 
 // components
-import Currency from 'ui/currency';
+import Currency from 'components/core/currency';
 import ProductImage from 'components/image/image';
+
+// types
+import type { LineItem } from '@foxcomm/api-js/types/api/cord/line-items';
 
 type Props = {
   imagePath: string,

@@ -11,13 +11,16 @@ import LineItemRow from './summary-line-item';
 // styles
 import styles from './product-table.css';
 
+// types
+import type { LineItem } from '@foxcomm/api-js/types/api/cord/line-items';
+
 type Props = {
-  skus: Array<any>,
+  skus: Array<LineItem>,
   confirmationPage?: boolean,
 };
 
 const Products = (props: Props) => {
-  const rows = _.map(props.skus, (item) => {
+  const rows = _.map(props.skus, (item: LineItem) => {
     return (
       <LineItemRow
         {...item}

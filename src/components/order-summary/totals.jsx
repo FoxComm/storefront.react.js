@@ -4,9 +4,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 
-// localization
-import localized from 'lib/i18n';
-
 // components
 import TermValueLine from 'components/core/term-value-line';
 import Currency from 'components/core/currency';
@@ -14,40 +11,60 @@ import Currency from 'components/core/currency';
 // styles
 import styles from './order-summary.css';
 
-type Totals = {
-  subTotal: number,
-  total: number,
-  shipping: number,
-  taxes: number,
-  customersExpenses: number,
-};
+// types
+
+import type { OrderTotals as TOrderTotals, CartTotals as TCartTotals } from '@foxcomm/api-js/types/api/cord/totals';
+import type { CordPayment, GiftCardPayment } from '@foxcomm/api-js/types/api/cord/payments';
+
+type CordTotals = TOrderTotals & {
+  // right now we don't have customersExpenses in OrderTotals, but in future there is
+  // will be customersExpenses field in OrderTotals type
+  customersExpenses?: number,
+}
 
 type Props = {
-  totals: Totals,
-  paymentMethods?: Object,
-  t: any,
-  header?: any,
+  totals: CordTotals,
+  paymentMethods?: Array<CordPayment>,
+  t: (s: string) => string,
   className?: string,
   totalTitle?: string,
   orderPlaced?: ?boolean,
 };
 
+function calcGiftCardPayments(paymentMethods: ?Array<CordPayment>) {
+  return _.reduce(paymentMethods, (acc: number, cordPayment: CordPayment) => {
+    if (cordPayment.type == 'giftCard') {
+      return acc + (cordPayment: GiftCardPayment).amount;
+    }
+    return acc;
+  }, 0);
+}
+
+export function calcGrandTotal(totals: CordTotals, paymentMethods: ?Array<CordPayment>) {
+  if ('customersExpenses' in totals) {
+    return Math.max((totals: TCartTotals).customersExpenses, 0);
+  } else {
+    // @TODO: get rid of this block
+    // after backend guys will add `customersExpenses` to OrderTotals
+    // right now customersExpenses exists only in CartTotals
+    return Math.max(0, totals.total - calcGiftCardPayments(paymentMethods));
+  }
+}
+
 class OrderTotals extends Component {
   props: Props;
 
   static defaultProps = {
-    paymentMethods: {},
+    t: _.identity,
+    paymentMethods: [],
     totalTitle: 'Grand Total',
   };
 
-  get giftCards() {
-    return _.filter(this.props.paymentMethods, {type: 'giftCard'});
-  }
-
   renderGiftCard(amount) {
-    const { t } = this.props;
+    const { t, totals } = this.props;
+    const authAmount = Math.min(totals.total, amount);
 
-    if (!amount) {
+    if (!authAmount) {
       return null;
     }
 
@@ -55,20 +72,25 @@ class OrderTotals extends Component {
       <li>
         <TermValueLine className={styles.value}>
           <span>{t('Gift Card')}</span>
-          <Currency prefix="–" value={amount} />
+          <Currency value={-authAmount} />
         </TermValueLine>
       </li>
     );
   }
 
   renderCoupon(amount) {
-    const { t } = this.props;
+    const { t, totals } = this.props;
+    const authAmount = Math.min(totals.total, amount);
+
+    if (!authAmount) {
+      return null;
+    }
 
     return (
       <li>
         <TermValueLine className={styles.value}>
           <span>{t('Coupon Code')}</span>
-          <Currency prefix="–" value={amount} />
+          <Currency value={-authAmount} />
         </TermValueLine>
       </li>
     );
@@ -76,19 +98,12 @@ class OrderTotals extends Component {
 
   render() {
     const props = this.props;
-    const { t } = props;
-    const giftCardAmount = _.reduce(this.giftCards, (a, card) => {
-      return a + card.amount;
-    }, 0);
-
-    const couponAmount = _.get(props, 'totals.adjustments');
-    const couponPresent = _.isNumber(couponAmount) && couponAmount > 0;
-    const couponBlock = couponPresent ? this.renderCoupon(couponAmount) : null;
-
-    const grandTotal = Math.max(props.totals.customersExpenses, 0);
+    const { t, totals } = props;
+    const giftCardAmount = calcGiftCardPayments(props.paymentMethods);
+    const grandTotal = calcGrandTotal(totals, props.paymentMethods);
 
     return (
-      <div>
+      <div className={props.className}>
         <ul styleName="price-summary">
           <li>
             <TermValueLine className={styles.value}>
@@ -109,7 +124,7 @@ class OrderTotals extends Component {
             </TermValueLine>
           </li>
           {this.renderGiftCard(giftCardAmount)}
-          {couponBlock}
+          {this.renderCoupon(totals.adjustments)}
         </ul>
         <TermValueLine className={`${styles['grand-total']} ${styles.value}`}>
           <span>{this.props.totalTitle}</span>
@@ -120,4 +135,4 @@ class OrderTotals extends Component {
   }
 }
 
-export default localized(OrderTotals);
+export default OrderTotals;

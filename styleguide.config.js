@@ -22,6 +22,7 @@ module.exports = {
     sampleRelatedProducts: path.resolve(__dirname, 'fixtures/sample-related-products.json'),
     sampleProductReviews: path.resolve(__dirname, 'fixtures/sample-product-reviews.json'),
     sampleProductReviewsPending: path.resolve(__dirname, 'fixtures/sample-product-reviews-pending.json'),
+    sampleOrder: path.resolve(__dirname, 'fixtures/order-placed.json'),
   },
   sections: [
     {
@@ -49,6 +50,13 @@ module.exports = {
             path.resolve(__dirname, 'src/components/pdp/pdp.jsx'),
             path.resolve(__dirname, 'src/components/related-products-list/related-products-list.jsx'),
             path.resolve(__dirname, 'src/components/product-reviews-list/product-reviews-list.jsx'),
+          ]),
+        },
+        {
+          name: 'Order Summary',
+          components: () => ([
+            path.resolve(__dirname, 'src/components/order-summary/totals.jsx'),
+            path.resolve(__dirname, 'src/components/order-summary/order-summary.jsx'),
           ]),
         },
       ],
