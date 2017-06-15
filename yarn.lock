@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@foxcomm/api-js@^1.2.0":
-  version "1.2.0"
-  resolved "https://npm.foxcommerce.com:4873/@foxcomm%2fapi-js/-/api-js-1.2.0.tgz#f9141d22ac772c494018390350a8c59d94af0f59"
+"@foxcomm/api-js@^1.2.4":
+  version "1.2.4"
+  resolved "https://npm.foxcommerce.com:4873/@foxcomm%2fapi-js/-/api-js-1.2.4.tgz#c16ed546d0dd8c4657a412678d574302cde76d78"
   dependencies:
     debug "^2.2.0"
     jwt-decode "^2.0.1"
@@ -5438,7 +5438,7 @@ react-docgen@^2.15.0:
     node-dir "^0.1.10"
     recast "^0.11.5"
 
-react-dom@^15.2.0, react-dom@^15.5.4:
+react-dom@^15.2.0:
   version "15.5.4"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.5.4.tgz#ba0c28786fd52ed7e4f2135fe0288d462aef93da"
   dependencies:
@@ -5559,7 +5559,7 @@ react-text-mask@^5.0.2:
   dependencies:
     prop-types "^15.5.6"
 
-react@^15.2.0, react@^15.5.4:
+react@^15.2.0:
   version "15.5.4"
   resolved "https://registry.yarnpkg.com/react/-/react-15.5.4.tgz#fa83eb01506ab237cdc1c8c3b1cea8de012bf047"
   dependencies:

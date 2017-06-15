@@ -23,6 +23,10 @@ function intlFormatCurrency(amount, opts) {
     modifiedOpts.maximumFractionDigits = 2;
   }
   const formatter = global.Intl.NumberFormat('en-US', modifiedOpts); // eslint-disable-line new-cap
+  if (newAmount < 0) {
+    // we want our own minus sign
+    return `–${formatter.format(-newAmount)}`;
+  }
   return formatter.format(newAmount);
 }
 
