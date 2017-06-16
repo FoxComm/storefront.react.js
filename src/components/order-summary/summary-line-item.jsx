@@ -1,53 +1,55 @@
 /* @flow */
 
 // libs
-import React from 'react';
+import React, { Element } from 'react';
+import classnames from 'classnames';
 
 // styles
 import styles from './summary-line-item.css';
 
 // components
 import Currency from 'components/core/currency';
-import ProductImage from 'components/image/image';
 
 // types
 import type { LineItem } from '@foxcomm/api-js/types/api/cord/line-items';
 
 type Props = {
-  imagePath: string,
-  name: string,
-  quantity: number,
-  price: number,
-  totalPrice: number,
-  confirmationPage?: boolean,
+  lineItem: LineItem,
+  renderImage?: (lineItem: LineItem) => Element,
+  compact?: boolean,
+  className?: string,
 };
 
-const LineItemRow = (props: Props) => {
-  const determineStyle = (styleName) => {
-    if (props.confirmationPage) return `${styleName}-confirmation-page`;
+function defaultRenderImage(lineItem: LineItem): Element {
+  return <img src={lineItem.imagePath} width="50" height="50" />;
+}
 
-    return styleName;
-  };
+const LineItemRow = (props: Props) => {
+  const { lineItem, renderImage = defaultRenderImage } = props;
+
+  const className = classnames(styles['line-item'], props.className, {
+    [styles['-tableView']]: !props.compact,
+  });
 
   return (
-    <div styleName="line-item">
+    <div className={className}>
       <div styleName="content">
         <div styleName="product-image">
-          <ProductImage src={props.imagePath} width={50} height={50} />
+          {renderImage(lineItem)}
         </div>
-        <div styleName={determineStyle('product-data')}>
-          <div styleName={determineStyle('product-info')}>
-            <div styleName="product-name">{props.name}</div>
+        <div styleName="product-data">
+          <div styleName="product-info">
+            <div styleName="product-name">{lineItem.name}</div>
             <div styleName="product-variant">{/* TODO: variant info must be here */}</div>
           </div>
-          <div styleName={determineStyle('price-data')}>
+          <div styleName="price-data">
             <div styleName="price-and-quantity">
-              <div styleName="qnt-block">{props.quantity}</div>
-              <div>×</div>
-              <div styleName="price-block"><Currency value={props.price} /></div>
+              <span styleName="qnt-block">{lineItem.quantity}</span>
+              <span>×</span>
+              <span styleName="price-block"><Currency value={lineItem.price} /></span>
             </div>
-            <div styleName={determineStyle('product-price')}>
-              <Currency value={props.totalPrice} />
+            <div styleName="product-price">
+              <Currency value={lineItem.totalPrice} />
             </div>
           </div>
         </div>

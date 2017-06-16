@@ -27,13 +27,12 @@ type ConversionParams = {
 type Props = {
   order: Order,
   conversionParams?: ConversionParams,
-  t: (s: string) => string,
+  t?: (s: string) => string,
   header?: mixed,
-  isScrolled?: boolean,
-  isCollapsed?: boolean,
+  initiallyCollapsed?: boolean,
   className?: string,
   embedded?: boolean,
-  orderPlaced?: ?boolean,
+  confirmationPage?: boolean,
 };
 
 type State = {
@@ -45,13 +44,12 @@ class OrderSummary extends Component {
 
   static defaultProps = {
     t: _.identity,
-    isCollapsed: true,
-    isScrolled: false,
+    initiallyCollapsed: false,
     embedded: false,
   };
 
   state: State = {
-    isCollapsed: this.props.isCollapsed,
+    isCollapsed: this.props.initiallyCollapsed,
   };
 
   @autobind
@@ -63,7 +61,7 @@ class OrderSummary extends Component {
 
   getOrderPlacedTrackingCode(grandTotal) {
     const { conversionParams } = this.props;
-    if (!conversionParams || grandTotal <= 0 || !this.props.orderPlaced) {
+    if (!conversionParams || grandTotal <= 0) {
       return null;
     }
 
@@ -83,7 +81,6 @@ class OrderSummary extends Component {
 
     const style = classNames({
       [styles.collapsed]: this.state.isCollapsed,
-      [styles.scrolled]: this.props.isScrolled,
       [styles.embedded]: this.props.embedded,
     }, props.className);
 
@@ -100,7 +97,7 @@ class OrderSummary extends Component {
         { this.props.header !== void 0 ? this.props.header : header }
 
         <div styleName="content">
-          <ProductTable skus={props.order.lineItems.skus} />
+          <ProductTable skus={props.order.lineItems.skus} compact={props.confirmationPage} />
           <Totals totals={order.totals} paymentMethods={order.paymentMethods} />
         </div>
       </section>

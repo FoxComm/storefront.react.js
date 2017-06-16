@@ -1,6 +1,5 @@
 /* @flow */
 
-// libs
 import _ from 'lodash';
 import React from 'react';
 import { skuIdentity } from '@foxcomm/wings/lib/paragons/sku';
@@ -16,16 +15,16 @@ import type { LineItem } from '@foxcomm/api-js/types/api/cord/line-items';
 
 type Props = {
   skus: Array<LineItem>,
-  confirmationPage?: boolean,
+  compact?: boolean,
 };
 
 const Products = (props: Props) => {
   const rows = _.map(props.skus, (item: LineItem) => {
     return (
       <LineItemRow
-        {...item}
+        lineItem={item}
         key={skuIdentity(item)}
-        confirmationPage={props.confirmationPage}
+        compact={props.compact}
       />
     );
   });

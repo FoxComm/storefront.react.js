@@ -83,19 +83,6 @@
         display: none;
       }
     }
-
-    &.scrolled {
-      top: 60px;
-      max-height: calc(100% - 60px);
-    }
-  }
-}
-
-@media (--medium-only) {
-  .header,
-  .content {
-    lost-column: 10/12;
-    lost-offset: -1/12;
   }
 }
 
@@ -106,10 +93,6 @@
 }
 
 @media (--large) {
-  .checkout {
-    display: flex;
-  }
-
   .header {
     justify-content: center;
     text-align: center;

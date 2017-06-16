@@ -4,14 +4,14 @@
 <OrderSummary order={sampleOrder} />
 ```
 
-### Embedded
+#### Embedded
 
 ```
 <OrderSummary order={sampleOrder} embedded />
 ```
 
-### OrderPlaced
+### ConfirmationPage
 
 ```
-<OrderSummary order={sampleOrder} orderPlaced />
+<OrderSummary order={sampleOrder} confirmationPage embedded />
 ```
