@@ -8,12 +8,12 @@ function generateScopedName(exportedName, filepath) {
     .replace('src/components', '')
     .replace('src/css', '')
     .replace(/\.[^\.\/\\]+$/, '')
-    .replace(/^[\.\/\\]+/, '')
-    .replace(/\//g, '⁄');
+    .replace(/^[\.\/\\]+/, '');
 
+  const finalPath = path.basename(sanitisedPath).replace(/\//g, '⁄');
   const sanitisedName = exportedName.replace(/^_+|_+$/g, '');
 
-  return `fc_${sanitisedPath}__${sanitisedName}`;
+  return `fc_${finalPath}__${sanitisedName}`;
 }
 
 const plugins = [
