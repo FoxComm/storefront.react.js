@@ -13,7 +13,7 @@ type State = {
 
 export default class FilterGroup extends Component {
   props: FilterGroupProps;
-  state: State = { expanded: false };
+  state: State = { expanded: this.props.initiallyExpanded };
 
   selectedCount = () => {
     const { values = [] } = this.props;
