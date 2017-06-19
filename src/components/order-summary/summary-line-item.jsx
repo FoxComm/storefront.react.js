@@ -15,12 +15,12 @@ import type { LineItem } from '@foxcomm/api-js/types/api/cord/line-items';
 
 type Props = {
   lineItem: LineItem,
-  renderImage?: (lineItem: LineItem) => Element,
+  renderImage?: (lineItem: LineItem) => Element<*>,
   compact?: boolean,
   className?: string,
 };
 
-function defaultRenderImage(lineItem: LineItem): Element {
+function defaultRenderImage(lineItem: LineItem): Element<*> {
   return <img src={lineItem.imagePath} width="50" height="50" />;
 }
 
@@ -38,7 +38,7 @@ const LineItemRow = (props: Props) => {
           {renderImage(lineItem)}
         </div>
         <div styleName="product-data">
-          <div styleName="product-info">
+          <div styleName="pxroduct-info">
             <div styleName="product-name">{lineItem.name}</div>
             <div styleName="product-variant">{/* TODO: variant info must be here */}</div>
           </div>

@@ -60,7 +60,7 @@ class OrderTotals extends Component {
     totalTitle: 'Grand Total',
   };
 
-  renderGiftCard(amount) {
+  renderGiftCard(amount: number) {
     const { t, totals } = this.props;
     const authAmount = Math.min(totals.total, amount);
 
@@ -78,7 +78,7 @@ class OrderTotals extends Component {
     );
   }
 
-  renderCoupon(amount) {
+  renderCoupon(amount: number) {
     const { t, totals } = this.props;
     const authAmount = Math.min(totals.total, amount);
 

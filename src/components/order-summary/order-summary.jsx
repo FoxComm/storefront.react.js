@@ -27,7 +27,7 @@ type ConversionParams = {
 type Props = {
   order: Order,
   conversionParams?: ConversionParams,
-  t?: (s: string) => string,
+  t: (s: string) => string,
   header?: mixed,
   initiallyCollapsed?: boolean,
   className?: string,
@@ -49,7 +49,7 @@ class OrderSummary extends Component {
   };
 
   state: State = {
-    isCollapsed: this.props.initiallyCollapsed,
+    isCollapsed: !!this.props.initiallyCollapsed,
   };
 
   @autobind
@@ -59,7 +59,7 @@ class OrderSummary extends Component {
     });
   }
 
-  getOrderPlacedTrackingCode(grandTotal) {
+  getOrderPlacedTrackingCode(grandTotal: number) {
     const { conversionParams } = this.props;
     if (!conversionParams || grandTotal <= 0) {
       return null;

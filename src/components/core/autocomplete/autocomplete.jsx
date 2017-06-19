@@ -281,7 +281,7 @@ class Autocomplete extends Component {
 
     if (this.props.sortItems) {
       items.sort((a, b) => (
-        this.sortItems(a, b, this.state.value)
+        this.sortItems(a, b)
       ));
     }
 

@@ -45,7 +45,11 @@ function getSkuCodesForVariantValue(product: Product, valueId: number, variantTy
 
 /* eslint-disable quote-props */
 
-function sortSizes(sizes: { label: string }): Array<string> {
+type Size = {
+  label: string,
+};
+
+function sortSizes(sizes: Array<Size>): Array<Size> {
   const labelMap = {
     XS: '01_XS',
     S: '02_S',
