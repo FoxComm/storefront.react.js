@@ -13,7 +13,7 @@ type State = {
 
 export default class FilterGroup extends Component {
   props: FilterGroupProps;
-  state: State = { expanded: false };
+  state: State = { expanded: this.props.initiallyExpanded };
 
   selectedCount = () => {
     const { values = [] } = this.props;
@@ -23,10 +23,6 @@ export default class FilterGroup extends Component {
     }, 0);
   };
 
-  getExpandedState = () => {
-    return this.props.initialyExpanded ? !this.state.expanded : this.state.expanded;
-  }
-
   toggleExpansion = () => this.setState({ expanded: !this.state.expanded });
 
   render() {
@@ -35,7 +31,7 @@ export default class FilterGroup extends Component {
       onClearFacet = () => {},
       onSelectFacet = () => {},
     } = this.props;
-    const expanded = this.getExpandedState();
+    const { expanded } = this.state;
 
     const updatedChildren = React.Children.map(children, (child) => {
       return React.cloneElement(child, { onSelectFacet, term, values });
