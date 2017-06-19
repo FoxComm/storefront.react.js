@@ -12,7 +12,7 @@ type State = {
 };
 
 type DefaultProps = {
-  renderCount: Function,
+  renderCount: (count: number) => string,
 };
 
 export default class FilterGroup extends Component {
