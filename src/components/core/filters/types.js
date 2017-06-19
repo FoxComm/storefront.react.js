@@ -26,4 +26,5 @@ export type FilterGroupProps = {
   values?: Array<FilterValue>,
   onClearFacet?: Function,
   onSelectFacet?: Function,
+  initialyExpanded?: boolean,
 };
