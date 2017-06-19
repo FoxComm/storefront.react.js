@@ -16,7 +16,7 @@ export type FilterTypeProps = {
   onSelectFacet?: Function,
   term?: string,
   values?: Array<FilterValue>,
-  omitParenthesesOnCounts?: boolean,
+  renderCount: Function,
 };
 
 
@@ -28,5 +28,5 @@ export type FilterGroupProps = {
   onClearFacet?: Function,
   onSelectFacet?: Function,
   initiallyExpanded?: boolean,
-  omitParenthesesOnCounts?: boolean,
+  renderCount?: Function,
 };

@@ -9,13 +9,13 @@ type Props = {
   expanded: boolean,
   onClear: Function,
   onClick: Function,
-  omitParenthesesOnCounts?: boolean,
+  renderCount: Function,
 };
 
 const FilterHeader = (props: Props): Element<*> => {
-  const { children, count, expanded, onClear, onClick, omitParenthesesOnCounts } = props;
+
+  const { children, count, expanded, onClear, onClick, renderCount } = props;
   const iconStyle = expanded ? 'icon-minus' : 'icon-plus';
-  const countText = omitParenthesesOnCounts ? count : `(${count})`;
 
   return (
     <div styleName="header">
@@ -28,7 +28,7 @@ const FilterHeader = (props: Props): Element<*> => {
           >
             {children}
             {count > 0 && (
-              <span styleName="count">&nbsp;{countText}</span>
+              <span styleName="count">&nbsp;{renderCount(count)}</span>
             )}
           </a>
         </span>
