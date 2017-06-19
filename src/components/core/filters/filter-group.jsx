@@ -24,13 +24,13 @@ export default class FilterGroup extends Component {
   };
 
   getExpandedState = () => {
-    return this.props.initialyExpanded ? !this.state.expanded : this.state.expanded;
+    return this.props.initiallyExpanded ? !this.state.expanded : this.state.expanded;
   }
 
   toggleExpansion = () => this.setState({ expanded: !this.state.expanded });
 
   render() {
-    const { children, label, term, values } = this.props;
+    const { children, label, term, values, omitParenthesesOnCounts } = this.props;
     const {
       onClearFacet = () => {},
       onSelectFacet = () => {},
@@ -38,12 +38,13 @@ export default class FilterGroup extends Component {
     const expanded = this.getExpandedState();
 
     const updatedChildren = React.Children.map(children, (child) => {
-      return React.cloneElement(child, { onSelectFacet, term, values });
+      return React.cloneElement(child, { onSelectFacet, term, values, omitParenthesesOnCounts });
     });
 
     return (
       <div styleName="group">
         <FilterHeader
+          omitParenthesesOnCounts={omitParenthesesOnCounts}
           count={this.selectedCount()}
           expanded={expanded}
           onClear={onClearFacet}

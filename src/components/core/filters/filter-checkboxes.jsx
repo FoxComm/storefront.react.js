@@ -9,11 +9,13 @@ const FilterCheckboxes = (props: FilterTypeProps): Element<*> => {
   const {
     onSelectFacet = (a, b, c) => {},
     values = [],
+    omitParenthesesOnCounts,
   } = props;
 
   const controls = values.map((facetValue) => {
     const { count, label, selected, value } = facetValue;
     const onSelect = () => onSelectFacet(term, value, !selected);
+    const countText = omitParenthesesOnCounts ? count : `(${count})`;
 
     return (
       <div styleName="filter-value" key={label}>
@@ -28,7 +30,7 @@ const FilterCheckboxes = (props: FilterTypeProps): Element<*> => {
           />
           <div styleName="filter-label">
             {label}
-            <span styleName="count">&nbsp;({count})</span>
+            <span styleName="count">&nbsp;{countText}</span>
           </div>
         </label>
       </div>
