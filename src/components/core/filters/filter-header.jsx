@@ -9,7 +9,7 @@ type Props = {
   expanded: boolean,
   onClear: Function,
   onClick: Function,
-  renderCount: Function,
+  renderCount: (count: number) => string,
 };
 
 const FilterHeader = (props: Props): Element<*> => {
