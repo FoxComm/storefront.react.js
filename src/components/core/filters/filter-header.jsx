@@ -9,10 +9,12 @@ type Props = {
   expanded: boolean,
   onClear: Function,
   onClick: Function,
+  renderCount: (count: number) => string,
 };
 
 const FilterHeader = (props: Props): Element<*> => {
-  const { children, count, expanded, onClear, onClick } = props;
+
+  const { children, count, expanded, onClear, onClick, renderCount } = props;
   const iconStyle = expanded ? 'icon-minus' : 'icon-plus';
 
   return (
@@ -26,7 +28,7 @@ const FilterHeader = (props: Props): Element<*> => {
           >
             {children}
             {count > 0 && (
-              <span styleName="count">&nbsp;({count})</span>
+              <span styleName="count">&nbsp;{renderCount(count)}</span>
             )}
           </a>
         </span>

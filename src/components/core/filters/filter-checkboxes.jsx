@@ -5,10 +5,12 @@ import type { FilterValue, FilterTypeProps } from './types';
 import styles from './filter-checkboxes.css';
 
 const FilterCheckboxes = (props: FilterTypeProps): Element<*> => {
+
   const term = (props.term || '').toUpperCase();
   const {
     onSelectFacet = (a, b, c) => {},
     values = [],
+    renderCount,
   } = props;
 
   const controls = values.map((facetValue) => {
@@ -28,7 +30,7 @@ const FilterCheckboxes = (props: FilterTypeProps): Element<*> => {
           />
           <div styleName="filter-label">
             {label}
-            <span styleName="count">&nbsp;({count})</span>
+            <span styleName="count">&nbsp;{renderCount(count)}</span>
           </div>
         </label>
       </div>
