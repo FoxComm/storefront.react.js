@@ -39,7 +39,7 @@ export default class Filters extends Component {
           }),
         ];
       }
-      
+
       return acc;
     }, []);
   };

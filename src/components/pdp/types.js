@@ -1,4 +1,3 @@
-
 import type { Sku } from '@foxcomm/api-js/types/api/sku';
 
 export type TProductView = {
@@ -6,6 +5,6 @@ export type TProductView = {
   description: string,
   images: Array<string>,
   currency: string,
-  price: number|string,
+  price: number | string,
   skus: Array<Sku>,
 };

@@ -4,7 +4,7 @@ import React, { Element } from 'react';
 import styles from './filter-header.css';
 
 type Props = {
-  children?: Element<*>|Array<Element<*>>,
+  children?: Element<*> | Array<Element<*>>,
   count: number,
   expanded: boolean,
   onClear: Function,
@@ -13,7 +13,6 @@ type Props = {
 };
 
 const FilterHeader = (props: Props): Element<*> => {
-
   const { children, count, expanded, onClear, onClick, renderCount } = props;
   const iconStyle = expanded ? 'icon-minus' : 'icon-plus';
 
@@ -22,24 +21,15 @@ const FilterHeader = (props: Props): Element<*> => {
       <div styleName={iconStyle} />
       <div styleName="title-block">
         <span>
-          <a
-            styleName="title"
-            onClick={onClick}
-          >
+          <a styleName="title" onClick={onClick}>
             {children}
-            {count > 0 && (
-              <span styleName="count">&nbsp;{renderCount(count)}</span>
-            )}
+            {count > 0 && <span styleName="count">&nbsp;{renderCount(count)}</span>}
           </a>
         </span>
-        {count > 0 && (
+        {count > 0 &&
           <span>
-            <a
-              styleName="clear"
-              onClick={onClear}
-            >Clear</a>
-          </span>
-        )}
+            <a styleName="clear" onClick={onClear}>Clear</a>
+          </span>}
       </div>
     </div>
   );

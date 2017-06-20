@@ -23,9 +23,9 @@ type Props = {
 };
 
 type State = {
-  shownProducts: {[productId: string]: number},
+  shownProducts: { [productId: string]: number },
   startingId: number,
-}
+};
 
 class RelatedProductsList extends Component {
   props: Props;
@@ -47,19 +47,13 @@ class RelatedProductsList extends Component {
     let sortedProductsList: Array<Product> = list;
 
     if (productsOrder) {
-      sortedProductsList = _.map(productsOrder, productId => _.find(list, {productId}));
+      sortedProductsList = _.map(productsOrder, productId => _.find(list, { productId }));
     }
     const { startingId } = this.state;
     const toDisplay = sortedProductsList.slice(startingId, startingId + limit);
-    
+
     return _.map(toDisplay, (item, index) => {
-      return (
-        <ListItem
-          {...item}
-          index={index}
-          key={`product-${_.get(item, 'id', index)}`}
-        />
-      );
+      return <ListItem {...item} index={index} key={`product-${_.get(item, 'id', index)}`} />;
     });
   }
 

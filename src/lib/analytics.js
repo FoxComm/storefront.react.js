@@ -1,4 +1,3 @@
-
 import _ from 'lodash';
 import { isGiftCard } from 'paragons/sku';
 
@@ -92,7 +91,7 @@ export function clickPdp(product, position, list = 'Product List') {
   addProduct(product, {
     position,
   });
-  ga('ec:setAction', 'click', {list});
+  ga('ec:setAction', 'click', { list });
   ga('send', 'event', 'UX', 'click', list);
 }
 
@@ -109,7 +108,6 @@ export function checkoutStart(lineItems) {
   });
   ga('send', 'event', 'Checkout', 'Start');
 }
-
 
 export function chooseShippingMethod(method) {
   ga('ec:setAction', 'checkout_option', {
@@ -133,7 +131,7 @@ function moneyToString(value) {
 
 export function purchase(cart) {
   addLineItems(cart.lineItems);
-  const giftCardAmount = _.get(_.find(cart.paymentMethods, {type: 'giftCard'}), 'amount', 0);
+  const giftCardAmount = _.get(_.find(cart.paymentMethods, { type: 'giftCard' }), 'amount', 0);
   const grandTotal = cart.totals.total - giftCardAmount;
   const appliedCoupon = _.get(cart, 'coupon.coupon.attributes.name.v');
 

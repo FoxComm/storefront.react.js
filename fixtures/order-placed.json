@@ -1,0 +1,162 @@
+{
+  "referenceNumber": "BR14238",
+  "paymentState": "cart",
+  "lineItems": {
+    "skus": [
+      {
+        "imagePath": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dw1979e76a/zoom/BK6828_21_model.jpg",
+        "referenceNumbers": [
+          "b1979761-5359-2b3e-2293-93d725e03776"
+        ],
+        "name": "3-Stripes Track Jacket",
+        "sku": "BK6828_330",
+        "price": 5000,
+        "quantity": 1,
+        "totalPrice": 5000,
+        "productFormId": 71069,
+        "trackInventory": true,
+        "state": "pending",
+        "attributes": {}
+      },
+      {
+        "imagePath": "http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dw1979e76a/zoom/BK6828_21_model.jpg",
+        "referenceNumbers": [
+          "b1979761-5359-2b3e-2293-93d725e03777"
+        ],
+        "name": "2-Stripes Track Jacket",
+        "sku": "BK6828_331",
+        "price": 5000,
+        "quantity": 1,
+        "totalPrice": 5000,
+        "productFormId": 71069,
+        "trackInventory": true,
+        "state": "pending",
+        "attributes": {}
+      }
+    ]
+  },
+  "lineItemAdjustments": [],
+  "totals": {
+    "subTotal": 10000,
+    "taxes": 0,
+    "shipping": 1500,
+    "adjustments": 0,
+    "total": 11500
+  },
+  "customer": {
+    "id": 2087,
+    "email": "version.ru+p1@gmail.com",
+    "name": "A R",
+    "createdAt": "2017-06-13T18:36:51.898Z",
+    "disabled": false,
+    "isGuest": false,
+    "isBlacklisted": false,
+    "totalSales": 0,
+    "storeCreditTotals": {
+      "availableBalance": 0,
+      "currentBalance": 0
+    },
+    "groups": []
+  },
+  "shippingMethod": {
+    "id": 3,
+    "name": "2-3 day express (FedEx)",
+    "code": "EXPRESS",
+    "price": 1500,
+    "isEnabled": true
+  },
+  "shippingAddress": {
+    "id": 3565,
+    "region": {
+      "id": 4161,
+      "countryId": 234,
+      "name": "New York"
+    },
+    "name": "AR",
+    "address1": "1st aben",
+    "address2": "",
+    "city": "Schenectady",
+    "zip": "12345",
+    "isDefault": false,
+    "phoneNumber": "2342342134"
+  },
+  "billingAddress": {
+    "id": 0,
+    "region": {
+      "id": 4161,
+      "countryId": 234,
+      "name": "New York"
+    },
+    "name": "AR",
+    "address1": "1st aben",
+    "address2": "",
+    "city": "Schenectady",
+    "zip": "12345",
+    "phoneNumber": "2342342134"
+  },
+  "billingCreditCardInfo": {
+    "id": 3504,
+    "customerId": 2087,
+    "holderName": "def",
+    "lastFour": "4242",
+    "expMonth": 1,
+    "expYear": 2018,
+    "brand": "Visa",
+    "address": {
+      "id": 0,
+      "region": {
+        "id": 4161,
+        "countryId": 234,
+        "name": "New York"
+      },
+      "name": "AR",
+      "address1": "1st aben",
+      "address2": "",
+      "city": "Schenectady",
+      "zip": "12345",
+      "phoneNumber": "2342342134"
+    },
+    "type": "creditCard",
+    "createdAt": "2017-06-13T18:38:25.180Z"
+  },
+  "paymentMethods": [
+    {
+      "id": 3504,
+      "customerId": 2087,
+      "holderName": "def",
+      "lastFour": "4242",
+      "expMonth": 1,
+      "expYear": 2018,
+      "brand": "Visa",
+      "address": {
+        "id": 0,
+        "region": {
+          "id": 4161,
+          "countryId": 234,
+          "name": "New York"
+        },
+        "name": "AR",
+        "address1": "1st aben",
+        "address2": "",
+        "city": "Schenectady",
+        "zip": "12345",
+        "phoneNumber": "2342342134"
+      },
+      "type": "creditCard",
+      "createdAt": "2017-06-13T18:38:25.180Z"
+    },
+    {
+      "code": "B59F6582943910EB",
+      "amount": 10000,
+      "currentBalance": 10000,
+      "availableBalance": 3500,
+      "createdAt": "2017-06-15T16:26:51.781Z",
+      "type": "giftCard"
+    }
+  ],
+  "orderState": "remorseHold",
+  "shippingState": "remorseHold",
+  "fraudScore": 0,
+  "remorsePeriodEnd": "2017-06-15T16:57:39.520Z",
+  "placedAt": "2017-06-15T16:27:39.520Z"
+}

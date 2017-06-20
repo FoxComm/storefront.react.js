@@ -9,7 +9,7 @@ import classNames from 'classnames';
 import TextInput from 'components/core/text-input/text-input';
 
 type State = {
-  isShown: boolean
+  isShown: boolean,
 };
 
 type Props = {
@@ -57,13 +57,7 @@ class ShowHidePassword extends Component {
     const inputProps = _.omit(this.props, ['linkClassName', 't']);
     const inputType = this.state.isShown ? 'text' : 'password';
 
-    return (
-      <TextInput
-        {...inputProps}
-        type={inputType}
-        label={this.showLink}
-      />
-    );
+    return <TextInput {...inputProps} type={inputType} label={this.showLink} />;
   }
 }
 

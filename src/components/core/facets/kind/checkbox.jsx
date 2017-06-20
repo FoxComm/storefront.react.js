@@ -2,7 +2,7 @@
 
 import React, { Component, Element } from 'react';
 import classNames from 'classnames';
-import styles from './checkbox.css';
+import styles from './facet-checkbox.css';
 import { autobind } from 'core-decorators';
 
 // components
@@ -40,31 +40,19 @@ class Checkbox extends Component {
       this.props.click(facet, value, event.target.checked);
     }
     if (this.props.checked == null) {
-      this.setState({checked: event.target.checked});
+      this.setState({ checked: event.target.checked });
     }
   }
 
   render(): Element<*> {
-    const {
-      reactKey,
-      label,
-      available,
-    } = this.props;
+    const { reactKey, label, available } = this.props;
 
-    const className = classNames(
-      styles['facet-checkbox'],
-      {
-        [styles.disabled]: !available,
-      }
-    );
+    const className = classNames(styles['block'], {
+      [styles.disabled]: !available,
+    });
 
     return (
-      <CheckboxBase
-        className={className}
-        id={reactKey}
-        checked={this.state.checked}
-        onChange={this.click}
-      >
+      <CheckboxBase className={className} id={reactKey} checked={this.state.checked} onChange={this.click}>
         {label}
       </CheckboxBase>
     );

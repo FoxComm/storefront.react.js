@@ -1,4 +1,3 @@
-
 /* @flow */
 
 import React, { Element } from 'react';
@@ -15,25 +14,19 @@ type EditableProps = {
   content?: ?Element<*>,
   children?: Element<*>,
   editAction?: () => any,
-  actionsContent?: Element<*>|Array<Element<*>>,
-  title: string|Element<*>,
+  actionsContent?: Element<*> | Array<Element<*>>,
+  title: string | Element<*>,
 };
 
 const EditableBlock = (props: EditableProps) => {
   const editLink = () => {
     if (!props.isEditing && !props.collapsed && props.editAllowed) {
-      return (
-        <ActionLink
-          action={props.editAction}
-          title="Edit"
-          styleName="action"
-        />
-      );
+      return <ActionLink action={props.editAction} title="Edit" styleName="action" />;
     }
   };
 
   const actions = props.actionsContent || editLink();
-  const content = !props.collapsed ? (props.content || props.children) : null;
+  const content = !props.collapsed ? props.content || props.children : null;
 
   return (
     <article styleName="editable-block" className={props.className}>

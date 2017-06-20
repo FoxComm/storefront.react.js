@@ -23,7 +23,7 @@ type Props = {
   imgixProductsSource: string,
   s3BucketName: string,
   s3BucketPrefix: string,
-}
+};
 
 export default class ListItem extends React.Component {
   props: Props;
@@ -61,40 +61,23 @@ export default class ListItem extends React.Component {
   isOnSale(): Element<*> {
     const { currency } = this.props.product;
 
-    let {
-      salePrice,
-      retailPrice,
-    } = this.props.product;
+    let { salePrice, retailPrice } = this.props.product;
 
     salePrice = Number(salePrice);
     retailPrice = Number(retailPrice);
 
-    return (retailPrice > salePrice) ? (
-      <div styleName="price">
-        <Currency
-          styleName="retail-price"
-          value={retailPrice}
-          currency={currency}
-        />
-        <Currency
-          styleName="on-sale-price"
-          value={salePrice}
-          currency={currency}
-        />
-      </div>
-      ) : (
-        <div styleName="price">
-          <Currency value={salePrice} currency={currency} />
+    return retailPrice > salePrice
+      ? <div styleName="price">
+          <Currency styleName="retail-price" value={retailPrice} currency={currency} />
+          <Currency styleName="on-sale-price" value={salePrice} currency={currency} />
         </div>
-      );
+      : <div styleName="price">
+          <Currency value={salePrice} currency={currency} />
+        </div>;
   }
 
   render(): Element<*> {
-    const {
-      productId,
-      slug,
-      title,
-    } = this.props.product;
+    const { productId, slug, title } = this.props.product;
 
     const productSlug = slug != null && !_.isEmpty(slug) ? slug : productId;
 

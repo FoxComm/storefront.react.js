@@ -7,8 +7,8 @@ import styles from './counter.css';
 // components
 import Button from '../buttons/button';
 
-const Counter = (props) => {
-  const {decreaseAction, increaseAction, ...rest} = props;
+const Counter = props => {
+  const { decreaseAction, increaseAction, ...rest } = props;
 
   return (
     <div styleName="container">
@@ -17,12 +17,7 @@ const Counter = (props) => {
           -
         </Button>
       </div>
-      <input
-        type="number"
-        styleName="counter-field"
-        readOnly
-        {...rest}
-      />
+      <input type="number" styleName="counter-field" readOnly {...rest} />
       <div styleName="counter-append">
         <Button onClick={increaseAction} styleName="counter-button">
           +

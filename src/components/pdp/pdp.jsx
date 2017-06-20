@@ -27,10 +27,9 @@ import type { Product } from '@foxcomm/api-js/types/api/product';
 import type { Sku } from '@foxcomm/api-js/types/api/sku';
 import type { TProductView } from './types';
 
-
 type DefaultProps = {
   t: (text: string) => string,
-}
+};
 
 type Props = DefaultProps & {
   product: ?Product,
@@ -79,10 +78,7 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
   }
 
   getSortedSkus(props: Props = this.props): Array<Sku> {
-    return _.sortBy(
-      _.get(props, 'product.skus', []),
-      'attributes.salePrice.v.value'
-    );
+    return _.sortBy(_.get(props, 'product.skus', []), 'attributes.salePrice.v.value');
   }
 
   get sortedSkus(): Array<Sku> {
@@ -92,12 +88,7 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
   trackProductView(props: Props = this.props) {
     if (this._productViewTracked) return;
 
-    const {
-      isLoading,
-      notFound,
-      fetchError,
-      product
-    } = props;
+    const { isLoading, notFound, fetchError, product } = props;
 
     if (!isLoading && !notFound && !fetchError && product) {
       tracking.viewDetails(this.getProductView(props));
@@ -145,9 +136,7 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
 
     if (!shortDescription) return null;
 
-    return (
-      <h2 styleName="short-description">{shortDescription}</h2>
-    );
+    return <h2 styleName="short-description">{shortDescription}</h2>;
   }
 
   isGiftCard(props: Props = this.props): boolean {
@@ -173,7 +162,7 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
             currentSku: null,
           });
         })
-        .catch((ex) => {
+        .catch(ex => {
           this.setState({
             error: ex,
           });
@@ -184,9 +173,7 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
   renderGallery() {
     const { images } = this.productView;
 
-    return !_.isEmpty(images)
-      ? <Gallery images={images} />
-      : <ImagePlaceholder largeScreenOnly />;
+    return !_.isEmpty(images) ? <Gallery images={images} /> : <ImagePlaceholder largeScreenOnly />;
   }
 
   get productDetails(): Element<any> {
@@ -194,14 +181,8 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
     const descriptionList = _.get(this.props.product, 'attributes.description_list.v', '');
     return (
       <div styleName="body">
-        <div
-          styleName="description"
-          dangerouslySetInnerHTML={{__html: description}}
-        />
-        <ul
-          styleName="description-list"
-          dangerouslySetInnerHTML={{__html: descriptionList}}
-        />
+        <div styleName="description" dangerouslySetInnerHTML={{ __html: description }} />
+        <ul styleName="description-list" dangerouslySetInnerHTML={{ __html: descriptionList }} />
       </div>
     );
   }
@@ -216,7 +197,7 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
   @autobind
   getTaxonValue(name: string): ?string {
     const taxons = _.get(this.props.product, 'taxons', []);
-    const taxonomy = _.find(taxons, (taxonomyEntity) => {
+    const taxonomy = _.find(taxons, taxonomyEntity => {
       const taxonomyName = _.get(taxonomyEntity, 'attributes.name.v');
       return name === taxonomyName;
     });
@@ -230,14 +211,12 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
 
     if (gender && type) {
       if (gender.toLowerCase() === 'men') {
-        gender = 'men\'s';
+        gender = "men's";
       } else if (gender.toLowerCase() === 'women') {
-        gender = 'women\'s';
+        gender = "women's";
       }
 
-      return (
-        <div>{`${gender} ${type}`}</div>
-      );
+      return <div>{`${gender} ${type}`}</div>;
     }
   }
 
@@ -255,7 +234,9 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
     }
     return (
       <ProductVariants
-        ref={(_ref) => { this._productVariants = _ref; }}
+        ref={_ref => {
+          this._productVariants = _ref;
+        }}
         product={this.props.product}
         productView={this.productView}
         selectedSku={this.currentSku}
@@ -266,11 +247,7 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
 
   get productPrice(): ?Element<any> {
     if (this.isGiftCard()) return null;
-    const {
-      currency,
-      price,
-      skus,
-    } = this.productView;
+    const { currency, price, skus } = this.productView;
 
     const salePrice = _.get(skus[0], 'attributes.salePrice.v.value', 0);
     const retailPrice = _.get(skus[0], 'attributes.retailPrice.v.value', 0);
@@ -278,16 +255,8 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
     if (retailPrice > salePrice) {
       return (
         <div styleName="price">
-          <Currency
-            styleName="retail-price"
-            value={retailPrice}
-            currency={currency}
-          />
-          <Currency
-            styleName="on-sale-price"
-            value={salePrice}
-            currency={currency}
-          />
+          <Currency styleName="retail-price" value={retailPrice} currency={currency} />
+          <Currency styleName="on-sale-price" value={salePrice} currency={currency} />
         </div>
       );
     }
@@ -300,12 +269,7 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
   }
 
   render(): Element<any> {
-    const {
-      t,
-      isLoading,
-      notFound,
-      fetchError,
-    } = this.props;
+    const { t, isLoading, notFound, fetchError } = this.props;
 
     if (isLoading) {
       return <WaitAnimation />;
@@ -333,9 +297,7 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
             {this.productPrice}
             {this.productForm}
             <div styleName="cart-actions">
-              <AddToCartBtn
-                onClick={this.addToCart}
-              />
+              <AddToCartBtn onClick={this.addToCart} />
               {/* <SecondaryButton styleName="one-click-checkout">1-click checkout</SecondaryButton> */}
             </div>
           </div>
@@ -361,4 +323,3 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
     );
   }
 }
-

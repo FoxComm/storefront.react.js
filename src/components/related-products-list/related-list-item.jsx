@@ -22,7 +22,7 @@ type Props = {
   imgixProductsSource: string,
   s3BucketName: string,
   s3BucketPrefix: string,
-}
+};
 
 class RelatedListItem extends React.Component {
   props: Props;
@@ -60,7 +60,7 @@ class RelatedListItem extends React.Component {
   }
 
   getCollection() {
-    const collectionTaxonomy = _.find(this.props.product.taxonomies, (taxonomyEntity) => {
+    const collectionTaxonomy = _.find(this.props.product.taxonomies, taxonomyEntity => {
       return taxonomyEntity.taxonomy === 'collection';
     });
 
@@ -68,11 +68,7 @@ class RelatedListItem extends React.Component {
   }
 
   render() {
-    const {
-      productId,
-      slug,
-      title,
-    } = this.props.product;
+    const { productId, slug, title } = this.props.product;
 
     const productSlug = slug != null && !_.isEmpty(slug) ? slug : productId;
     const collection = this.getCollection();

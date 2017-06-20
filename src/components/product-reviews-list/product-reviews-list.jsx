@@ -15,10 +15,10 @@ import styles from './product-reviews-list.css';
 
 // types
 type ReviewAttributes = {
-  title: {t:'string', v: string},
-  body: {t:'string', v: string},
-  status: {t: 'string', v: string},
-}
+  title: { t: 'string', v: string },
+  body: { t: 'string', v: string },
+  status: { t: 'string', v: string },
+};
 
 type ReviewItem = {
   sku: string,
@@ -29,7 +29,7 @@ type ReviewItem = {
   archivedAt: ?string,
   userName: string,
   attributes: ReviewAttributes,
-}
+};
 
 type Props = {
   isLoading: ?boolean,
@@ -73,11 +73,7 @@ const ReviewBody = (props: ReviewBodyProps): Element<any> => {
           {body}
         </div>
         <div styleName="product-review-flag">
-          <ActionLink
-            action={_.noop}
-            title="Report Offensive Review"
-            styleName="product-review-report-offense"
-          />
+          <ActionLink action={_.noop} title="Report Offensive Review" styleName="product-review-report-offense" />
         </div>
       </div>
     </div>
@@ -85,7 +81,6 @@ const ReviewBody = (props: ReviewBodyProps): Element<any> => {
 };
 
 class ProductReviewsList extends Component {
-
   props: Props;
   state: State = {
     page: 0,
@@ -94,7 +89,7 @@ class ProductReviewsList extends Component {
   get isEmptyContent(): boolean {
     const { listItems } = this.props;
 
-    const activeReviews = _.filter(listItems, (review) => {
+    const activeReviews = _.filter(listItems, review => {
       return review.attributes.status.v == 'submitted';
     });
 
@@ -117,17 +112,13 @@ class ProductReviewsList extends Component {
     if (!showLoadMore) return null;
 
     return (
-      <ActionLink
-        action={this.handleLoadMoreReviews}
-        title="LOAD MORE REVIEWS"
-        styleName="product-review-load-more"
-      />
+      <ActionLink action={this.handleLoadMoreReviews} title="LOAD MORE REVIEWS" styleName="product-review-load-more" />
     );
   }
 
   get displayReviews(): ?Element<any> {
     const { listItems, showLoadMore } = this.props;
-    const reviews = _.map(listItems, (review) => {
+    const reviews = _.map(listItems, review => {
       return (
         <ReviewBody
           key={review.id}
@@ -154,7 +145,7 @@ class ProductReviewsList extends Component {
     const { page } = this.state;
 
     const nextPage = page + 1;
-    this.setState({page: nextPage});
+    this.setState({ page: nextPage });
     onLoadMoreReviews(paginationSize * nextPage);
   }
 

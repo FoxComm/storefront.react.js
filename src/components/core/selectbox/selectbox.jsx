@@ -9,7 +9,7 @@ type Props = {
   value: string,
   items: Array<[string, string]>,
   onChange: (value: string) => void,
-}
+};
 
 class SelectBox extends Component {
   props: Props;

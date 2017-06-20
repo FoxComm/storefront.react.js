@@ -1,6 +1,6 @@
 @import "colors.css";
 
-.circle-checkbox input[type=checkbox] {
+.block input[type=checkbox] {
   display: none;
 
   &:hover {
@@ -8,7 +8,7 @@
   }
 }
 
-.circle-checkbox {
+.block {
   cursor: pointer;
   white-space: nowrap;
   height: 32px;
@@ -19,12 +19,12 @@
   margin-bottom: 10px;
 }
 
-.circle-checkbox div {
+.block div {
   border-radius: 16px;
   height: 100%;
 }
 
-.circle-checkbox label {
+.block label {
   cursor: pointer;
   display: inline-block;
   padding: 0 7px;
@@ -36,11 +36,11 @@
   user-select: none;
 }
 
-.circle-checkbox input[type=checkbox]:checked + div {
+.block input[type=checkbox]:checked + div {
   background-color: var(--water-blue);
 }
 
-.circle-checkbox input[type=checkbox]:checked + div label {
+.block input[type=checkbox]:checked + div label {
   color: #ffffff;
 }
 

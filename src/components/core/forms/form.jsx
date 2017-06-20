@@ -1,13 +1,12 @@
-
 import React, { PropTypes, Component, Element } from 'react';
 import { autobind } from 'core-decorators';
 import { EventEmitter } from 'events';
 
 type FormProps = {
-  onSubmit?: Function;
-  validate?: (data: Object) => Promise<*>|void;
-  children: Element<*>;
-}
+  onSubmit?: Function,
+  validate?: (data: Object) => Promise<*> | void,
+  children: Element<*>,
+};
 
 export default class Form extends Component {
   props: FormProps;
@@ -22,9 +21,12 @@ export default class Form extends Component {
   };
 
   getChildContext() {
-    return this._context || (this._context = {
-      formDispatcher: new EventEmitter(),
-    });
+    return (
+      this._context ||
+      (this._context = {
+        formDispatcher: new EventEmitter(),
+      })
+    );
   }
 
   _emit(type, ...args) {
@@ -38,11 +40,11 @@ export default class Form extends Component {
     const props = this.props;
 
     let isValid = true;
-    this._emit('submit', (isFieldValid) => {
+    this._emit('submit', isFieldValid => {
       if (!isFieldValid) isValid = false;
     });
 
-    const setErrors = (errors) => {
+    const setErrors = errors => {
       this._emit('errors', errors || {});
     };
 
@@ -53,7 +55,7 @@ export default class Form extends Component {
   }
 
   render() {
-    const props = {...this.props, onSubmit: this.onSubmit};
+    const props = { ...this.props, onSubmit: this.onSubmit };
 
     return (
       <form {...props}>

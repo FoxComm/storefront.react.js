@@ -23,10 +23,10 @@ type Props = {
    or any combination of t, l, b, and r
    */
   pos?: string,
-  error?: boolean|string,
+  error?: boolean | string,
   type?: string,
   placeholder?: string,
-  label?: ?string|Element<*>,
+  label?: ?string | Element<*>,
   // modificators
   hasCard?: boolean,
   hasSymbol?: boolean,
@@ -95,17 +95,7 @@ class TextInput extends Component {
     const positions = this.calcPositions(props.pos);
     const posClassNames = positions.map(side => s[`pos-${side}`]);
 
-    const {
-      className,
-      labelClass,
-      errorClass,
-      type = 'text',
-      hasCard,
-      hasSymbol,
-      pos,
-      children,
-      ...rest
-    } = props;
+    const { className, labelClass, errorClass, type = 'text', hasCard, hasSymbol, pos, children, ...rest } = props;
 
     const error = props.error || this.contextError;
 
@@ -128,7 +118,7 @@ class TextInput extends Component {
     let childrenWithProps;
 
     if (children) {
-      childrenWithProps = React.Children.map(children, (child) => {
+      childrenWithProps = React.Children.map(children, child => {
         return React.cloneElement(child, {
           className: inputClass,
           onFocus: () => this.changeFocus(true),
@@ -139,15 +129,15 @@ class TextInput extends Component {
       });
     }
 
-    const content = childrenWithProps || (
-        <input
-          onFocus={() => this.changeFocus(true)}
-          onBlur={() => this.changeFocus(false)}
-          className={inputClass}
-          type={type}
-          {...rest}
-        />
-      );
+    const content =
+      childrenWithProps ||
+      <input
+        onFocus={() => this.changeFocus(true)}
+        onBlur={() => this.changeFocus(false)}
+        className={inputClass}
+        type={type}
+        {...rest}
+      />;
 
     const errorClassName = classNames(s.errorMessage, errorClass);
 

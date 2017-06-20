@@ -2,7 +2,7 @@
 
 import classnames from 'classnames';
 import React, { Component, Element } from 'react';
-import styles from './colorcircle.css';
+import styles from './facet-colorcircle.css';
 import _ from 'lodash';
 import { autobind } from 'core-decorators';
 
@@ -12,14 +12,10 @@ type State = {
   checked: boolean,
 };
 
-const lightColors = [
-  'white',
-  'yellow',
-  'light',
-];
+const lightColors = ['white', 'yellow', 'light'];
 
 function isLight(c) {
-  return _.some(lightColors, (lc) => {
+  return _.some(lightColors, lc => {
     return c.includes(lc);
   });
 }
@@ -48,23 +44,19 @@ class ColorCircle extends Component {
       this.props.click(this.props.facet, this.props.value.value, event.target.checked);
     }
     if (this.props.checked == null) {
-      this.setState({checked: event.target.checked});
+      this.setState({ checked: event.target.checked });
     }
   }
 
   render(): Element<any> {
-    const {
-      reactKey,
-      value,
-      label,
-      available,
-    } = this.props;
+    const { reactKey, value, label, available } = this.props;
 
     const colorStyle = styles[value.color];
 
     const className = classnames(
       colorStyle,
-      styles['color-checkbox'], {
+      styles['block'],
+      {
         [styles.light]: isLight(value.color),
       },
       {
@@ -76,12 +68,7 @@ class ColorCircle extends Component {
 
     return (
       <div className={className}>
-        <input
-          id={reactKey}
-          type="checkbox"
-          checked={this.state.checked}
-          onChange={this.click}
-        />
+        <input id={reactKey} type="checkbox" checked={this.state.checked} onChange={this.click} />
         <div>
           <label htmlFor={reactKey}>{''}</label>
         </div>

@@ -3,9 +3,13 @@
 import _ from 'lodash';
 
 function fromParts(parts: Array<string>): string {
-  return _.reduce(parts, (acc, part) => {
-    return acc.concat(` ${_.upperFirst(part)}`);
-  }, '');
+  return _.reduce(
+    parts,
+    (acc, part) => {
+      return acc.concat(` ${_.upperFirst(part)}`);
+    },
+    ''
+  );
 }
 
 const categoryNameToUrl = (categoryName: string): string => {
@@ -21,8 +25,4 @@ const humanize = (name: string, sep: string = ' '): string => {
   return fromParts(name.split(sep));
 };
 
-export {
-  categoryNameToUrl,
-  categoryNameFromUrl,
-  humanize,
-};
+export { categoryNameToUrl, categoryNameFromUrl, humanize };

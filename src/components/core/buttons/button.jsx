@@ -9,11 +9,11 @@ import Icon from 'components/core/icon/icon';
 export type ButtonProps = {
   icon?: string,
   className?: string,
-  children?: Element<any>|string,
+  children?: Element<any> | string,
   onClick?: (event: SyntheticEvent) => void,
   // states
   primary?: boolean,
-  isLoading?: boolean|null,
+  isLoading?: boolean | null,
   disabled?: boolean,
   isPdp?: boolean,
   secondary?: boolean,

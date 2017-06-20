@@ -19,14 +19,13 @@ export type FilterTypeProps = {
   renderCount: (count: number) => string,
 };
 
-
 export type FilterGroupProps = {
-  children?: Element<FilterTypeProps>|Array<Element<FilterTypeProps>>,
+  children?: Element<FilterTypeProps> | Array<Element<FilterTypeProps>>,
   label: string,
   term: string,
   values?: Array<FilterValue>,
   onClearFacet?: Function,
   onSelectFacet?: Function,
   initiallyExpanded?: boolean,
-  renderCount?: (count: number) => string,
+  renderCount: (count: number) => string,
 };

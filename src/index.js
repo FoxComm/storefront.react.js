@@ -1,4 +1,3 @@
-
 // components/core package
 export Accordion from './components/core/accordion/accordion';
 export ActionLink from './components/core/action-link/action-link';
@@ -34,3 +33,6 @@ export ProductImage from './components/product-image/product-image';
 export ImagePlaceholder from './components/product-image/image-placeholder';
 export RelatedProductList from './components/related-products-list/related-products-list';
 export ProductReviewsList from './components/product-reviews-list/product-reviews-list';
+export OrderSummary from './components/order-summary/order-summary';
+export OrderTotals from './components/order-summary/totals';
+export OrderLineItems from './components/order-summary/product-table';

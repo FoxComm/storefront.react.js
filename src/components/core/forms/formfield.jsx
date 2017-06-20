@@ -8,14 +8,14 @@ import formatString from 'lib/string-format';
 import classNames from 'classnames';
 
 type FormFieldProps = {
-  validator: ?string|?(value: any) => string,
-  validateOnBlur?: boolean;
+  validator: ?string | ?(value: any) => string,
+  validateOnBlur?: boolean,
   children: Element<*>,
   required: ?any,
   maxLength: ?number,
   target: ?string,
   name: ?string,
-  error: ?string|boolean,
+  error: ?string | boolean,
   getTargetValue: ?(node: any) => any,
   className: ?string,
   label: ?string,
@@ -33,7 +33,9 @@ class FormField extends Component {
 
   static defaultProps = {
     target: 'input,textarea,select',
-    getTargetValue: (node) => { return node.type == 'checkbox' ? node.checked : node.value; },
+    getTargetValue: node => {
+      return node.type == 'checkbox' ? node.checked : node.value;
+    },
     validateOnBlur: false,
     t: _.identity,
   };
@@ -173,7 +175,7 @@ class FormField extends Component {
   }
 
   @autobind
-  handleInvalid({target}) {
+  handleInvalid({ target }) {
     this.setState({
       isValid: target.validity.valid,
       validationMessage: target.validationMessage,
@@ -181,7 +183,7 @@ class FormField extends Component {
   }
 
   @autobind
-  handleBlur({target}) {
+  handleBlur({ target }) {
     if (this.props.validateOnBlur) {
       this.fullValidate(target);
     }
@@ -241,7 +243,7 @@ class FormField extends Component {
 
   @autobind
   @debounce(200)
-  handleChange({target}) {
+  handleChange({ target }) {
     // validate only if we have error for this field
     // so we don't produce error if user start typing for example
     if (!this._willUnmount && this.hasError) {
@@ -255,7 +257,7 @@ class FormField extends Component {
     });
 
     return (
-      <div className={className} >
+      <div className={className}>
         {this.props.children}
       </div>
     );

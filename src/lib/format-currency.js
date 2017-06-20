@@ -1,4 +1,3 @@
-
 import _ from 'lodash';
 import getSymbol from 'currency-symbol-map';
 
@@ -9,7 +8,7 @@ function isInteger(n) {
 }
 
 function intlFormatCurrency(amount, opts) {
-  const modifiedOpts = {...opts};
+  const modifiedOpts = { ...opts };
   let newAmount = amount;
   if (modifiedOpts.fractionBase) {
     newAmount = amount / Math.pow(10, modifiedOpts.fractionBase);
@@ -23,14 +22,17 @@ function intlFormatCurrency(amount, opts) {
     modifiedOpts.maximumFractionDigits = 2;
   }
   const formatter = global.Intl.NumberFormat('en-US', modifiedOpts); // eslint-disable-line new-cap
+  if (newAmount < 0) {
+    // we want our own minus sign
+    return `–${formatter.format(-newAmount)}`;
+  }
   return formatter.format(newAmount);
 }
-
 
 // variant of formatCurrency but for safe work with bug numbers
 // mostly for usage without locale specific options like currency
 function formatBigCurrency(amount, opts) {
-  const newOpts = {...opts};
+  const newOpts = { ...opts };
   if (newOpts.groupDigits == null) {
     newOpts.groupDigits = true;
   }
@@ -59,7 +61,6 @@ function formatBigCurrency(amount, opts) {
   return `${sign}${currencySymbol}${delimited}.${fract}`;
 }
 
-
 function formatCurrency(amount, options) {
   const newAmount = amount || '0';
   if (!isNumber(newAmount)) {
@@ -76,20 +77,20 @@ function formatCurrency(amount, options) {
   return intlFormatCurrency(newAmount, newOpts);
 }
 
-
 // Convert float string like '153.759' to numeric format string '15376'
 // safe to use with big numbers stored in strings
 export function stringToCurrency(value, opts) {
   let stringValue = value.toString();
   const dotPos = _.indexOf(value, '.');
-  const newOpts = {...opts} || {fractionBase: 2};
+  const newOpts = { ...opts } || { fractionBase: 2 };
 
   if (dotPos > -1) {
     const fract = `0.${value.slice(dotPos + 1)}`;
     const fixedFract = Number(fract).toFixed(newOpts.fractionBase);
     stringValue = stringValue.slice(0, dotPos);
 
-    if (fixedFract >= 1) { // check overflow of fractional part
+    if (fixedFract >= 1) {
+      // check overflow of fractional part
       stringValue = stringValue.slice(0, -1) + ((0 | value.slice(-1)) + 1).toString();
     }
 

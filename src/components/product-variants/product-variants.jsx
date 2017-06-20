@@ -19,33 +19,36 @@ import type { Facet as TFacet } from 'components/core/facets/types';
 import type { Product, Variant as ProductVariant, VariantValue } from '@foxcomm/api-js/types/api/product';
 import type { Sku } from '@foxcomm/api-js/types/api/sku';
 
-
 type Props = {
   productView: TProductView,
   product: Product,
   selectedSku: Sku,
   onSkuChange: (sku: ?Sku, exactMatch: boolean, unselectedFacets: Array<TFacet>) => void,
-}
+};
 
 // variantType => VariantValue.id
 type VariantValuesMap = {
   [variantType: string]: number,
-}
+};
 
 type State = {
   selectedVariantValues: VariantValuesMap,
-}
+};
 
 function getSkuCodesForVariantValue(product: Product, valueId: number, variantType: string): Array<string> {
   const variant: ProductVariant = _.find(product.variants, (v: ProductVariant) => v.attributes.type.v == variantType);
-  const variantValue: VariantValue = _.find(variant.values, {id: valueId});
+  const variantValue: VariantValue = _.find(variant.values, { id: valueId });
 
   return variantValue.skuCodes;
 }
 
 /* eslint-disable quote-props */
 
-function sortSizes(sizes: { label: string }): Array<string> {
+type Size = {
+  label: string,
+};
+
+function sortSizes(sizes: Array<Size>): Array<Size> {
   const labelMap = {
     XS: '01_XS',
     S: '02_S',
@@ -62,11 +65,10 @@ function sortSizes(sizes: { label: string }): Array<string> {
     '9.5': '09.5',
   };
 
-  return _.sortBy(sizes, (size) => {
+  return _.sortBy(sizes, size => {
     return _.get(labelMap, size.label, size.label);
   });
 }
-
 
 class ProductVariants extends Component {
   props: Props;
@@ -107,11 +109,14 @@ class ProductVariants extends Component {
       selectedVariantValues = dissoc(selectedVariantValues, value.variantType);
     }
 
-    this.setState({
-      selectedVariantValues,
-    }, () => {
-      this.fireSkuChange();
-    });
+    this.setState(
+      {
+        selectedVariantValues,
+      },
+      () => {
+        this.fireSkuChange();
+      }
+    );
   }
 
   fireSkuChange(props: Props = this.props) {
@@ -198,11 +203,14 @@ class ProductVariants extends Component {
     const { product } = props;
     const facets = this.getFacets(product);
 
-    const matchedSkuCodes =
-      _.reduce(this.state.selectedVariantValues, (acc, variantValueId: number, variantType: string) => {
+    const matchedSkuCodes = _.reduce(
+      this.state.selectedVariantValues,
+      (acc, variantValueId: number, variantType: string) => {
         const skuCodes = getSkuCodesForVariantValue(product, variantValueId, variantType);
         return acc.length ? _.intersection(acc, skuCodes) : skuCodes;
-      }, []);
+      },
+      []
+    );
 
     // probably we could detect exact match by cheking matchedSkuCodes.length == 1
     // but is there guarantee that only one sku/variant match complete set of variants ?
@@ -213,7 +221,9 @@ class ProductVariants extends Component {
     const facets = this.getFacets(this.props.product);
     return (
       <Facets
-        ref={(_ref) => { this._facets = _ref; }}
+        ref={_ref => {
+          this._facets = _ref;
+        }}
         styleName="facets"
         facets={facets}
         onSelect={this.handleSelectFacet}

@@ -1,4 +1,3 @@
-
 export const states = {
   cart: 'cart',
   remorseHold: 'remorseHold',
