@@ -13,11 +13,11 @@ type CurrencyProps = {
 };
 
 const Currency = (props: CurrencyProps): Element<*> => {
-  const { value, className, prefix = '', ...rest} = props;
+  const { value, className, prefix = '', ...rest } = props;
 
   return (
     <span className={className}>
-      {`${prefix}${formatCurrency(value, {...rest})}`}
+      {`${prefix}${formatCurrency(value, { ...rest })}`}
     </span>
   );
 };

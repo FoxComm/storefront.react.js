@@ -1,9 +1,8 @@
-
 import React, { Element } from 'react';
 import styles from './term-value-line.css';
 
 type PropsType = {
-  children: Array<Element|string>,
+  children: Array<Element | string>,
   className?: string,
 };
 

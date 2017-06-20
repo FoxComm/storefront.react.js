@@ -26,9 +26,9 @@ type FacetsProps = {
 };
 
 type State = {
-  animationState: {[key: string]: boolean},
-  facetMessages: {[key: string]: string|null},
-}
+  animationState: { [key: string]: boolean },
+  facetMessages: { [key: string]: string | null },
+};
 
 class Facets extends Component {
   props: FacetsProps;
@@ -69,48 +69,56 @@ class Facets extends Component {
       let w = null;
 
       if (f.kind == 'checkbox') {
-        w = (<Checkbox
-          key={key}
-          reactKey={key}
-          facet={f.key}
-          value={v.value}
-          label={v.label}
-          checked={v.selected}
-          available={v.available}
-          click={this.handleClickFacets}
-        />);
+        w = (
+          <Checkbox
+            key={key}
+            reactKey={key}
+            facet={f.key}
+            value={v.value}
+            label={v.label}
+            checked={v.selected}
+            available={v.available}
+            click={this.handleClickFacets}
+          />
+        );
       } else if (f.kind == 'circle') {
-        w = (<Circle
-          key={key}
-          reactKey={key}
-          facet={f.key}
-          value={v.value}
-          label={v.label}
-          checked={v.selected}
-          available={v.available}
-          click={this.handleClickFacets}
-        />);
+        w = (
+          <Circle
+            key={key}
+            reactKey={key}
+            facet={f.key}
+            value={v.value}
+            label={v.label}
+            checked={v.selected}
+            available={v.available}
+            click={this.handleClickFacets}
+          />
+        );
       } else if (f.kind == 'color') {
-        w = (<ColorCircle
-          key={key}
-          reactKey={key}
-          facet={f.key}
-          value={v.value}
-          label={v.label}
-          checked={v.selected}
-          available={v.available}
-          click={this.handleClickFacets}
-        />);
+        w = (
+          <ColorCircle
+            key={key}
+            reactKey={key}
+            facet={f.key}
+            value={v.value}
+            label={v.label}
+            checked={v.selected}
+            available={v.available}
+            click={this.handleClickFacets}
+          />
+        );
       } else if (f.kind == 'image') {
-        w = (<Image
-          key={key}
-          facet={f.key}
-          value={v.value}
-          label={v.label}
-          checked={v.selected}
-          available={v.available}
-          click={this.handleClickFacets}
-        />);
+        w = (
+          <Image
+            key={key}
+            facet={f.key}
+            value={v.value}
+            label={v.label}
+            checked={v.selected}
+            available={v.available}
+            click={this.handleClickFacets}
+          />
+        );
       }
       return w;
     });
@@ -165,7 +173,7 @@ class Facets extends Component {
     // or that have more than one element.
     // Only showing facets with more then one element was decided because it
     // matches the expected behaviour based on research of other sites.
-    const renderable = _.filter(facets, (f) => {
+    const renderable = _.filter(facets, f => {
       // return f.values.length > 1
       //   && (_.isEmpty(whitelist) || _.find(whitelist, key => _.toLower(key) == _.toLower(f.key)));
       return _.isEmpty(whitelist) || _.find(whitelist, key => _.toLower(key) == _.toLower(f.key));
@@ -182,6 +190,5 @@ class Facets extends Component {
     );
   }
 }
-
 
 export default Facets;

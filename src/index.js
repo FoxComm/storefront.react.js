@@ -1,4 +1,3 @@
-
 // components/core package
 export Accordion from './components/core/accordion/accordion';
 export ActionLink from './components/core/action-link/action-link';

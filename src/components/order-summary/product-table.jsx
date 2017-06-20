@@ -20,13 +20,7 @@ type Props = {
 
 const Products = (props: Props) => {
   const rows = _.map(props.skus, (item: LineItem) => {
-    return (
-      <LineItemRow
-        lineItem={item}
-        key={skuIdentity(item)}
-        compact={props.compact}
-      />
-    );
+    return <LineItemRow lineItem={item} key={skuIdentity(item)} compact={props.compact} />;
   });
 
   return (

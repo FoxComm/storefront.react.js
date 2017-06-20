@@ -39,9 +39,7 @@ class Select extends Component {
 
   @autobind
   handleChange(event) {
-    this.props.onSelect(
-      _.find(this.props.items, item => this.props.getItemValue(item) == event.target.value)
-    );
+    this.props.onSelect(_.find(this.props.items, item => this.props.getItemValue(item) == event.target.value));
   }
 
   render() {

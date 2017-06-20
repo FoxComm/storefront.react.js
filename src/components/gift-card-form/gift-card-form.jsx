@@ -27,7 +27,7 @@ type Props = {
   onAttributeChange: (event: SyntheticInputEvent) => any,
 };
 
-const formatSkuPrice = (sku) => {
+const formatSkuPrice = sku => {
   const price = _.get(sku, 'attributes.salePrice.v', {});
   const value = _.get(price, 'value', 0);
   const currency = _.get(price, 'currency', 'USD');
@@ -36,9 +36,7 @@ const formatSkuPrice = (sku) => {
 };
 
 const GiftCardForm = (props: Props) => {
-  const {
-    skus,
-  } = props.productView;
+  const { skus } = props.productView;
 
   const recipientName = _.get(props.attributes, 'giftCard.recipientName', '');
   const recipientEmail = _.get(props.attributes, 'giftCard.recipientEmail', '');

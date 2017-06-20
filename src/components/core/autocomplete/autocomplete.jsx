@@ -11,9 +11,7 @@ import { TextInput } from 'components/core/text-input/index';
 /* eslint react/sort-comp: 0 */
 
 function matchStateToTerm(item, value) {
-  return (
-    this.getItemValue(item).toLowerCase().indexOf(value.toLowerCase()) !== -1
-  );
+  return this.getItemValue(item).toLowerCase().indexOf(value.toLowerCase()) !== -1;
 }
 
 type Props = {
@@ -35,17 +33,16 @@ type Props = {
 /* eslint-disable no-unused-vars */
 
 type State = {
-  value: string|number,
+  value: string | number,
   isOpen: boolean,
   menuDirection: string,
-  highlightedIndex: null|number,
+  highlightedIndex: null | number,
   changingStarted?: boolean,
 };
 
 /* eslint-enable no-unused-vars */
 
 class Autocomplete extends Component {
-
   props: Props;
 
   state: State = {
@@ -75,12 +72,7 @@ class Autocomplete extends Component {
       const value = this.getItemValue(item);
       const key = this.getItemKey(item);
 
-      return (
-        <div
-          styleName={isHighlighted ? 'item-highlighted' : 'item'}
-          key={key}
-        >{value}</div>
-      );
+      return <div styleName={isHighlighted ? 'item-highlighted' : 'item'} key={key}>{value}</div>;
     },
   };
 
@@ -115,11 +107,14 @@ class Autocomplete extends Component {
   }
 
   finishFiltering() {
-    this.setState({
-      changingStarted: false,
-    }, () => {
-      this.maybeSelectItem();
-    });
+    this.setState(
+      {
+        changingStarted: false,
+      },
+      () => {
+        this.maybeSelectItem();
+      }
+    );
   }
 
   @autobind
@@ -130,7 +125,7 @@ class Autocomplete extends Component {
   maybeSelectItem() {
     const props = this.props;
 
-    const exactlyItem = _.find(props.items, (item) => {
+    const exactlyItem = _.find(props.items, item => {
       return props.compareValues(props.getItemValue(item), this.state.value);
     });
 
@@ -176,12 +171,15 @@ class Autocomplete extends Component {
     event.stopPropagation();
 
     this._performAutoCompleteOnKeyUp = true;
-    this.setState({
-      value: event.target.value,
-      changingStarted: true,
-    }, () => {
-      this.props.onChange(this.state.value);
-    });
+    this.setState(
+      {
+        value: event.target.value,
+        changingStarted: true,
+      },
+      () => {
+        this.props.onChange(this.state.value);
+      }
+    );
   }
 
   @autobind
@@ -201,10 +199,9 @@ class Autocomplete extends Component {
       ArrowDown(event) {
         event.preventDefault();
         const { highlightedIndex } = this.state;
-        const index = (
-          highlightedIndex === null ||
-          highlightedIndex === this.getFilteredItems().length - 1
-        ) ? 0 : highlightedIndex + 1;
+        const index = highlightedIndex === null || highlightedIndex === this.getFilteredItems().length - 1
+          ? 0
+          : highlightedIndex + 1;
         this._performAutoCompleteOnKeyUp = true;
         this.setState({
           highlightedIndex: index,
@@ -214,10 +211,9 @@ class Autocomplete extends Component {
       ArrowUp(event) {
         event.preventDefault();
         const { highlightedIndex } = this.state;
-        const index = (
-          highlightedIndex === 0 ||
-          highlightedIndex === null
-        ) ? this.getFilteredItems().length - 1 : highlightedIndex - 1;
+        const index = highlightedIndex === 0 || highlightedIndex === null
+          ? this.getFilteredItems().length - 1
+          : highlightedIndex - 1;
         this._performAutoCompleteOnKeyUp = true;
         this.setState({
           highlightedIndex: index,
@@ -231,34 +227,37 @@ class Autocomplete extends Component {
           // already selected this, do nothing
         } else if (this.state.highlightedIndex == null) {
           // hit enter after focus but before typing anything so no autocomplete attempt yet
-          this.setState({
-            isOpen: false,
-          }, () => {
-            this.getInput().select();
-          });
+          this.setState(
+            {
+              isOpen: false,
+            },
+            () => {
+              this.getInput().select();
+            }
+          );
         } else {
           const item = this.getFilteredItems()[this.state.highlightedIndex];
 
-          this.setState({
-            value: this.props.getItemValue(item),
-            isOpen: false,
-            highlightedIndex: null,
-          }, () => {
-            // this.getInput().focus() // TODO: file issue
-            const input = this.getInput();
-            if (input.setSelectionRange) {
-              try {
-                input.setSelectionRange(
-                  this.state.value.length,
-                  this.state.value.length
-                );
-              } catch (ex) {
-                // ignore
+          this.setState(
+            {
+              value: this.props.getItemValue(item),
+              isOpen: false,
+              highlightedIndex: null,
+            },
+            () => {
+              // this.getInput().focus() // TODO: file issue
+              const input = this.getInput();
+              if (input.setSelectionRange) {
+                try {
+                  input.setSelectionRange(this.state.value.length, this.state.value.length);
+                } catch (ex) {
+                  // ignore
+                }
               }
-            }
 
-            this.props.onSelect(item, this.state.value);
-          });
+              this.props.onSelect(item, this.state.value);
+            }
+          );
         }
       },
       Escape() {
@@ -270,39 +269,32 @@ class Autocomplete extends Component {
     };
   }
 
-  getFilteredItems () {
+  getFilteredItems() {
     let items = this.props.items;
 
     if (this.props.shouldItemRender && this.state.changingStarted) {
-      items = items.filter(item => (
-        this.props.shouldItemRender(item, this.state.value)
-      ));
+      items = items.filter(item => this.props.shouldItemRender(item, this.state.value));
     }
 
     if (this.props.sortItems) {
-      items.sort((a, b) => (
-        this.sortItems(a, b)
-      ));
+      items.sort((a, b) => this.sortItems(a, b));
     }
 
     return items;
   }
 
   itemValueMatches(value) {
-    return (value.toString().toLowerCase().indexOf(
-      this.state.value.toString().toLowerCase()
-    ) === 0);
+    return value.toString().toLowerCase().indexOf(this.state.value.toString().toLowerCase()) === 0;
   }
 
-  maybeAutoCompleteText () {
+  maybeAutoCompleteText() {
     if (this.state.value === '') return;
 
     const { highlightedIndex } = this.state;
     const items = this.getFilteredItems();
     if (items.length === 0) return;
 
-    const matchedItem = highlightedIndex !== null ?
-      items[highlightedIndex] : items[0];
+    const matchedItem = highlightedIndex !== null ? items[highlightedIndex] : items[0];
     const itemValue = this.props.getItemValue(matchedItem);
 
     if (this.itemValueMatches(itemValue)) {
@@ -312,7 +304,7 @@ class Autocomplete extends Component {
     }
   }
 
-  setMenuOrientation () {
+  setMenuOrientation() {
     const menuNode = this.refs.menu;
     const inputNode = this.getInput();
     const viewportHeight = window.innerHeight;
@@ -337,33 +329,32 @@ class Autocomplete extends Component {
     });
   }
 
-  highlightItemFromMouse (index) {
+  highlightItemFromMouse(index) {
     this.setState({ highlightedIndex: index });
   }
 
-  selectItemFromMouse (item) {
-    this.setState({
-      value: this.props.getItemValue(item),
-      isOpen: false,
-      highlightedIndex: null,
-    }, () => {
-      this.props.onSelect(item, this.state.value);
-      this.getInput().focus();
-      this.setIgnoreBlur(false);
-    });
+  selectItemFromMouse(item) {
+    this.setState(
+      {
+        value: this.props.getItemValue(item),
+        isOpen: false,
+        highlightedIndex: null,
+      },
+      () => {
+        this.props.onSelect(item, this.state.value);
+        this.getInput().focus();
+        this.setIgnoreBlur(false);
+      }
+    );
   }
 
-  setIgnoreBlur (ignore) {
+  setIgnoreBlur(ignore) {
     this._ignoreBlur = ignore;
   }
 
   get menu() {
     const items = this.getFilteredItems().map((item, index) => {
-      const element = this.props.renderItem(
-        item,
-        this.state.highlightedIndex === index,
-        {cursor: 'default'}
-      );
+      const element = this.props.renderItem(item, this.state.highlightedIndex === index, { cursor: 'default' });
       return React.cloneElement(element, {
         onMouseDown: () => this.setIgnoreBlur(true),
         onMouseEnter: () => this.highlightItemFromMouse(index),
@@ -377,7 +368,7 @@ class Autocomplete extends Component {
   }
 
   @autobind
-  handleInputBlur () {
+  handleInputBlur() {
     if (this._ignoreBlur) return;
 
     this.setState({
@@ -387,24 +378,24 @@ class Autocomplete extends Component {
   }
 
   @autobind
-  handleInputFocus () {
+  handleInputFocus() {
     if (this._ignoreBlur) return;
 
     this.setState({ isOpen: true });
   }
 
   @autobind
-  handleInputClick () {
+  handleInputClick() {
     if (this.state.isOpen === false) {
       this.setState({ isOpen: true });
     }
   }
 
-  render () {
+  render() {
     const { inputProps } = this.props;
 
     return (
-      <div ref="container" styleName="autocomplete" >
+      <div ref="container" styleName="autocomplete">
         <TextInput
           type="text"
           {...inputProps}

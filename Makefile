@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := build
 
-JS_FILES = $(shell find $(pwd)/src -name "*.js" -o -name "*.jsx")
+JS_FILES = $(shell find ./src -name "*.js" -o -name "*.jsx")
 PRETTIER_OPTIONS = --single-quote --trailing-comma es5 --print-width 120
 
 setup: clean

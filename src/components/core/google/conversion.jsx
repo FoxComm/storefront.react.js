@@ -8,22 +8,17 @@ type ConversionParams = {
   value: number,
   currency?: string,
   orderId?: string,
-}
+};
 
 type Props = {
   params: ConversionParams,
-}
+};
 
 const Conversion = (props: Props) => {
   const { params } = props;
-  const value = (params.value).toFixed(2);
+  const value = params.value.toFixed(2);
 
-  const {
-    label,
-    currency = 'USD',
-    id,
-    orderId,
-  } = params;
+  const { label, currency = 'USD', id, orderId } = params;
 
   const urlValues = _.compact([
     `label=${label}`,
@@ -36,15 +31,7 @@ const Conversion = (props: Props) => {
 
   const url = `//www.googleadservices.com/pagead/conversion/${id}/?${urlValues}`;
 
-  return (
-    <img
-      width="1"
-      height="1"
-      alt=""
-      style={{borderStyle: 'none'}}
-      src={url}
-    />
-  );
+  return <img width="1" height="1" alt="" style={{ borderStyle: 'none' }} src={url} />;
 };
 
 export default Conversion;

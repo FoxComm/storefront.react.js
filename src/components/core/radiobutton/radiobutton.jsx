@@ -7,8 +7,8 @@ import React, { Element } from 'react';
 import styles from './radiobutton.css';
 
 type Props = {
-  id: string|number,
-  children?: Element<*>|string,
+  id: string | number,
+  children?: Element<*> | string,
   className?: string,
 };
 

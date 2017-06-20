@@ -22,7 +22,7 @@ import type { Order } from '@foxcomm/api-js/types/api/order';
 type ConversionParams = {
   id: number,
   label: string,
-}
+};
 
 type Props = {
   order: Order,
@@ -79,10 +79,13 @@ class OrderSummary extends Component {
     const { t, order } = props;
     const grandTotal = calcGrandTotal(order.totals, order.paymentMethods);
 
-    const style = classNames({
-      [styles.collapsed]: this.state.isCollapsed,
-      [styles.embedded]: this.props.embedded,
-    }, props.className);
+    const style = classNames(
+      {
+        [styles.collapsed]: this.state.isCollapsed,
+        [styles.embedded]: this.props.embedded,
+      },
+      props.className
+    );
 
     const header = (
       <header styleName="header" onClick={this.toggleCollapsed}>
@@ -94,7 +97,7 @@ class OrderSummary extends Component {
     return (
       <section styleName="order-summary" className={style}>
         {this.getOrderPlacedTrackingCode(grandTotal)}
-        { this.props.header !== void 0 ? this.props.header : header }
+        {this.props.header !== void 0 ? this.props.header : header}
 
         <div styleName="content">
           <ProductTable skus={props.order.lineItems.skus} compact={props.confirmationPage} />

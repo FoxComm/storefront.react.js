@@ -9,7 +9,7 @@ export default class ProductTypeSelector extends Component {
   props: {
     items: Array<string>,
     activeItem: string,
-    onItemClick: Function
+    onItemClick: Function,
   };
 
   static defaultProps = {
@@ -21,16 +21,16 @@ export default class ProductTypeSelector extends Component {
     activeItem: this.props.items[0],
   };
 
-  render () {
-    const items = this.props.items.map((item) => {
+  render() {
+    const items = this.props.items.map(item => {
       const itemCls = classNames(styles.item, {
         [styles.active]: item.toLowerCase() === this.props.activeItem.toLowerCase(),
       });
-      const onClick = () => { this.props.onItemClick(item); };
+      const onClick = () => {
+        this.props.onItemClick(item);
+      };
 
-      return (
-        <div className={itemCls} onClick={onClick} key={item}>{item}</div>
-      );
+      return <div className={itemCls} onClick={onClick} key={item}>{item}</div>;
     });
 
     return (

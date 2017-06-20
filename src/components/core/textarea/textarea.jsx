@@ -6,7 +6,7 @@ import s from './textarea.css';
 
 type Props = {
   [name: string]: any,
-}
+};
 
 const TextArea = (props: Props) => {
   const { className, ...rest } = props;

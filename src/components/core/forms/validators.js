@@ -1,4 +1,3 @@
-
 export function zipCode(value) {
   return /^\w{1,9}$/.test(value) ? null : this.t('Enter valid zip code');
 }
@@ -14,10 +13,8 @@ export function phoneNumber(value) {
 }
 
 export function email(address) {
-  const strLocal = '^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))';
+  const strLocal = '^(([^<>()\\[\\]\\\\.,;:\\s@"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@"]+)*)|(".+"))';
   const strDomain = '@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$';
 
-  return RegExp(strLocal + strDomain).test(address)
-    ? null
-    : 'Invalid email';
+  return RegExp(strLocal + strDomain).test(address) ? null : 'Invalid email';
 }

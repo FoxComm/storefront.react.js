@@ -24,7 +24,8 @@ const facets = [
         count: 1,
       },
     ],
-  }, {
+  },
+  {
     key: 'size',
     name: 'Shoes',
     kind: 'circle',
@@ -122,9 +123,6 @@ const facets = [
   },
 ];
 
-storiesOf('components.Facets', module)
-  .add('base', () => {
-    return (
-      <Facets facets={facets} />
-    );
-  });
+storiesOf('components.Facets', module).add('base', () => {
+  return <Facets facets={facets} />;
+});

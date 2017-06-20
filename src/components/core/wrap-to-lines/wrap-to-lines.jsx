@@ -1,8 +1,7 @@
-
 import React, { PropTypes } from 'react';
 import styles from './wrap-to-lines.css';
 
-const WrapToLines = (props) => {
+const WrapToLines = props => {
   return (
     <div styleName="block" {...props}>
       <div styleName="line" />
@@ -15,6 +14,5 @@ const WrapToLines = (props) => {
 WrapToLines.propTypes = {
   children: PropTypes.node,
 };
-
 
 export default WrapToLines;

@@ -5,7 +5,7 @@ import React from 'react';
 import s from './wait-animation.css';
 
 type Props = {
-  size?: string|number, // PropTypes.oneOf(['s', 'm', 'l']),
+  size?: string | number, // PropTypes.oneOf(['s', 'm', 'l']),
   className?: string,
 };
 
@@ -30,9 +30,7 @@ const WaitAnimation = (props: Props) => {
       height: `${size}px`,
     };
   }
-  const cls = classNames(className, s.root,
-    s[`_size_${sizeLetter}`]
-  );
+  const cls = classNames(className, s.root, s[`_size_${sizeLetter}`]);
 
   return (
     <div className={cls} style={style}>

@@ -15,7 +15,7 @@ const emptyEmail = 'None';
 export function isGuest(user: ?Object): boolean {
   const email = _.get(user, 'email', '');
   const name = _.get(user, 'name', '');
-  return (_.isEmpty(email) || email === emptyEmail) || _.isEmpty(name);
+  return _.isEmpty(email) || email === emptyEmail || _.isEmpty(name);
 }
 
 export function emailIsSet(user: ?Object): boolean {

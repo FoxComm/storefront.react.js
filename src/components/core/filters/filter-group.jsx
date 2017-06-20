@@ -34,13 +34,10 @@ export default class FilterGroup extends Component {
 
   render() {
     const { children, label, term, values, renderCount } = this.props;
-    const {
-      onClearFacet = () => {},
-      onSelectFacet = () => {},
-    } = this.props;
+    const { onClearFacet = () => {}, onSelectFacet = () => {} } = this.props;
     const { expanded } = this.state;
 
-    const updatedChildren = React.Children.map(children, (child) => {
+    const updatedChildren = React.Children.map(children, child => {
       return React.cloneElement(child, { onSelectFacet, term, values, renderCount });
     });
 

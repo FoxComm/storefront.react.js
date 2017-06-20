@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 function formatPhoneNumber(value) {
@@ -10,10 +9,8 @@ function formatPhoneNumber(value) {
   return value;
 }
 
-const PhoneNumber = (props) => {
-  return (
-    <span>{formatPhoneNumber(props.children)}</span>
-  );
+const PhoneNumber = props => {
+  return <span>{formatPhoneNumber(props.children)}</span>;
 };
 
 export default PhoneNumber;

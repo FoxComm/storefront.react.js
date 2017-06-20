@@ -20,7 +20,7 @@ type CordTotals = TOrderTotals & {
   // right now we don't have customersExpenses in OrderTotals, but in future there is
   // will be customersExpenses field in OrderTotals type
   customersExpenses?: number,
-}
+};
 
 type Props = {
   totals: CordTotals,
@@ -32,12 +32,16 @@ type Props = {
 };
 
 function calcGiftCardPayments(paymentMethods: ?Array<CordPayment>) {
-  return _.reduce(paymentMethods, (acc: number, cordPayment: CordPayment) => {
-    if (cordPayment.type == 'giftCard') {
-      return acc + (cordPayment: GiftCardPayment).amount;
-    }
-    return acc;
-  }, 0);
+  return _.reduce(
+    paymentMethods,
+    (acc: number, cordPayment: CordPayment) => {
+      if (cordPayment.type == 'giftCard') {
+        return acc + (cordPayment: GiftCardPayment).amount;
+      }
+      return acc;
+    },
+    0
+  );
 }
 
 export function calcGrandTotal(totals: CordTotals, paymentMethods: ?Array<CordPayment>) {
