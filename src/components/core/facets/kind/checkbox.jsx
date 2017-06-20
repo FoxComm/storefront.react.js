@@ -2,7 +2,7 @@
 
 import React, { Component, Element } from 'react';
 import classNames from 'classnames';
-import styles from './checkbox.css';
+import styles from './facet-checkbox.css';
 import { autobind } from 'core-decorators';
 
 // components
@@ -52,7 +52,7 @@ class Checkbox extends Component {
     } = this.props;
 
     const className = classNames(
-      styles['facet-checkbox'],
+      styles['block'],
       {
         [styles.disabled]: !available,
       }

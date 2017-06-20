@@ -2,7 +2,7 @@
 
 import classnames from 'classnames';
 import React, { Component, Element } from 'react';
-import styles from './colorcircle.css';
+import styles from './facet-colorcircle.css';
 import _ from 'lodash';
 import { autobind } from 'core-decorators';
 
@@ -64,7 +64,7 @@ class ColorCircle extends Component {
 
     const className = classnames(
       colorStyle,
-      styles['color-checkbox'], {
+      styles['block'], {
         [styles.light]: isLight(value.color),
       },
       {

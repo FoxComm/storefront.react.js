@@ -761,11 +761,11 @@
   border: solid 1px var(--blackish);
 }
 
-.color-checkbox input[type=checkbox] {
+.block input[type=checkbox] {
   display: none;
 }
 
-.color-checkbox {
+.block {
   cursor: pointer;
   width: 16px;
   height: 16px;
@@ -781,20 +781,20 @@
 }
 
 @media ( --medium ) {
-  .color-checkbox {
+  .block {
     width: 24px;
     height: 24px;
   }
 }
 
 @media ( --large ) {
-  .color-checkbox {
+  .block {
     width: 32px;
     height: 32px;
   }
 }
 
-.color-checkbox label {
+.block label {
   cursor: pointer;
   font-weight: normal;
   vertical-align: -25%;
@@ -804,11 +804,11 @@
   display: inline-block;
 }
 
-.color-checkbox input[type=checkbox] + div {
+.block input[type=checkbox] + div {
   height: 100%;
 }
 
-.color-checkbox input[type=checkbox]:checked + div {
+.block input[type=checkbox]:checked + div {
   background-image: url(../../../../images/symbols/checkbox.svg);
   background-size: 37.5%, 37.5%;
   background-repeat: no-repeat no-repeat;
@@ -819,7 +819,7 @@
   color: inherit;
 }
 
-.light.color-checkbox input[type=checkbox]:checked + div {
+.light.block input[type=checkbox]:checked + div {
   background-image: url(../../../../images/symbols/blackcheckbox.svg);
 }
 

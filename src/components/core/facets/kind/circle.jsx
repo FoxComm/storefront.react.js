@@ -2,7 +2,7 @@
 
 import React, { Component, Element } from 'react';
 import classNames from 'classnames';
-import styles from './circle.css';
+import styles from './facet-circle.css';
 import { autobind } from 'core-decorators';
 
 import type { FacetElementProps } from '../types';
@@ -49,7 +49,7 @@ class Circle extends Component {
     } = this.props;
 
     const className = classNames(
-      styles['circle-checkbox'],
+      styles['block'],
       {
         [styles.disabled]: !available,
       }

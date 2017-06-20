@@ -1,4 +1,4 @@
-.image-checkbox {
+.block {
   display: inline-block;
   width: 59px;
   height: 63px;
@@ -6,11 +6,11 @@
   margin-bottom: 6px;
 }
 
-.image-checkbox input[type=checkbox] {
+.block input[type=checkbox] {
   display: none;
 }
 
-.image-checkbox label {
+.block label {
   display: block;
   width: 100%;
   height: 100%;
@@ -37,7 +37,7 @@
   pointer-events: none;
 }
 
-.image-checkbox input[type=checkbox]:checked + div .sign-holder {
+.block input[type=checkbox]:checked + div .sign-holder {
   background-image: url(../../../../images/symbols/blackcheckbox.svg);
   background-size: 37.5%, 37.5%;
   background-repeat: no-repeat no-repeat;

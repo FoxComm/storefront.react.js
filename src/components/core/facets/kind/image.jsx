@@ -3,7 +3,7 @@
 import React, { Component, Element } from 'react';
 import classNames from 'classnames';
 import { autobind } from 'core-decorators';
-import styles from './image.css';
+import styles from './facet-image.css';
 
 import type { FacetElementProps } from '../types';
 
@@ -51,7 +51,7 @@ class Image extends Component {
     const id = `${facet}-image-${label}`;
 
     const className = classNames(
-      styles['image-checkbox'],
+      styles['block'],
       {
         [styles.disabled]: !available,
       }
