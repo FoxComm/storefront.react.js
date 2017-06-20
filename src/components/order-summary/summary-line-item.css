@@ -79,10 +79,6 @@
 }
 
 @media (--small-only), (--medium-only) {
-  .content {
-
-  }
-
   .product-data {
     flex-direction: column;
   }
