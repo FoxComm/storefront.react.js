@@ -1,6 +1,6 @@
 {
   "name": "@foxcomm/storefront-react",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "FoxCommerce Storefront React UI Library",
   "main": "lib/index.js",
   "scripts": {
