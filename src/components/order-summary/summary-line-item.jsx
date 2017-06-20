@@ -38,7 +38,7 @@ const LineItemRow = (props: Props) => {
           {renderImage(lineItem)}
         </div>
         <div styleName="product-data">
-          <div styleName="pxroduct-info">
+          <div styleName="product-info">
             <div styleName="product-name">{lineItem.name}</div>
             <div styleName="product-variant">{/* TODO: variant info must be here */}</div>
           </div>
