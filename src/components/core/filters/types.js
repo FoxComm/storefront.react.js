@@ -28,5 +28,5 @@ export type FilterGroupProps = {
   onClearFacet?: Function,
   onSelectFacet?: Function,
   initiallyExpanded?: boolean,
-  renderCount?: (count: number) => string,
+  renderCount: (count: number) => string,
 };

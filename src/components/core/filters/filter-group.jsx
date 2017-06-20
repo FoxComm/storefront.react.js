@@ -2,10 +2,9 @@
 
 import React, { Component } from 'react';
 import FilterHeader from './filter-header';
-import FilterCheckboxes from './filter-checkboxes';
 
 import styles from './filter-group.css';
-import type { Filter, FilterValue, FilterGroupProps } from './types';
+import type { FilterGroupProps } from './types';
 
 type State = {
   expanded: boolean,
@@ -17,11 +16,11 @@ type DefaultProps = {
 
 export default class FilterGroup extends Component {
   props: FilterGroupProps;
-  state: State = { expanded: this.props.initiallyExpanded };
+  state: State = { expanded: !!this.props.initiallyExpanded };
 
   static defaultProps: DefaultProps = {
     renderCount: (count: number): string => `(${count})`,
-  }
+  };
 
   selectedCount = () => {
     const { values = [] } = this.props;
