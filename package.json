@@ -9,7 +9,14 @@
     "build": "npm run build-css && npm run build-js",
     "prepublish": "npm run build",
     "styleguidist": "NODE_PATH=./src styleguidist server --config styleguide.config.js",
-    "flow": "flow check"
+    "flow": "flow check",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "prettier --single-quote --trailing-comma es5 --print-width 120 --write",
+      "git add"
+    ]
   },
   "publishConfig": {
     "registry": "https://npm.foxcommerce.com:4873"
@@ -57,6 +64,8 @@
     "gulp-concat": "^2.6.1",
     "gulp-postcss": "^7.0.0",
     "gulp-sourcemaps": "^2.6.0",
+    "husky": "^0.13.4",
+    "lint-staged": "^4.0.0",
     "postcss": "5.x.x",
     "postcss-cssnext": "^2.10.0",
     "postcss-loader": "^2.0.5",
