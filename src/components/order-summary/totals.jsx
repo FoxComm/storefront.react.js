@@ -12,7 +12,6 @@ import Currency from 'components/core/currency';
 import styles from './order-summary.css';
 
 // types
-
 import type { OrderTotals as TOrderTotals, CartTotals as TCartTotals } from '@foxcomm/api-js/types/api/cord/totals';
 import type { CordPayment, GiftCardPayment } from '@foxcomm/api-js/types/api/cord/payments';
 

@@ -16,7 +16,6 @@ import GoogleConversion from 'components/core/google/conversion';
 import styles from './order-summary.css';
 
 // types
-
 import type { Order } from '@foxcomm/api-js/types/api/order';
 
 type ConversionParams = {
