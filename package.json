@@ -62,6 +62,7 @@
     "postcss-loader": "^2.0.5",
     "postcss-modules-local-by-default": "^1.2.0",
     "postcss-modules-scope": "^1.1.0",
+    "prettier": "^1.4.4",
     "react-docgen": "^2.15.0",
     "react-styleguidist": "^5.2.1",
     "style-loader": "^0.17.0",

@@ -10,7 +10,7 @@ import classNames from 'classnames/dedupe';
 import Totals, { calcGrandTotal } from './totals';
 import Currency from 'components/core/currency';
 import ProductTable from './product-table';
-import GoogleConversion from 'components/core//google/conversion';
+import GoogleConversion from 'components/core/google/conversion';
 
 // styles
 import styles from './order-summary.css';
