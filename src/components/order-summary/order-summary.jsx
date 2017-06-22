@@ -16,7 +16,7 @@ import GoogleConversion from 'components/core/google/conversion';
 import styles from './order-summary.css';
 
 // types
-import type { Order } from '@foxcomm/api-js/types/api/order';
+import type { Cart } from '@foxcomm/api-js/types/api/cart';
 
 type ConversionParams = {
   id: number,
@@ -24,12 +24,13 @@ type ConversionParams = {
 };
 
 type Props = {
-  order: Order,
+  cord: Cart,
   conversionParams?: ConversionParams,
   t: (s: string) => string,
   header?: mixed,
   initiallyCollapsed?: boolean,
   className?: string,
+  // modifiers
   embedded?: boolean,
   confirmationPage?: boolean,
 };
@@ -66,7 +67,7 @@ class OrderSummary extends Component {
 
     const params = {
       value: grandTotal / 100,
-      orderId: this.props.order.referenceNumber,
+      orderId: this.props.cord.referenceNumber,
       ...conversionParams,
     };
 
@@ -75,8 +76,8 @@ class OrderSummary extends Component {
 
   render() {
     const props = this.props;
-    const { t, order } = props;
-    const grandTotal = calcGrandTotal(order.totals, order.paymentMethods);
+    const { t, cord } = props;
+    const grandTotal = calcGrandTotal(cord.totals, cord.paymentMethods);
 
     const style = classNames(
       {
@@ -99,8 +100,8 @@ class OrderSummary extends Component {
         {this.props.header !== void 0 ? this.props.header : header}
 
         <div styleName="content">
-          <ProductTable skus={props.order.lineItems.skus} compact={props.confirmationPage} />
-          <Totals totals={order.totals} paymentMethods={order.paymentMethods} />
+          <ProductTable skus={cord.lineItems.skus} compact={props.confirmationPage} />
+          <Totals totals={cord.totals} paymentMethods={cord.paymentMethods} />
         </div>
       </section>
     );
