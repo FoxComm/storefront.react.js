@@ -1,40 +1,33 @@
 /* @flow */
-
-import classNames from 'classnames';
 import React from 'react';
+import classnames from 'classnames';
+import s from './icon.css';
 
-function wrapSpinner(svg: string, className: string) {
-  if (className.indexOf('spinner') > -1) {
-    return `<span class="icon__spinner">${svg}</span>`;
-  }
-
-  return svg;
-}
-
-type IconSize = 'custom' | 'm' | 'l' | 'xl' | 'xxl';
-
-type IconProps = {
-  size?: IconSize,
+type Props = {
+  /** icon type */
   name: string,
+  /** svg optional className */
   className?: string,
-  onClick?: Function,
+  /** you can pass false in case if you want specify size manually via `fc-icon__icon-<name>` class for example */
+  size?: 's' | 'm' | 'x' | false,
+  prefix?: string,
 };
 
-const Icon = (props: IconProps) => {
-  const name = `#${props.name}-icon`;
-  const size = props.size || 's';
+/**
+ * Icon is a simple component for representing SVG icons.
+ * `@foxcomm/storefront-react/lib/sprite.svg` sprite should be included to the page.
+ *
+ * @function Icon
+ */
 
-  const className = classNames('icon', `icon--${props.name}`, `icon--${size}`, props.className);
-
-  const svg = `<svg class="icon__cnt">
-      <!-- SAFARI TAB NAVIGATION FIX -->
-      <use xlink:href=${name} />
-      <!-- SAFARI TAB NAVIGATION FIX -->
-    </svg>`;
-
-  const svgNode = wrapSpinner(svg, className);
-
-  return <span className={className} onClick={props.onClick} dangerouslySetInnerHTML={{ __html: svgNode }} />;
+const Icon = (props: Props) => {
+  const { name, className, size = 's', prefix = 'fc-icon-', ...rest } = props;
+  const classNames = classnames(s.icon, s[`icon-${name}`], className, size ? s[`-size-${size}`] : null);
+  return (
+    <svg className={classNames} {...rest}>
+      <use xlinkHref={`#${prefix}${name}`} />
+    </svg>
+  );
 };
 
 export default Icon;
