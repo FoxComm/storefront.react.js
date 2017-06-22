@@ -269,9 +269,9 @@ export default class Pdp extends Component<DefaultProps, Props, State> {
   }
 
   render(): Element<any> {
-    const { t, isLoading, notFound, fetchError } = this.props;
+    const { t, isLoading, notFound, fetchError, isReady } = this.props;
 
-    if (isLoading) {
+    if (isLoading || isReady == null) {
       return <WaitAnimation />;
     }
 
