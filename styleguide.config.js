@@ -1,21 +1,21 @@
 const path = require('path');
+const fs = require('fs');
 const { camelCase, upperFirst } = require('lodash');
 
 module.exports = {
   title: `FoxCommerce Storefront React UI Library`,
   template: path.join(__dirname, './styleguide/template.html'),
   showCode: false,
+  assetsDir: path.resolve(__dirname, 'lib'),
   skipComponentsWithoutExample: false,
   webpackConfig: require('./styleguide/webpack.styleguide.js'),
   styleguideDir: path.resolve('public/styleguide'),
-  getComponentPathLine: (componentPath) => {
+  getComponentPathLine: componentPath => {
     const dirname = path.dirname(componentPath, '.jsx');
     const name = dirname.split('/').slice(-1)[0];
     const componentName = upperFirst(camelCase(name));
 
-    const importPath = dirname.split(/\/src\//).pop();
-
-    return `import ${componentName} from ${importPath}`;
+    return `import { ${componentName} } from '@foxcomm/storefront-react';`;
   },
   context: {
     sampleProduct: path.resolve(__dirname, 'fixtures/sample-product.json'),
@@ -34,10 +34,14 @@ module.exports = {
       sections: [
         {
           name: 'Buttons',
-          components: () => ([
+          components: () => [
             path.resolve(__dirname, 'src/components/core/buttons/button.jsx'),
-            path.resolve(__dirname, 'src/components/core/buttons/secondary-button.jsx')
-          ]),
+            path.resolve(__dirname, 'src/components/core/buttons/secondary-button.jsx'),
+          ],
+        },
+        {
+          name: 'Icon',
+          components: () => [path.resolve(__dirname, 'src/components/core/icon/icon.jsx')],
         },
       ],
     },
@@ -46,18 +50,18 @@ module.exports = {
       sections: [
         {
           name: 'Pdp',
-          components: () => ([
+          components: () => [
             path.resolve(__dirname, 'src/components/pdp/pdp.jsx'),
             path.resolve(__dirname, 'src/components/related-products-list/related-products-list.jsx'),
             path.resolve(__dirname, 'src/components/product-reviews-list/product-reviews-list.jsx'),
-          ]),
+          ],
         },
         {
           name: 'Order Summary',
-          components: () => ([
+          components: () => [
             path.resolve(__dirname, 'src/components/order-summary/totals.jsx'),
             path.resolve(__dirname, 'src/components/order-summary/order-summary.jsx'),
-          ]),
+          ],
         },
       ],
     },
@@ -66,5 +70,5 @@ module.exports = {
     path.join(__dirname, 'src/css/reset.css'),
     path.join(__dirname, 'styleguide/styleguide.css'),
     path.join(__dirname, 'node_modules/react-image-gallery/styles/css/image-gallery.css'),
-  ]
+  ],
 };
