@@ -2,7 +2,7 @@
 @import "media-queries.css";
 
 .block {
-  display: inline-block;
+  display: block;
   position: relative;
   border: 1px solid var(--input-border-color);
   margin: 1px -1px 1px 1px;
