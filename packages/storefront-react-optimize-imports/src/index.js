@@ -70,7 +70,7 @@ exports['default'] = function (_ref) {
             const kebabName = kebabCase(name);
 
             const importPath = components[name] || `${kebabName}/${kebabName}`;
-            const finalPath = `${pkgName}/lib/${importPath}`;
+            const finalPath = `${pkgName}/lib/components/${importPath}`;
 
             const source = t.stringLiteral(finalPath);
             const specifier = t.importDefaultSpecifier(t.identifier(decl.local.name));
