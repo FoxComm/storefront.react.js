@@ -1,8 +1,8 @@
 import React from 'react';
-import Icon from './icon';
+import Icon from '../icon';
 import s from './icons.css';
 
-let __sprite__ = { path: '../../../images/svg-icons/*.svg', name: 'assets/svg/[hash].icons.svg' };
+let __sprite__ = { path: '../../../../images/svg-icons/*.svg', name: 'assets/svg/[hash].icons.svg' };
 
 const iconSet = [
   'add',
