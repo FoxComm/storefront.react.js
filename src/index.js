@@ -1,3 +1,5 @@
+// keep consistent with packages/storefront-react-optimize-imports/src/index.js
+
 // components/core package
 export Accordion from './components/core/accordion/accordion';
 export ActionLink from './components/core/action-link/action-link';
@@ -27,7 +29,6 @@ export WaitAnimation from './components/core/wait-animation/wait-animation';
 export WrapToLines from './components/core/wrap-to-lines/wrap-to-lines';
 
 // components package
-
 export Pdp from './components/pdp/pdp';
 export ProductImage from './components/product-image/product-image';
 export ImagePlaceholder from './components/product-image/image-placeholder';
