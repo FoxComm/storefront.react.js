@@ -43,6 +43,10 @@ module.exports = {
           name: 'Icon',
           components: () => [path.resolve(__dirname, 'src/components/core/icon/icon.jsx')],
         },
+        {
+          name: 'Select',
+          components: () => [path.resolve(__dirname, 'src/components/core/select/select.jsx')],
+        },
       ],
     },
     {
