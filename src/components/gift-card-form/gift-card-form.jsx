@@ -47,9 +47,6 @@ const GiftCardForm = (props: Props) => {
     <div styleName="block">
       <div styleName="price-selector">
         <Select
-          inputProps={{
-            type: 'text',
-          }}
           items={skus}
           getItemValue={formatSkuPrice}
           selectedItem={props.selectedSku}

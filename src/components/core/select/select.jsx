@@ -2,17 +2,21 @@
 
 import _ from 'lodash';
 import React, { Component } from 'react';
+import classnames from 'classnames';
 import s from './select.css';
 import { autobind } from 'core-decorators';
 
 /* eslint react/sort-comp: 0 */
 
+type ItemType = mixed;
+
 type Props = {
-  items: Array<any>,
-  selectedItem: any,
-  onSelect: Function,
+  items: Array<ItemType>,
+  selectedItem: ItemType,
+  onSelect: (item: ItemType) => void,
   sortItems: boolean,
-  getItemValue: Function,
+  getItemValue: (item: ItemType) => string,
+  className?: string,
 };
 
 class Select extends Component {
@@ -45,7 +49,7 @@ class Select extends Component {
 
   render() {
     return (
-      <div className={s.block}>
+      <div className={classnames(s.block, this.props.className)}>
         <select className={s.select} value={this.selectedValue()} onChange={this.handleChange}>
           {_.map(this.values(), this.renderItem)}
         </select>
