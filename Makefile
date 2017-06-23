@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := build
 
 JS_FILES = $(shell find ./src -name "*.js" -o -name "*.jsx")
-PRETTIER_OPTIONS = --single-quote --trailing-comma es5 --print-width 120 # also prettier opts exists in package.json
+PRETTIER_OPTIONS = --single-quote --trailing-comma es5 --print-width 120
 
 setup: clean
 	yarn --pure-lockfile
