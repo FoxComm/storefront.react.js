@@ -50,3 +50,4 @@ const plugins = [
 ];
 
 exports.plugins = plugins;
+exports.generateScopedName = generateScopedName;
