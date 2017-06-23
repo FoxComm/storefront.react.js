@@ -21,6 +21,7 @@ class Select extends Component {
   static defaultProps = {
     onSelect() {},
     sortItems: false,
+    getItemValue: _.identity,
   };
 
   @autobind
