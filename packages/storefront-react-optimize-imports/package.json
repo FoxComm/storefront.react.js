@@ -1,6 +1,6 @@
 {
   "name": "@foxcomm/storefront-react-optimize-imports",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Optimize imports for storefront-react package in order to get smaller bundle size",
   "main": "src/index.js",
   "publishConfig": {
