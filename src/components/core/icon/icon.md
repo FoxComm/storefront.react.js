@@ -2,6 +2,6 @@
 #### Examples
 
 ```
-const Icons = require('./icons').default;
+const Icons = require('./styleguide/icons').default;
 <Icons />
 ```
