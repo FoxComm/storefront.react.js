@@ -9,10 +9,10 @@ import { Select, Pdp, Icon as FcIcon, OrderLineItems  } from '@foxcomm/storefron
 Into this:
 
 ```
-import Select from "@foxcomm/storefront-react/lib/core/select/select";
-import Pdp from "@foxcomm/storefront-react/lib/pdp/pdp";
-import FcIcon from "@foxcomm/storefront-react/lib/core/icon/icon";
-import OrderLineItems from "@foxcomm/storefront-react/lib/order-summary/product-table";
+import Select from "@foxcomm/storefront-react/lib/components/core/select/select";
+import Pdp from "@foxcomm/storefront-react/lib/components/pdp/pdp";
+import FcIcon from "@foxcomm/storefront-react/lib/components/core/icon/icon";
+import OrderLineItems from "@foxcomm/storefront-react/lib/components/order-summary/product-table";
 ```
 
 ## Usage
