@@ -1,19 +1,32 @@
 const path = require('path');
 const fs = require('fs');
-const { camelCase, upperFirst } = require('lodash');
+const _ = require('lodash');
+const { components } = require('./packages/storefront-react-optimize-imports/src/index');
+
+const exportNameByPath = _.reduce(components, (acc, entry, exportName) => {
+  if (entry.isDefault) {
+    acc[`src${entry.path}.jsx`] = exportName;
+  }
+  return acc;
+}, {});
 
 module.exports = {
   title: `FoxCommerce Storefront React UI Library`,
   template: path.join(__dirname, './styleguide/template.html'),
-  showCode: false,
+  showCode: true,
   assetsDir: path.resolve(__dirname, 'lib'),
   skipComponentsWithoutExample: false,
   webpackConfig: require('./styleguide/webpack.styleguide.js'),
   styleguideDir: path.resolve('public/styleguide'),
   getComponentPathLine: componentPath => {
-    const dirname = path.dirname(componentPath, '.jsx');
-    const name = dirname.split('/').slice(-1)[0];
-    const componentName = upperFirst(camelCase(name));
+    let componentName;
+    if (componentPath in exportNameByPath) {
+      componentName = exportNameByPath[componentPath];
+    } else {
+      const dirname = path.dirname(componentPath, '.jsx');
+      const name = dirname.split('/').slice(-1)[0];
+      componentName = _.upperFirst(_.camelCase(name));
+    }
 
     return `import { ${componentName} } from '@foxcomm/storefront-react';`;
   },

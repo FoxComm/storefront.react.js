@@ -1,6 +1,6 @@
 {
   "name": "@foxcomm/storefront-react-optimize-imports",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Optimize imports for storefront-react package in order to get smaller bundle size",
   "main": "src/index.js",
   "publishConfig": {
@@ -20,6 +20,7 @@
     "url": "https://github.com/FoxComm/storefront.react.js/issues"
   },
   "dependencies": {
+    "babel-traverse": "^6.25.0",
     "babylon": "^6.17.4",
     "find-up": "^2.1.0"
   }
