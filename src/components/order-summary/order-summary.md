@@ -1,17 +1,17 @@
 #### Basic example
 
 ```
-<OrderSummary order={sampleOrder} />
+<OrderSummary cord={sampleOrder} />
 ```
 
 #### Embedded
 
 ```
-<OrderSummary order={sampleOrder} embedded />
+<OrderSummary cord={sampleOrder} embedded />
 ```
 
-### ConfirmationPage
+#### ConfirmationPage
 
 ```
-<OrderSummary order={sampleOrder} confirmationPage embedded />
+<OrderSummary cord={sampleOrder} confirmationPage embedded />
 ```
