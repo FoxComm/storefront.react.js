@@ -12,5 +12,14 @@
       }
     ]
   ],
-  "presets": ["flow", "stage-1", "es2015", "react"]
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions", "safari 9"]
+      }
+    }],
+    "stage-1",
+    "flow",
+    "react"
+  ]
 }
