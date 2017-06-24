@@ -1,4 +1,3 @@
-// keep consistent with packages/storefront-react-optimize-imports/src/index.js
 
 // components/core package
 export Accordion from './components/core/accordion/accordion';
