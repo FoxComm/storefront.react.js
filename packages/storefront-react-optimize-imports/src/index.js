@@ -1,12 +1,15 @@
 'use strict';
 /* eslint new-cap: 0, dot-notation: 0, no-param-reassign: 0 */
 
+exports = module.exports = plugin;
+exports['default'] = plugin;
 exports.__esModule = true;
 
 const { parse } = require('babylon');
 const path = require('path');
 const fs = require('fs');
 const findUp = require('find-up');
+const traverse = require('babel-traverse').default;
 
 const pkgName = '@foxcomm/storefront-react';
 
@@ -34,7 +37,7 @@ const importsAst = parse(importsCode, {
   ]
 });
 
-function transformToComponents(importsAst, traverse) {
+function transformToComponents(importsAst) {
   const components = Object.create(null);
   traverse(importsAst, {
     ExportNamedDeclaration(path) {
@@ -54,9 +57,11 @@ function transformToComponents(importsAst, traverse) {
   return components;
 }
 
-exports['default'] = function (_ref) {
+const components = transformToComponents(importsAst);
+exports.components = components;
+
+function plugin(_ref) {
   const t = _ref.types;
-  const components = transformToComponents(importsAst, _ref.traverse);
 
   return {
     visitor: {
@@ -87,6 +92,4 @@ exports['default'] = function (_ref) {
       }
     },
   };
-};
-
-module.exports = exports['default'];
+}
