@@ -4,14 +4,14 @@
 .order-summary {
   width: 100%;
   padding: 0;
-  background: var(--body-background);
-  color: var(--text-color);
+  background: #FFFFFF;
+  color: #212121;
 }
 
 .divider {
   height: 1px;
   width: 100%;
-  background-color: var(--input-border-color);
+  background-color: #E6E6E6;
 }
 
 .header {
@@ -24,32 +24,41 @@
 }
 
 .title {
-  width: 100%;
+  width:80%;
+  text-align: left;
+}
+
+.reference {
+  width: 20%;
+  text-align: right;
 }
 
 .content {
   font-size: 13px;
-  border-top: 1px solid var(--input-border-color);
+  border-top: 1px solid var(--border-color);
 }
 
 .price-summary {
   margin: 0;
+  padding: 1em 0;
   list-style-type: none;
-  line-height: 1.63;
+  text-transform: uppercase;
+
+  & > li {
+    padding-bottom: 10px;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  border-bottom: 1px solid var(--border-color);
 }
 
 .grand-total {
-  line-height: 1.44;
-  margin-top: 12px;
-  display: flex;
-}
-
-.value {
-  display: flex;
-
-  & div:last-child {
-    font-weight: 900;
-  }
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 1.3em 0;
 }
 
 @media (--small-only) {
@@ -57,6 +66,15 @@
   .content {
     margin-left: 20px;
     margin-right: 20px;
+  }
+
+  .title {
+    width: 50%;
+  }
+
+  .reference {
+    text-align: left;
+    width: 50%;
   }
 }
 
@@ -68,6 +86,15 @@
       font-size: 12px;
       transform: scaleY(.7);
     }
+  }
+
+  .title {
+    width: 50%;
+  }
+
+  .reference {
+    text-align: left;
+    width: 50%;
   }
 
   .order-summary {
@@ -83,6 +110,19 @@
         display: none;
       }
     }
+
+    &.scrolled {
+      top: 60px;
+      max-height: calc(100% - 60px);
+    }
+  }
+}
+
+@media (--medium-only) {
+  .header,
+  .content {
+    lost-column: 10/12;
+    lost-offset: -1/12;
   }
 }
 
@@ -93,6 +133,10 @@
 }
 
 @media (--large) {
+  .checkout {
+    display: flex;
+  }
+
   .header {
     justify-content: center;
     text-align: center;
@@ -111,9 +155,8 @@
   }
 
   .order-summary {
-    padding: 0 20px 20px;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
+    padding: 0 20px;
+    border: 2px solid var(--border-color);
   }
 
   .embedded {
@@ -121,3 +164,4 @@
     border: 0 none;
   }
 }
+

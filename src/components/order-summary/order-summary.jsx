@@ -30,6 +30,7 @@ type Props = {
   header?: mixed,
   initiallyCollapsed?: boolean,
   className?: string,
+  totalTitle?: string,
   // modifiers
   embedded?: boolean,
   confirmationPage?: boolean,
@@ -46,6 +47,7 @@ class OrderSummary extends Component {
     t: _.identity,
     initiallyCollapsed: false,
     embedded: false,
+    totalTitle: 'Grand Total',
   };
 
   state: State = {
@@ -101,7 +103,7 @@ class OrderSummary extends Component {
 
         <div styleName="content">
           <ProductTable skus={cord.lineItems.skus} compact={props.confirmationPage} />
-          <Totals totals={cord.totals} paymentMethods={cord.paymentMethods} />
+          <Totals totals={cord.totals} paymentMethods={cord.paymentMethods} totalTitle={props.totalTitle} />
         </div>
       </section>
     );

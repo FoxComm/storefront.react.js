@@ -46,10 +46,13 @@
 }
 
 .price-block {
-
 }
 
 .qnt-block {
+}
+
+.multiplier {
+  margin: 0 12px;
 }
 
 .product-image {

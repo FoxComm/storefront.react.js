@@ -1,3 +1,4 @@
+require('./override-fs');
 const path = require('path');
 const fs = require('fs');
 const _ = require('lodash');
@@ -17,7 +18,7 @@ module.exports = {
   assetsDir: path.resolve(__dirname, 'lib'),
   skipComponentsWithoutExample: false,
   webpackConfig: require('./styleguide/webpack.styleguide.js'),
-  styleguideDir: path.resolve('public/styleguide'),
+  styleguideDir: path.resolve(`public/styleguides/${process.env.THEME || 'default'}`),
   getComponentPathLine: componentPath => {
     let componentName;
     if (componentPath in exportNameByPath) {

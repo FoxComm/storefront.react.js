@@ -45,7 +45,7 @@ const LineItemRow = (props: Props) => {
           <div styleName="price-data">
             <div styleName="price-and-quantity">
               <span styleName="qnt-block">{lineItem.quantity}</span>
-              <span>×</span>
+              <span styleName="multiplier">×</span>
               <span styleName="price-block"><Currency value={lineItem.price} /></span>
             </div>
             <div styleName="product-price">
