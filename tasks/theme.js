@@ -11,16 +11,20 @@ const rewrites = {
   [path.resolve('./src')]: path.resolve(`./themes/${themeName}`),
 };
 
-function overridePaths() {
+function overridePaths(options = {overrideOnlyContent: false}) {
   return through.obj((file, enc, cb) => {
     for (let from in rewrites) {
       if (file.path.indexOf(from) === 0) {
         const newPath = file.path.replace(from, rewrites[from]);
         if (fs.existsSync(newPath)) {
           console.info(`override ${file.path} -> ${newPath}`);
-          file = vinylFile.readSync(newPath, {
-            base: rewrites[from],
-          });
+          if (options.overrideOnlyContent) {
+            file.contents = fs.readFileSync(newPath);
+          } else {
+            file = vinylFile.readSync(newPath, {
+              base: rewrites[from],
+            });
+          }
           break;
         }
       }

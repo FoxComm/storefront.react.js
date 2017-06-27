@@ -9,7 +9,9 @@ gulp.task('js', () => {
   ];
 
   return gulp.src(src)
-    .pipe(overridePaths())
+    .pipe(overridePaths({
+      overrideOnlyContent: true,
+    }))
     .pipe(babel())
     .pipe(gulp.dest(`build/${require('./theme').name}`));
 });
