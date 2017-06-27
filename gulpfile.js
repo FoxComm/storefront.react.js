@@ -1,5 +1,3 @@
-require('./override-fs');
-
 const gulp = require('gulp');
 require('./tasks/css');
 require('./tasks/sprites');
