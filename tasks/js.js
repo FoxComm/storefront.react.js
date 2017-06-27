@@ -1,6 +1,7 @@
 
 const gulp = require('gulp');
 const babel = require('gulp-babel');
+const { overridePaths } = require('./theme');
 
 gulp.task('js', () => {
   const src = [
@@ -8,6 +9,7 @@ gulp.task('js', () => {
   ];
 
   return gulp.src(src)
+    .pipe(overridePaths())
     .pipe(babel())
-    .pipe(gulp.dest('lib/'));
+    .pipe(gulp.dest(`build/${require('./theme').name}`));
 });

@@ -1,7 +1,8 @@
 /* @flow */
 
 // libs
-import React, { Element } from 'react';
+import _ from 'lodash';
+import React, { Element, PropTypes } from 'react';
 import classnames from 'classnames';
 
 // styles
@@ -12,19 +13,19 @@ import Currency from 'components/core/currency';
 
 // types
 import type { LineItem } from '@foxcomm/api-js/types/api/cord/line-items';
+import type { ThemeData } from 'components/core/theme-provider/theme-data';
+import { renderLineItemImage } from 'components/core/theme-provider/theme-data';
 
 type Props = {
   lineItem: LineItem,
+  context?: ThemeData,
   renderImage?: (lineItem: LineItem) => Element<*>,
   compact?: boolean,
   className?: string,
 };
 
-function defaultRenderImage(lineItem: LineItem): Element<*> {
-  return <img src={lineItem.imagePath} width="50" height="50" />;
-}
-
 const LineItemRow = (props: Props) => {
+  const defaultRenderImage = _.get(props, 'context.renderLineItemImage', renderLineItemImage);
   const { lineItem, renderImage = defaultRenderImage } = props;
 
   const className = classnames(styles['line-item'], props.className, {
@@ -56,6 +57,10 @@ const LineItemRow = (props: Props) => {
       </div>
     </div>
   );
+};
+
+LineItemRow.contextTypes = {
+  renderLineItemImage: PropTypes.func,
 };
 
 export default LineItemRow;

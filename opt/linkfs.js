@@ -60,7 +60,6 @@ const methods = [
 const originalFs = fs;
 const existsSync = fs.existsSync;
 
-
 function linkfs(fs, rewrites, finalMethods = methods) {
   const resolvedRewrites = Object.create(null);
   _.each(rewrites, (value, from) => {

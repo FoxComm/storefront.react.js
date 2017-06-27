@@ -5,11 +5,15 @@ const addsrc = require('gulp-add-src');
 const postcss = require('gulp-postcss');
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
+const { overridePaths } = require('./theme');
 
 const rootPath = path.resolve(__dirname, '..');
+const buildPath = `build/${require('./theme').name}`;
 
 function saveTokens(cssFile, exportTokens) {
-  const libPath = path.relative(rootPath, cssFile).replace(/^src/, 'lib');
+  const libPath = path.relative(rootPath, cssFile)
+    .replace(/^src/, buildPath)
+    .replace(/^themes\/[^\/]+/, buildPath);
 
   return fs
     .ensureDir(path.dirname(libPath))
@@ -24,6 +28,7 @@ gulp.task('css', function() {
   const exportModulesPlugin = require('../src/opt/css-modules-export');
   return gulp
     .src(src)
+    .pipe(overridePaths())
     .pipe(
       postcss([
         ...plugins,
@@ -34,5 +39,5 @@ gulp.task('css', function() {
     )
     .pipe(addsrc.prepend(['src/css/reset.css', 'node_modules/react-image-gallery/styles/css/image-gallery.css']))
     .pipe(concat('bundle.css'))
-    .pipe(gulp.dest('lib/'));
+    .pipe(gulp.dest(buildPath));
 });

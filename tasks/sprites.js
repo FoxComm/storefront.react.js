@@ -4,6 +4,7 @@ const through = require('through2');
 const concat = require('gulp-concat');
 const svgmin = require('gulp-svgmin');
 const svgoConfig = require('../svgo.config');
+const { overridePaths } = require('./theme');
 
 /* eslint no-param-reassign:0 */
 
@@ -48,6 +49,7 @@ const src = 'src/images/svg-icons/**/*.svg';
 gulp.task('sprites', function() {
   return gulp
     .src(src)
+    .pipe(overridePaths())
     .pipe(svgmin(svgoOpts))
     .pipe(concat('sprite.svg'))
     .pipe(
@@ -56,9 +58,5 @@ gulp.task('sprites', function() {
         cb(null, file);
       })
     )
-    .pipe(gulp.dest('lib'));
-});
-
-gulp.task('sprites.watch', function() {
-  gulp.watch([src], ['sprites']);
+    .pipe(gulp.dest(`build/${require('./theme').name}`));
 });

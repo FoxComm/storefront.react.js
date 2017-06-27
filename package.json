@@ -1,10 +1,10 @@
 {
   "name": "@foxcomm/storefront-react",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "FoxCommerce Storefront React UI Library",
   "main": "lib/index.js",
   "scripts": {
-    "build": "gulp",
+    "build": "make build",
     "prepublish": "npm run build",
     "flow": "flow check"
   },
@@ -68,6 +68,7 @@
     "style-loader": "^0.17.0",
     "through2": "^2.0.3",
     "unionfs": "^0.0.9",
+    "vinyl-file": "^3.0.0",
     "webpack": "^3.0.0",
     "webpack-svgstore-plugin": "^4.0.1"
   },

@@ -9,12 +9,10 @@ const themeName = process.env.THEME;
 const ReadStream = fs.ReadStream;
 const WriteStream = fs.WriteStream;
 
-function override(themeName) {
+function override(themeName = 'peacock') {
   const linkedfs = linkfs(fs, {
     [path.resolve('./src')]: path.resolve(`./themes/${themeName}`)
   });
-
-  exports.linkedgs = linkedfs;
 
   unionfs
     .use(fs)
@@ -25,7 +23,5 @@ function override(themeName) {
   fs.WriteStream.prototype = WriteStream.prototype;
 }
 
-if (themeName) {
-  override(themeName);
-}
+override(themeName);
 
