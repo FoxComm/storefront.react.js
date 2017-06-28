@@ -26,7 +26,7 @@ const rootPackage = require(parentPackagePath);
 if (rootPackage.name === pkgName) {
   importsEntrypoint = path.join(path.dirname(parentPackagePath), 'src/index.js');
 } else {
-  importsEntrypoint = path.join(path.dirname(parentPackagePath), 'node_modules', pkgName, 'src/index.js');
+  importsEntrypoint = path.join(path.dirname(parentPackagePath), 'node_modules', pkgName, 'exports.js');
 }
 
 const importsCode = fs.readFileSync(importsEntrypoint).toString();
@@ -60,6 +60,8 @@ function transformToComponents(importsAst) {
 const components = transformToComponents(importsAst);
 exports.components = components;
 
+const pkgRe = /^\@foxcomm\/storefront-react\/[^\/]+$/;
+
 function plugin(_ref) {
   const t = _ref.types;
 
@@ -67,12 +69,12 @@ function plugin(_ref) {
     visitor: {
       ImportDeclaration(path) {
         const { node } = path;
-        if (node.source.value == pkgName) {
+        if (pkgRe.test(node.source.value)) {
           const newImports = node.specifiers.map(decl => {
             const name = decl.imported.name;
             if (name in components) {
               const entry = components[name];
-              const source = t.stringLiteral(`${pkgName}/lib${entry.path}`);
+              const source = t.stringLiteral(`${node.source.value}${entry.path}`);
               let specifier;
               if (entry.isDefault) {
                 specifier = t.importDefaultSpecifier(t.identifier(decl.local.name));

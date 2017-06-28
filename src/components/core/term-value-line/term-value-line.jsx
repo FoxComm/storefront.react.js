@@ -1,5 +1,6 @@
 import React, { Element } from 'react';
-import styles from './term-value-line.css';
+import classnames from 'classnames';
+import s from './term-value-line.css';
 
 type PropsType = {
   children: Array<Element | string>,
@@ -7,10 +8,11 @@ type PropsType = {
 };
 
 const TermValueLine = (props: PropsType) => {
+  const { className, ...rest } = props;
   return (
-    <div styleName="term-value-line" {...props}>
-      <div styleName="term">{props.children[0]}</div>
-      <div styleName="value">{props.children[1]}</div>
+    <div className={classnames(s.block, className)} {...rest}>
+      <div className={s.term}>{props.children[0]}</div>
+      <div className={s.value}>{props.children[1]}</div>
     </div>
   );
 };

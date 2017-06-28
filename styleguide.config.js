@@ -1,3 +1,4 @@
+require('./override-fs');
 const path = require('path');
 const fs = require('fs');
 const _ = require('lodash');
@@ -10,14 +11,16 @@ const exportNameByPath = _.reduce(components, (acc, entry, exportName) => {
   return acc;
 }, {});
 
+const assetsDir = `build/${process.env.THEME || 'peacock'}`;
+
 module.exports = {
   title: `FoxCommerce Storefront React UI Library`,
   template: path.join(__dirname, './styleguide/template.html'),
   showCode: true,
-  assetsDir: path.resolve(__dirname, 'lib'),
+  assetsDir: path.resolve(__dirname, assetsDir),
   skipComponentsWithoutExample: false,
   webpackConfig: require('./styleguide/webpack.styleguide.js'),
-  styleguideDir: path.resolve('public/styleguide'),
+  styleguideDir: path.resolve(`public/styleguides/${process.env.THEME || 'peacock'}`),
   getComponentPathLine: componentPath => {
     let componentName;
     if (componentPath in exportNameByPath) {

@@ -10,6 +10,8 @@ export Currency from './components/core/currency/currency';
 export EditableBlock from './components/core/editable-block/editable-block';
 export Facets from './components/core/facets/facets';
 export Filters from './components/core/filters/filters';
+export FilterGroup from './components/core/filters/filter-group';
+export FilterCheckboxes from './components/core/filters/filter-checkboxes';
 export { Form, FormField } from './components/core/forms';
 export Counter from './components/core/forms/counter';
 export Gallery from './components/core/gallery/gallery';
@@ -25,6 +27,7 @@ export TextInput from './components/core/text-input/text-input';
 export TextArea from './components/core/textarea/textarea';
 export WaitAnimation from './components/core/wait-animation/wait-animation';
 export WrapToLines from './components/core/wrap-to-lines/wrap-to-lines';
+export ThemeProvider from './components/core/theme-provider/theme-provider';
 
 // components package
 export Pdp from './components/pdp/pdp';
