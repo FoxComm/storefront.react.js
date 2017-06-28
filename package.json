@@ -5,7 +5,6 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "make build",
-    "prepublish": "make build",
     "flow": "flow check"
   },
   "publishConfig": {
