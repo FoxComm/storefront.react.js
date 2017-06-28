@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 
 import * as themeData from './theme-data';
 
-type ContextType = {[key: string]: any};
+type ContextType = { [key: string]: any };
 
 type Props = {
   context?: ContextType,
