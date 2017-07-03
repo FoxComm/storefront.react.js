@@ -37,6 +37,7 @@
 .icon-add {
   stroke: currentColor;
   stroke-linejoin: bevel;
+  stroke-linecap: round;
 }
 
 .icon-add,
